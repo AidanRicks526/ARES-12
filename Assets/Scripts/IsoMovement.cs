@@ -25,17 +25,27 @@ public class IsoMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 isoDirection = new Vector2(
-            input.x - input.y,
-            (input.x + input.y) / 2f
-        ).normalized;
+        // Normal 8-direction movement (no forced diagonal)
+        Vector2 direction = input.normalized;
 
-        Vector2 targetVelocity = isoDirection * moveSpeed;
+        Vector2 targetVelocity = direction * moveSpeed;
 
         if (input.magnitude > 0)
-            currentVelocity = Vector2.Lerp(currentVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+        {
+            currentVelocity = Vector2.Lerp(
+                currentVelocity,
+                targetVelocity,
+                acceleration * Time.fixedDeltaTime
+            );
+        }
         else
-            currentVelocity = Vector2.Lerp(currentVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+        {
+            currentVelocity = Vector2.Lerp(
+                currentVelocity,
+                Vector2.zero,
+                deceleration * Time.fixedDeltaTime
+            );
+        }
 
         rb.linearVelocity = currentVelocity;
     }
