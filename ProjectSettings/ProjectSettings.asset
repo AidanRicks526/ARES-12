@@ -297,46 +297,6 @@ PlayerSettings:
   androidSymbolsSizeThreshold: 800
   m_BuildTargetIcons: []
   m_BuildTargetPlatformIcons:
-<<<<<<< Updated upstream
-  - m_BuildTarget: tvOS
-    m_Icons:
-    - m_Textures: []
-      m_Width: 1280
-      m_Height: 768
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 800
-      m_Height: 480
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 400
-      m_Height: 240
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 4640
-      m_Height: 1440
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 2320
-      m_Height: 720
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 3840
-      m_Height: 1440
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 1920
-      m_Height: 720
-      m_Kind: 1
-      m_SubKind: 
-=======
->>>>>>> Stashed changes
   - m_BuildTarget: iPhone
     m_Icons:
     - m_Textures: []
@@ -842,7 +802,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: ARES-12
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -850,7 +810,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: ARES-12
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: ARES-12
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
