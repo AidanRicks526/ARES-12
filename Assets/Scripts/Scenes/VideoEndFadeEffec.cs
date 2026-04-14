@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -24,6 +24,11 @@ public class VideoEndSceneTransition : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        TriggerTransition();
+    }
+
+    public void TriggerTransition()
+    {
         if (triggered) return;
 
         triggered = true;
@@ -34,7 +39,6 @@ public class VideoEndSceneTransition : MonoBehaviour
     {
         float timer = 0f;
 
-        // blink/fade cycle
         while (timer < effectDuration)
         {
             yield return Fade(1f);
@@ -43,13 +47,10 @@ public class VideoEndSceneTransition : MonoBehaviour
             timer += pulseSpeed * 2f;
         }
 
-        // Makes sures it ends fully visible (important tweak you requested)
         fadeImage.color = new Color(0, 0, 0, 0);
 
-        // small pause so it finishes
         yield return new WaitForSeconds(0.2f);
 
-        // change scene
         SceneManager.LoadScene(sceneToLoad);
     }
 

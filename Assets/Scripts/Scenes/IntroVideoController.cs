@@ -1,40 +1,53 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.Video;
 
 public class IntroVideoController : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public GameObject videoObject;   // RawImage or video panel
+    public GameObject videoObject;
     public GameObject playButton;
+    public GameObject Logo;
+
+    public GameObject skipButton;
+
+    public VideoEndSceneTransition transition; // reference
 
     void Start()
     {
-        // Show video frame but keep it paused
         videoObject.SetActive(true);
 
         videoPlayer.Prepare();
         videoPlayer.prepareCompleted += OnPrepared;
-        videoPlayer.loopPointReached += OnVideoEnd;
 
         playButton.SetActive(true);
+        Logo.SetActive(true);
+
+        skipButton.SetActive(false);
     }
 
     void OnPrepared(VideoPlayer vp)
     {
-        vp.Pause(); // freeze on first frame (background look)
+        vp.Pause();
     }
 
     public void PlayVideo()
     {
         playButton.SetActive(false);
+        Logo.SetActive(false);
+
+        skipButton.SetActive(true);
 
         videoPlayer.time = 0;
         videoPlayer.Play();
     }
 
-    void OnVideoEnd(VideoPlayer vp)
+    public void SkipVideo()
     {
-        videoObject.SetActive(false); // instantly hide video
+        videoPlayer.Stop();
+
+        videoObject.SetActive(false);
+        skipButton.SetActive(false);
+
+        transition.TriggerTransition(); // SAME transition as video end
     }
 }
