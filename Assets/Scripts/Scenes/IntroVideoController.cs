@@ -28,6 +28,12 @@ public class IntroVideoController : MonoBehaviour
     void OnPrepared(VideoPlayer vp)
     {
         vp.Pause();
+
+        // Fetch the volume the user saved in the settings menu
+        float savedVolume = PlayerPrefs.GetFloat("volume", 1f);
+
+        // Apply it to the video player
+        vp.SetDirectAudioVolume(0, savedVolume);
     }
 
     public void PlayVideo()
@@ -48,6 +54,6 @@ public class IntroVideoController : MonoBehaviour
         videoObject.SetActive(false);
         skipButton.SetActive(false);
 
-        transition.TriggerTransition(); // SAME transition as video end
+        transition.TriggerTransition();
     }
 }
