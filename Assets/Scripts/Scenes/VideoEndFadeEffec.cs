@@ -18,7 +18,9 @@ public class VideoEndSceneTransition : MonoBehaviour
 
     void Start()
     {
-        fadeImage.color = new Color(0, 0, 0, 0);
+        // start fully transparent black
+        SetBlack(0f);
+
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
@@ -39,15 +41,17 @@ public class VideoEndSceneTransition : MonoBehaviour
     {
         float timer = 0f;
 
+        // blinking phase
         while (timer < effectDuration)
         {
-            yield return Fade(1f);
-            yield return Fade(0f);
+            yield return Fade(1f); // black visible
+            yield return Fade(0f); // transparent
 
             timer += pulseSpeed * 2f;
         }
 
-        fadeImage.color = new Color(0, 0, 0, 0);
+        // force FULL BLACK (no transparency)
+        SetBlack(1f);
 
         yield return new WaitForSeconds(0.2f);
 
@@ -63,10 +67,15 @@ public class VideoEndSceneTransition : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = Mathf.Lerp(startAlpha, targetAlpha, t / pulseSpeed);
-            fadeImage.color = new Color(0, 0, 0, a);
+            SetBlack(a);
             yield return null;
         }
 
-        fadeImage.color = new Color(0, 0, 0, targetAlpha);
+        SetBlack(targetAlpha);
+    }
+
+    void SetBlack(float alpha)
+    {
+        fadeImage.color = new Color(0f, 0f, 0f, alpha);
     }
 }

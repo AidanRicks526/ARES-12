@@ -11,16 +11,17 @@ public class Settings_Menu : MonoBehaviour
 
     private bool isOpen = false;
 
+    [Header("Audio")]
+    public AudioSource[] allAudioSources; // ALL game audio
+    public AudioSource videoAudioSource;
+
     void Start()
     {
-        // Load saved volume (default = 1)
         float savedVolume = PlayerPrefs.GetFloat("volume", 1f);
-
-        // Safety clamp (prevents accidental full mute)
         savedVolume = Mathf.Clamp01(savedVolume);
 
-        AudioListener.volume = savedVolume;
         volumeSlider.value = savedVolume;
+        ApplyVolume(savedVolume);
 
         panel.anchoredPosition = hiddenPos;
         isOpen = false;
@@ -48,18 +49,30 @@ public class Settings_Menu : MonoBehaviour
         panel.anchoredPosition = target;
     }
 
-    public AudioSource videoAudioSource;
-
     public void ChangeVolume(float value)
     {
         value = Mathf.Clamp01(value);
 
-        AudioListener.volume = value;
-
-        if (videoAudioSource != null)
-            videoAudioSource.volume = value;
+        ApplyVolume(value);
 
         PlayerPrefs.SetFloat("volume", value);
         PlayerPrefs.Save();
+    }
+
+    void ApplyVolume(float value)
+    {
+        // apply to ALL audio sources
+        if (allAudioSources != null)
+        {
+            foreach (var audio in allAudioSources)
+            {
+                if (audio != null)
+                    audio.volume = value;
+            }
+        }
+
+        // ensure video audio is also controlled
+        if (videoAudioSource != null)
+            videoAudioSource.volume = value;
     }
 }
