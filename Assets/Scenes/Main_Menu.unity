@@ -358,7 +358,7 @@ MonoBehaviour:
   fadeImage: {fileID: 486119492}
   effectDuration: 4
   pulseSpeed: 1.25
-  sceneToLoad: SampleScene
+  sceneToLoad: Observatory
 --- !u!1 &533996429
 GameObject:
   m_ObjectHideFlags: 0
