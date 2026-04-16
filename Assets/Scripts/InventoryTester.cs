@@ -7,10 +7,14 @@ public class InventoryTester : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             inventory.AddItem(testItem, 1);
-            Debug.Log("Item added");
+
+            foreach (var slot in inventory.slots)
+            {
+                Debug.Log(slot.item.itemName + " x" + slot.quantity);
+            }
         }
     }
 }
