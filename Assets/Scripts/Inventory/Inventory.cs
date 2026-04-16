@@ -3,8 +3,28 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private ItemDatabase itemDatabase; // Drag .asset ScriptableObject here in Inspector
+
     public int maxSlots = 20;
     public List<InventorySlot> slots = new List<InventorySlot>();
+
+    public bool AddItemById(string itemId, int amount = 1)
+    {
+        if (itemDatabase == null)
+        {
+            Debug.LogError("ItemDatabase not assigned to Inventory!");
+            return false;
+        }
+
+        ItemData item = itemDatabase.GetById(itemId);
+        if (item == null)
+        {
+            Debug.LogWarning($"Item with ID '{itemId}' not found in database.");
+            return false;
+        }
+
+        return AddItem(item, amount);
+    }
 
     public bool AddItem(ItemData item, int amount = 1)
     {
