@@ -24,12 +24,30 @@ public class ItemPickup : MonoBehaviour
 
         if (added)
         {
-            Destroy(gameObject); // remove item from world
+            // If it's a LabNote, show it right away
+            if (itemData is LabNote labNote)
+            {
+                FindFirstObjectByType<NoteDisplay>().ShowNote(labNote);
+            }
+
+            Destroy(gameObject);
         }
         else
         {
             Debug.Log("Inventory Full");
         }
+        /*if (_playerInventory == null) return;
+
+        bool added = _playerInventory.AddItem(itemData, amount);
+
+        if (added)
+        {
+            Destroy(gameObject); // remove item from world
+        }
+        else
+        {
+            Debug.Log("Inventory Full");
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
