@@ -4,14 +4,14 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel; // UI panel root
-    public Transform slotParent; //Parent object where slots are instantiate -sg
-    public GameObject slotPrefab; //A UI prefab representing an inventory slot -sg
+    //public Transform slotParent; //Parent object where slots are instantiate -sg
+    //public GameObject slotPrefab; //A UI prefab representing an inventory slot -sg
     private bool isOpen = false;
 
     void Start()
     {
         inventoryPanel.SetActive(false);
-        RefreshUI(); //Call this after inventory changes -sg
+        //RefreshUI(); //Call this after inventory changes -sg
     }
 
     void Update()
@@ -28,11 +28,11 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(isOpen);
         Time.timeScale = isOpen ? 0f : 1f; // Optional: lock/unlock player input
 
-        if (isOpen) //sg
-            RefreshUI(); //sg
+        //if (isOpen) //sg
+            //RefreshUI(); //sg
     }
 
-    public void RefreshUI()
+    /*public void RefreshUI()
     {
         //-sg
         if (slotParent == null)
@@ -72,5 +72,5 @@ public class InventoryUI : MonoBehaviour
         {
             Debug.Log($"Used {item.itemName} (no special action)");
         }
-    }
+    }*/
 }

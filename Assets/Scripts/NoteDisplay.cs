@@ -3,12 +3,25 @@ using TMPro;
 
 public class NoteDisplay : MonoBehaviour
 {
+    public static NoteDisplay Instance {  get; private set; }
+
     public GameObject panel; // The root panel (for show/hide)
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI contentText;
 
-    private void Start()
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         panel.SetActive(false);
     }
 

@@ -18,7 +18,7 @@ public class ItemPickup : MonoBehaviour
 
     private void TryPickup()
     {
-        if (_playerInventory == null) return;
+        /*if (_playerInventory == null) return;
 
         bool added = _playerInventory.AddItem(itemData, amount);
 
@@ -35,8 +35,8 @@ public class ItemPickup : MonoBehaviour
         else
         {
             Debug.Log("Inventory Full");
-        }
-        /*if (_playerInventory == null) return;
+        }*/
+        if (_playerInventory == null) return;
 
         bool added = _playerInventory.AddItem(itemData, amount);
 
@@ -47,7 +47,7 @@ public class ItemPickup : MonoBehaviour
         else
         {
             Debug.Log("Inventory Full");
-        }*/
+        } 
     }
 
     private void OnTriggerEnter(Collider other)
