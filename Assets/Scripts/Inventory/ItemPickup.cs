@@ -25,8 +25,8 @@ public class ItemPickup : MonoBehaviour
             if (UserInput.WasInteractPressed)
             {
                 StartCoroutine(PickupRoutine(player.GetComponent<Inventory>()));
-            }
         }
+    }
     }
 
     private IEnumerator PickupRoutine(Inventory inv)
@@ -54,8 +54,15 @@ public class ItemPickup : MonoBehaviour
         {
             puzzleUI.SetActive(true);
 
- 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _playerInRange = true;
+            _playerInventory = other.GetComponent<Inventory>();
         }
+    }
 
         // 6. destroy this object
         Destroy(gameObject, 0.1f);
