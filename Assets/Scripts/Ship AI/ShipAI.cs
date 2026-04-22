@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -20,9 +20,11 @@ public class ShipAI : MonoBehaviour
     private Queue<VoiceLine> queue = new Queue<VoiceLine>();
     private bool isPlaying = false;
 
+    // 🔥 NEW: expose playing state
+    public bool IsPlaying => isPlaying;
+
     void Start()
     {
-        // Ensure UI starts hidden
         dialogueCanvasGroup.alpha = 0f;
     }
 
@@ -40,7 +42,6 @@ public class ShipAI : MonoBehaviour
     {
         isPlaying = true;
 
-        // Fade in UI
         yield return StartCoroutine(FadeCanvas(1f));
 
         while (queue.Count > 0)
@@ -48,9 +49,6 @@ public class ShipAI : MonoBehaviour
             VoiceLine line = queue.Dequeue();
 
             speakerText.text = line.speakerName;
-
-            // Typewriter effect
-            yield return StartCoroutine(TypeText(line));
 
             float duration = line.fallbackDuration;
 
@@ -61,10 +59,18 @@ public class ShipAI : MonoBehaviour
                 duration = line.voiceClip.length;
             }
 
-            yield return new WaitForSeconds(duration);
+            // 🔥 Type AFTER starting audio
+            yield return StartCoroutine(TypeText(line));
+
+            // 🔥 Wait remaining time ONLY if needed
+            float remainingTime = duration - (line.subtitle.Length * line.typeSpeed);
+
+            if (remainingTime > 0)
+            {
+                yield return new WaitForSeconds(remainingTime);
+            }
         }
 
-        // Fade out UI
         yield return StartCoroutine(FadeCanvas(0f));
 
         isPlaying = false;
@@ -72,7 +78,7 @@ public class ShipAI : MonoBehaviour
 
     IEnumerator TypeText(VoiceLine line)
     {
-        subtitleText.text = "";
+        subtitleText.text = ""; // ensures no leftover flash
 
         foreach (char c in line.subtitle)
         {
