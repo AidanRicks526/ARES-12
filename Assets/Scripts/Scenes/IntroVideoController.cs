@@ -14,6 +14,7 @@ public class IntroVideoController : MonoBehaviour
 
     void Start()
     {
+        videoPlayer.loopPointReached += OnVideoFinished;
         videoObject.SetActive(true);
 
         videoPlayer.Prepare();
@@ -34,6 +35,14 @@ public class IntroVideoController : MonoBehaviour
 
         // Apply it to the video player
         vp.SetDirectAudioVolume(0, savedVolume);
+    }
+
+    void OnVideoFinished(VideoPlayer vp)
+    {
+        videoObject.SetActive(false);
+        skipButton.SetActive(false);
+
+        transition.TriggerTransition();
     }
 
     public void PlayVideo()
