@@ -53,16 +53,17 @@ public class ItemPickup : MonoBehaviour
         if (puzzleUI != null)
         {
             puzzleUI.SetActive(true);
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _playerInRange = true;
-            _playerInventory = other.GetComponent<Inventory>();
         }
-    }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        _playerInRange = true;
+    //        _playerInventory = other.GetComponent<Inventory>();
+    //    }
+    //}
 
         // 6. destroy this object
         Destroy(gameObject, 0.1f);
