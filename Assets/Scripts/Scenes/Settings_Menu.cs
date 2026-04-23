@@ -7,12 +7,13 @@ public class Settings_Menu : MonoBehaviour
     [Header("UI References")]
     public RectTransform panel;
     public Slider volumeSlider;
-    public Toggle manualDialogueToggle; // Add a reference to your UI Toggle
+    public Slider textSpeedSlider; // 🔥 NEW
+    public Toggle manualDialogueToggle;
     public Vector2 hiddenPos;
     public Vector2 shownPos;
 
     [Header("External References")]
-    public ShipAI shipAI; // Link your ShipAI script here in the Inspector
+    public ShipAI shipAI;
 
     [Header("Audio Settings")]
     public AudioSource[] allAudioSources;
@@ -32,13 +33,20 @@ public class Settings_Menu : MonoBehaviour
         StartCoroutine(ApplyVideoVolumeDelayed(savedVolume));
 
         // --- Load Dialogue Mode ---
-        // 0 = Auto, 1 = Manual. Default to Auto (0)
         bool isManual = PlayerPrefs.GetInt("manualDialogue", 0) == 1;
 
         if (manualDialogueToggle != null)
             manualDialogueToggle.isOn = isManual;
 
         SetDialogueMode(isManual);
+
+        // --- Load Text Speed ---
+        float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1f);
+
+        if (textSpeedSlider != null)
+            textSpeedSlider.value = savedTextSpeed;
+
+        SetTextSpeed(savedTextSpeed);
     }
 
     public void OnManualToggleChanged(bool isManual)
@@ -47,26 +55,34 @@ public class Settings_Menu : MonoBehaviour
         {
             shipAI.isManualMode = isManual;
 
-            // tell the ShipAI to act like the button was pressed to "break" the loop
             if (!isManual)
-            {
                 shipAI.OnNextLinePressed();
-            }
         }
 
         PlayerPrefs.SetInt("manualDialogue", isManual ? 1 : 0);
         PlayerPrefs.Save();
     }
 
+    public void OnTextSpeedChanged(float value) // 🔥 NEW
+    {
+        SetTextSpeed(value);
+
+        PlayerPrefs.SetFloat("textSpeed", value);
+        PlayerPrefs.Save();
+    }
+
+    void SetTextSpeed(float value) // 🔥 NEW
+    {
+        if (shipAI != null)
+            shipAI.textSpeedMultiplier = value;
+    }
+
     void SetDialogueMode(bool isManual)
     {
         if (shipAI != null)
-        {
             shipAI.isManualMode = isManual;
-        }
     }
 
-    // --- YOUR EXISTING UI & AUDIO LOGIC ---
     public void ToggleMenu()
     {
         StopAllCoroutines();
@@ -74,18 +90,18 @@ public class Settings_Menu : MonoBehaviour
         isOpen = !isOpen;
     }
 
-
-
     System.Collections.IEnumerator Slide(Vector2 target)
     {
         Vector2 start = panel.anchoredPosition;
         float t = 0f;
+
         while (t < 1f)
         {
             t += Time.deltaTime * 6f;
             panel.anchoredPosition = Vector2.Lerp(start, target, t);
             yield return null;
         }
+
         panel.anchoredPosition = target;
     }
 
@@ -102,7 +118,8 @@ public class Settings_Menu : MonoBehaviour
         if (allAudioSources != null)
         {
             foreach (var audio in allAudioSources)
-                if (audio != null) audio.volume = value;
+                if (audio != null)
+                    audio.volume = value;
         }
     }
 
@@ -111,7 +128,13 @@ public class Settings_Menu : MonoBehaviour
         if (videoPlayers != null)
         {
             foreach (var vp in videoPlayers)
-                if (vp != null) { vp.SetDirectAudioMute(0, false); vp.SetDirectAudioVolume(0, value); }
+            {
+                if (vp != null)
+                {
+                    vp.SetDirectAudioMute(0, false);
+                    vp.SetDirectAudioVolume(0, value);
+                }
+            }
         }
     }
 
@@ -123,12 +146,12 @@ public class Settings_Menu : MonoBehaviour
             {
                 if (vp != null)
                 {
-                    while (!vp.isPrepared) yield return null;
+                    while (!vp.isPrepared)
+                        yield return null;
+
                     ApplyVideoVolume(value);
                 }
             }
         }
     }
-
-
 }

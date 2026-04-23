@@ -22,11 +22,13 @@ public class ShipAI : MonoBehaviour
     public float fadeDuration = 0.3f;
     public bool isManualMode = false;
 
+    [Range(0.1f, 5f)]
+    public float textSpeedMultiplier = 1f;
+
     private Queue<VoiceLine> queue = new Queue<VoiceLine>();
     private bool isPlaying = false;
     private bool nextButtonPressed = false;
 
-    // ✅ From ShipAI (useful externally)
     public bool IsPlaying => isPlaying;
 
     void Start()
@@ -58,7 +60,6 @@ public class ShipAI : MonoBehaviour
     {
         isPlaying = true;
 
-        // Fade in
         yield return StartCoroutine(FadeCanvas(1f));
 
         while (queue.Count > 0)
@@ -66,10 +67,8 @@ public class ShipAI : MonoBehaviour
             VoiceLine line = queue.Dequeue();
             speakerText.text = line.speakerName;
 
-            // Typewriter effect
             yield return StartCoroutine(TypeText(line));
 
-            // Play voice AFTER typing starts/finishes (cleaner timing)
             float duration = line.fallbackDuration;
 
             if (line.voiceClip != null)
@@ -79,7 +78,6 @@ public class ShipAI : MonoBehaviour
                 duration = line.voiceClip.length;
             }
 
-            // Handle waiting (merged logic)
             if (isManualMode)
             {
                 if (continueButton != null)
@@ -100,7 +98,6 @@ public class ShipAI : MonoBehaviour
             }
         }
 
-        // Fade out
         yield return StartCoroutine(FadeCanvas(0f));
 
         if (continueButton != null)
@@ -120,7 +117,7 @@ public class ShipAI : MonoBehaviour
             if (line.typingSFX != null)
                 sfxSource.PlayOneShot(line.typingSFX);
 
-            yield return new WaitForSeconds(line.typeSpeed);
+            yield return new WaitForSeconds(line.typeSpeed / textSpeedMultiplier);
         }
     }
 
