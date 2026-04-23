@@ -26,15 +26,11 @@ public class ShipAI : MonoBehaviour
     private bool isPlaying = false;
     private bool nextButtonPressed = false;
 
-    // 🔥 NEW: expose playing state
+    // ✅ From ShipAI (useful externally)
     public bool IsPlaying => isPlaying;
 
     void Start()
     {
-<<<<<<< Updated upstream
-        dialogueCanvasGroup.alpha = 0f;
-=======
-        // Start hidden
         if (dialogueCanvasGroup != null)
         {
             dialogueCanvasGroup.alpha = 0f;
@@ -42,30 +38,27 @@ public class ShipAI : MonoBehaviour
             dialogueCanvasGroup.blocksRaycasts = false;
         }
 
-        if (continueButton != null) continueButton.SetActive(false);
+        if (continueButton != null)
+            continueButton.SetActive(false);
     }
-
 
     public void OnNextLinePressed()
     {
         nextButtonPressed = true;
->>>>>>> Stashed changes
     }
 
     public void PlayVoiceLine(VoiceLine line)
     {
         queue.Enqueue(line);
-        if (!isPlaying) StartCoroutine(ProcessQueue());
+        if (!isPlaying)
+            StartCoroutine(ProcessQueue());
     }
 
     IEnumerator ProcessQueue()
     {
         isPlaying = true;
 
-<<<<<<< Updated upstream
-=======
-        // 1. Dialogue panel appears
->>>>>>> Stashed changes
+        // Fade in
         yield return StartCoroutine(FadeCanvas(1f));
 
         while (queue.Count > 0)
@@ -73,76 +66,60 @@ public class ShipAI : MonoBehaviour
             VoiceLine line = queue.Dequeue();
             speakerText.text = line.speakerName;
 
-<<<<<<< Updated upstream
-            float duration = line.fallbackDuration;
-=======
-            // 2. Typewriter text plays
+            // Typewriter effect
             yield return StartCoroutine(TypeText(line));
->>>>>>> Stashed changes
+
+            // Play voice AFTER typing starts/finishes (cleaner timing)
+            float duration = line.fallbackDuration;
 
             if (line.voiceClip != null)
             {
                 voiceSource.clip = line.voiceClip;
                 voiceSource.Play();
+                duration = line.voiceClip.length;
             }
 
-<<<<<<< Updated upstream
-            // 🔥 Type AFTER starting audio
-            yield return StartCoroutine(TypeText(line));
-
-            // 🔥 Wait remaining time ONLY if needed
-            float remainingTime = duration - (line.subtitle.Length * line.typeSpeed);
-
-            if (remainingTime > 0)
-            {
-                yield return new WaitForSeconds(remainingTime);
-            }
-        }
-
-=======
-            // 3. Handle Waiting
+            // Handle waiting (merged logic)
             if (isManualMode)
             {
-                // Show the button ONLY once typing is done
-                if (continueButton != null) continueButton.SetActive(true);
+                if (continueButton != null)
+                    continueButton.SetActive(true);
 
                 nextButtonPressed = false;
                 yield return new WaitUntil(() => nextButtonPressed);
 
-                // Hide button immediately so they can't double-click it for the next line
-                if (continueButton != null) continueButton.SetActive(false);
+                if (continueButton != null)
+                    continueButton.SetActive(false);
             }
             else
             {
-                // Auto mode: button stays hidden, wait for duration
-                if (continueButton != null) continueButton.SetActive(false);
-                float duration = (line.voiceClip != null) ? line.voiceClip.length : line.fallbackDuration;
+                if (continueButton != null)
+                    continueButton.SetActive(false);
+
                 yield return new WaitForSeconds(duration);
             }
         }
 
-        // 4. Dialogue panel disappears (along with everything inside it)
->>>>>>> Stashed changes
+        // Fade out
         yield return StartCoroutine(FadeCanvas(0f));
 
-        // Final cleanup just in case
-        if (continueButton != null) continueButton.SetActive(false);
+        if (continueButton != null)
+            continueButton.SetActive(false);
 
         isPlaying = false;
     }
 
     IEnumerator TypeText(VoiceLine line)
     {
-<<<<<<< Updated upstream
-        subtitleText.text = ""; // ensures no leftover flash
-
-=======
         subtitleText.text = "";
->>>>>>> Stashed changes
+
         foreach (char c in line.subtitle)
         {
             subtitleText.text += c;
-            if (line.typingSFX != null) sfxSource.PlayOneShot(line.typingSFX);
+
+            if (line.typingSFX != null)
+                sfxSource.PlayOneShot(line.typingSFX);
+
             yield return new WaitForSeconds(line.typeSpeed);
         }
     }
@@ -152,7 +129,6 @@ public class ShipAI : MonoBehaviour
         float start = dialogueCanvasGroup.alpha;
         float time = 0f;
 
-        // Toggle interactivity so the button can't be clicked while invisible
         dialogueCanvasGroup.interactable = (target > 0);
         dialogueCanvasGroup.blocksRaycasts = (target > 0);
 
