@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShipAI : MonoBehaviour
+public class ShipAI_2 : MonoBehaviour
 {
     [Header("UI")]
     public CanvasGroup dialogueCanvasGroup;
@@ -26,14 +26,8 @@ public class ShipAI : MonoBehaviour
     private bool isPlaying = false;
     private bool nextButtonPressed = false;
 
-    // 🔥 NEW: expose playing state
-    public bool IsPlaying => isPlaying;
-
     void Start()
     {
-<<<<<<< Updated upstream
-        dialogueCanvasGroup.alpha = 0f;
-=======
         // Start hidden
         if (dialogueCanvasGroup != null)
         {
@@ -49,7 +43,6 @@ public class ShipAI : MonoBehaviour
     public void OnNextLinePressed()
     {
         nextButtonPressed = true;
->>>>>>> Stashed changes
     }
 
     public void PlayVoiceLine(VoiceLine line)
@@ -62,10 +55,7 @@ public class ShipAI : MonoBehaviour
     {
         isPlaying = true;
 
-<<<<<<< Updated upstream
-=======
         // 1. Dialogue panel appears
->>>>>>> Stashed changes
         yield return StartCoroutine(FadeCanvas(1f));
 
         while (queue.Count > 0)
@@ -73,12 +63,8 @@ public class ShipAI : MonoBehaviour
             VoiceLine line = queue.Dequeue();
             speakerText.text = line.speakerName;
 
-<<<<<<< Updated upstream
-            float duration = line.fallbackDuration;
-=======
             // 2. Typewriter text plays
             yield return StartCoroutine(TypeText(line));
->>>>>>> Stashed changes
 
             if (line.voiceClip != null)
             {
@@ -86,20 +72,6 @@ public class ShipAI : MonoBehaviour
                 voiceSource.Play();
             }
 
-<<<<<<< Updated upstream
-            // 🔥 Type AFTER starting audio
-            yield return StartCoroutine(TypeText(line));
-
-            // 🔥 Wait remaining time ONLY if needed
-            float remainingTime = duration - (line.subtitle.Length * line.typeSpeed);
-
-            if (remainingTime > 0)
-            {
-                yield return new WaitForSeconds(remainingTime);
-            }
-        }
-
-=======
             // 3. Handle Waiting
             if (isManualMode)
             {
@@ -122,7 +94,6 @@ public class ShipAI : MonoBehaviour
         }
 
         // 4. Dialogue panel disappears (along with everything inside it)
->>>>>>> Stashed changes
         yield return StartCoroutine(FadeCanvas(0f));
 
         // Final cleanup just in case
@@ -133,12 +104,7 @@ public class ShipAI : MonoBehaviour
 
     IEnumerator TypeText(VoiceLine line)
     {
-<<<<<<< Updated upstream
-        subtitleText.text = ""; // ensures no leftover flash
-
-=======
         subtitleText.text = "";
->>>>>>> Stashed changes
         foreach (char c in line.subtitle)
         {
             subtitleText.text += c;
