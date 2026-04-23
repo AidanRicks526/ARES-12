@@ -17,7 +17,7 @@ public class IsoMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Called by PlayerInput component
+    // Called by PlayerInput
     public void OnMove(InputValue value)
     {
         input = value.Get<Vector2>();
@@ -25,9 +25,15 @@ public class IsoMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Normal 8-direction movement (no forced diagonal)
-        Vector2 direction = input.normalized;
+        // stop movement when UI is open
+        if (LockerInteract.IsUIOpenGlobal)
+        {
+            currentVelocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
+        Vector2 direction = input.normalized;
         Vector2 targetVelocity = direction * moveSpeed;
 
         if (input.magnitude > 0)
