@@ -181,10 +181,10 @@ TextureImporter:
       name: switch thingy_0
       rect:
         serializedVersion: 2
-        x: 232
-        y: 59
-        width: 249
-        height: 181
+        x: 161
+        y: 29
+        width: 192
+        height: 253
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
