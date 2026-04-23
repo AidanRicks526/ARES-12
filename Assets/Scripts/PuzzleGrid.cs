@@ -5,6 +5,8 @@ public class PuzzleGrid : MonoBehaviour
     public GameObject tilePrefab;
     public Transform gridParent;
 
+    public GameObject puzzlePanel;
+
     private Tile[,] tiles = new Tile[3, 3];
 
     void OnEnable()
@@ -85,7 +87,12 @@ public class PuzzleGrid : MonoBehaviour
         if (allOn)
         {
             Debug.Log("Puzzle Solved!");
-            // You can trigger something here
+
+            ClosePuzzle();
         }
+    }
+    void ClosePuzzle()
+    {
+        puzzlePanel.SetActive(false);
     }
 }
