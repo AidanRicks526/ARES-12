@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DoorTriggerInteraction : TriggerInteractionBase
 {
@@ -24,6 +22,7 @@ public class DoorTriggerInteraction : TriggerInteractionBase
         Pod2_toGateB,
         none,
     }
+
     [Header("Spawn TO")]
     [SerializeField] private DoorToSpawnAt DoorToSpawnTo;
     [SerializeField] private SceneField _sceneToLoad;
@@ -32,9 +31,29 @@ public class DoorTriggerInteraction : TriggerInteractionBase
     [Header("THIS Door")]
     public DoorToSpawnAt CurrentDoorPosition;
 
+    [Space(10f)]
+    [Header("Lock Settings")]
+    [SerializeField] private bool isLocked = true;
+    [SerializeField] private ItemData requiredBadge;
+
     public override void interact()
     {
-        SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
+        if (isLocked)
+        {
+            Debug.Log($"CardSwipeManager.Instance = {CardSwipeManager.Instance}");   // Add this
+            Debug.Log($"requiredBadge = {requiredBadge}");
+
+            CardSwipeManager.Instance.ShowSwipePanel(this, requiredBadge);
+        }
+        else
+        {
+            SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
+        }
     }
 
+    public void UnlockDoor()
+    {
+        isLocked = false;
+        Debug.Log("Door unlocked! Press E again to enter.");
+    }
 }

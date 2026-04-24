@@ -4,9 +4,25 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+
     public int maxSlots = 20;
     public List<InventorySlot> slots = new List<InventorySlot>();
     public Action OnInventoryChanged;
+
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // optional, if you want it to persist
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public bool AddItem(ItemData item, int amount = 1)
     {
@@ -47,5 +63,15 @@ public class Inventory : MonoBehaviour
             }
         }
         OnInventoryChanged?.Invoke();
+    }
+
+    public bool HasItem(ItemData item)
+    {
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.item == item && slot.quantity > 0)
+                return true;
+        }
+        return false;
     }
 }
