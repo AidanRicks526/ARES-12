@@ -59,11 +59,11 @@ TagManager:
   - name: puzzle
     uniqueID: 1665883963
     locked: 0
-  - name: puzzle pieces
-    uniqueID: 1581191177
-    locked: 0
   - name: Item
     uniqueID: 3328002879
+    locked: 0
+  - name: puzzle pieces
+    uniqueID: 1581191177
     locked: 0
   m_RenderingLayers:
   - Default

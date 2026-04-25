@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -966964417
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4934172221082622500, guid: adabccc4b227c0244a14b79467b37ae5, type: 3}
@@ -656,6 +656,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b8e7ea7b604314ab98e7aa738dba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Puzzle_Controller
+  tilePrefab: {fileID: 0}
+  puzzleImage: {fileID: 0}
+  totalPieces: 12
+  autoCalculate: 1
+  manualColumns: 4
+  manualRows: 4
+  maintainAspectRatio: 1
+  tileWidth: 1
+  tileHeight: 1
 --- !u!1 &817428964
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +743,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2071784604849906530, guid: 2e5b5d472b6722e4b98b4a30cd33af16, type: 3}
@@ -825,7 +834,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4211095016325783854, guid: 8afac14e2b855b244a4f55db99539249, type: 3}
@@ -916,7 +925,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5526456753138125547, guid: 4f1ff26e4c65b2949b1d6aa7d955b060, type: 3}
@@ -1012,7 +1021,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -966964417
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -1103,7 +1112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6941880275174100775, guid: b1f1d45efdc3c7c4ea153eec05c222ed, type: 3}
@@ -1194,7 +1203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1429078409693342179, guid: ad1367dbb0a220a43ace836d86859874, type: 3}
@@ -1242,7 +1251,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 2438e86074145684d802a6cc0987536e, type: 2}
   amount: 1
   pickupRange: 2.5
-  puzzleUI: {fileID: 766575223}
+  puzzleUI: {fileID: 0}
   delayBeforePuzzle: 1
 --- !u!212 &1290094019
 SpriteRenderer:
@@ -1553,6 +1562,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32fd83cf263595d48b3017ae80c5cb07, type: 3}
+--- !u!1 &1734964998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734965000}
+  - component: {fileID: 1734964999}
+  m_Layer: 0
+  m_Name: JigsawBoard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1734964999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734964998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b8e7ea7b604314ab98e7aa738dba21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigsawBoard
+  tilePrefab: {fileID: 4569070486960340858, guid: 757baf9a81780044cbe04a22ba7ae77a, type: 3}
+  puzzleImage: {fileID: 2800000, guid: e9983c518194aab4da88623b9258c8e3, type: 3}
+  totalPieces: 12
+  autoCalculate: 1
+  manualColumns: 4
+  manualRows: 4
+  maintainAspectRatio: 1
+  tileWidth: 1
+  tileHeight: 1
+--- !u!4 &1734965000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734964998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901786358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1693,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1581191177
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6460994729976866736, guid: e5f3dc6f7f6aa8e418a2bf797fa319b6, type: 3}
@@ -1771,3 +1833,4 @@ SceneRoots:
   - {fileID: 766575225}
   - {fileID: 33774769}
   - {fileID: 1294764197}
+  - {fileID: 1734965000}
