@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8295553210456535349}
   - component: {fileID: 1136302837329677764}
   - component: {fileID: 1013642299878896611}
-  - component: {fileID: 3841749177937525254}
   - component: {fileID: 6663432364969376873}
-  m_Layer: 0
+  - component: {fileID: 4443300411512493693}
+  m_Layer: 6
   m_Name: JigsawTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,26 +92,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3841749177937525254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4569070486960340858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bd8c365e1d0127439cd638ee5f73229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JigsawTile
-  sourceImage: {fileID: 0}
-  tileIndexX: 0
-  tileIndexY: 0
-  gridSizeX: 1
-  gridSizeY: 1
-  tileWidth: 1
-  tileHeight: 1
-  curveResolution: 8
 --- !u!210 &6663432364969376873
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -125,3 +105,27 @@ SortingGroup:
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
+--- !u!114 &4443300411512493693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569070486960340858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174d2b75333f8e940baeabdd672e9786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigsawPieceInteraction
+  sourceImage: {fileID: 0}
+  tileIndexX: 0
+  tileIndexY: 0
+  gridSizeX: 0
+  gridSizeY: 0
+  tileWidth: 1
+  tileHeight: 1
+  curveResolution: 8
+  correctPosition: {x: 0, y: 0, z: 0}
+  indentStrength: 0.85
+  snapDistance: 0.5
+  lockWhenSnapped: 1
