@@ -1,74 +1,63 @@
 using UnityEngine;
-//using UnityEngine.EventSystems;
-//using UnityEngine.Rendering;
 
-public class JigsawInteraction : JigsawTile //IPointerDownHandler, IDragHandler, IPointerUpHandler
+[RequireComponent(typeof(Collider2D))]
+public class JigsawInteraction : JigsawTile
 {
     [Header("Snapping")]
-    //public float snapDistance = 0.5f;     // How close to correct position before it snaps
-    public bool lockWhenSnapped = true;   // Disable dragging after snapping
+    public float snapDistance = 0.3f;
+    public bool lockWhenSnapped = true;
 
-    //private Vector3 offset;
-    //private bool isDragging = false;
     private bool isSnapped = false;
+    private bool isDragging = false;
+    private Vector3 dragOffset;
+
     public Vector3 CorrectPosition => correctPosition;
     public bool IsSnapped => isSnapped;
 
     void Start()
     {
-        // The board already set correctPosition before shuffling
-        // If this piece was not shuffled, fallback to current position
         if (correctPosition == Vector3.zero)
             correctPosition = transform.position;
-        
     }
 
-    /*public void OnPointerDown(PointerEventData eventData)
+    void OnMouseDown()
     {
-
         if (isSnapped) return;
-
-        offset = transform.position - GetMouseWorldPosition();
+        dragOffset = transform.position - GetMouseWorldPos();
         isDragging = true;
-
-        // bring the piece to front while dragging
-        GetComponent<SortingGroup>().sortingOrder = 1;
+        GetComponent<Renderer>().sortingOrder = 10;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    void OnMouseDrag()
     {
-        if (isDragging)
-            transform.position = GetMouseWorldPosition() + offset;
+        if (!isDragging) return;
+        transform.position = GetMouseWorldPos() + dragOffset;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    void OnMouseUp()
     {
+        if (!isDragging) return;
         isDragging = false;
+        GetComponent<Renderer>().sortingOrder = 0;
 
-        // restore sorting order
-        GetComponent<SortingGroup>().sortingOrder = 0;
-
-        // Check if we are within snap distance
         if (Vector3.Distance(transform.position, correctPosition) <= snapDistance)
         {
             transform.position = correctPosition;
-            isSnapped = true;
-
-            if (lockWhenSnapped)
-                this.enabled = false; // Disable this script so it can no longer be dragged
+            LockPiece();
         }
-    }*/
+    }
 
     public void LockPiece()
     {
         isSnapped = true;
-        this.enabled = false;
+        if (lockWhenSnapped)
+            this.enabled = false;
     }
 
-    /*private Vector3 GetMouseWorldPosition()
+    private Vector3 GetMouseWorldPos()
     {
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = Camera.main.WorldToScreenPoint(transform.position).z;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }*/
+        Vector3 mouse = Input.mousePosition;
+        mouse.z = Mathf.Abs(Camera.main.transform.position.z);
+        return Camera.main.ScreenToWorldPoint(mouse);
+    }
 }

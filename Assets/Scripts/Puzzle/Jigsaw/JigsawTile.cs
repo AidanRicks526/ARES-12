@@ -168,5 +168,16 @@ public class JigsawTile : MonoBehaviour
         Material mat = new Material(Shader.Find("Unlit/Texture"));
         mat.mainTexture = sourceImage;
         GetComponent<MeshRenderer>().material = mat;
+
+
+        // Simple box collider for click detection
+        BoxCollider2D col = GetComponent<BoxCollider2D>();
+        if (col == null) col = gameObject.AddComponent<BoxCollider2D>();
+        col.size = new Vector2(tileWidth, tileHeight);
+        col.offset = new Vector2(tileWidth / 2f, tileHeight / 2f);
+        col.isTrigger = true;
+
+        //Debug.Log($"Tile_{tileIndexX}_{tileIndexY} mesh assigned. Renderer enabled: {GetComponent<MeshRenderer>().enabled}, Material: {GetComponent<MeshRenderer>().material.mainTexture}");
+        Debug.Log($"Tile_{tileIndexX}_{tileIndexY} sourceImage null? {sourceImage == null}, mat tex null? {mat.mainTexture == null}");
     }
 }

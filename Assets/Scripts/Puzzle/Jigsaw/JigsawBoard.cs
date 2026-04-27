@@ -13,6 +13,11 @@ public class JigsawBoard : MonoBehaviour
     public int manualColumns = 4, manualRows = 4;// Manual override
     public bool maintainAspectRatio = true; // keep pieces square-ish
 
+
+    [HideInInspector] public Vector3 boardCenter;
+    [HideInInspector] public float boardWorldWidth;
+    [HideInInspector] public float boardWorldHeight;
+
     private int columns, rows;
 
     // Shared offset lists so adjacent pieces perfectly interlock
@@ -26,7 +31,7 @@ public class JigsawBoard : MonoBehaviour
     public float tileHeight = 1.0f;      // World-space height of each piece
     public int curveResolution = 8;      // Must match the tile's curveResolution
 
-    void Start()
+    /*void Start()
     {
         if (autoCalculate)
             CalculateGrid();
@@ -40,6 +45,35 @@ public class JigsawBoard : MonoBehaviour
         GenerateEdgeTypes();
         GenerateBoard();
         ShufflePieces();
+    }*/
+    void OnEnable()
+    {
+        //Clear any previously generated pieces
+        foreach (Transform child in transform)
+            Destroy(child.gameObject);
+
+        allPieces.Clear();
+
+        if (autoCalculate)
+            CalculateGrid();
+        else
+        {
+            columns = manualColumns;
+            rows = manualRows;
+        }
+
+        Debug.Log($"JigsawBoard generating: {columns} columns x {rows} rows");
+
+
+        AutoSizeToScreen();
+
+        Debug.Log($"Tile size: {tileWidth} x {tileHeight}");
+
+        GenerateEdgeTypes();
+        GenerateBoard();
+        ShufflePieces();
+
+        Debug.Log($"Generated {allPieces.Count} pieces");
     }
 
     void CalculateGrid()
@@ -128,6 +162,31 @@ public class JigsawBoard : MonoBehaviour
             }
         }
         else vEdgeOffsets = new List<float>[0, 0];
+        Debug.Log($"puzzleImage null? {puzzleImage == null}");
+    }
+
+    void DrawBoardBorder()
+    {
+        GameObject borderObj = new GameObject("BoardBorder");
+        borderObj.transform.parent = transform;
+
+        LineRenderer lr = borderObj.AddComponent<LineRenderer>();
+        lr.positionCount = 5;
+        lr.loop = false;
+        lr.startWidth = 0.05f;
+        lr.endWidth = 0.05f;
+        lr.material = new Material(Shader.Find("Unlit/Color"));
+        lr.material.color = Color.white;
+
+        float hw = boardWorldWidth / 2f;
+        float hh = boardWorldHeight / 2f;
+        Vector3 c = boardCenter;
+
+        lr.SetPosition(0, new Vector3(c.x - hw, c.y - hh, 0));
+        lr.SetPosition(1, new Vector3(c.x + hw, c.y - hh, 0));
+        lr.SetPosition(2, new Vector3(c.x + hw, c.y + hh, 0));
+        lr.SetPosition(3, new Vector3(c.x - hw, c.y + hh, 0));
+        lr.SetPosition(4, new Vector3(c.x - hw, c.y - hh, 0));
     }
 
     void GenerateBoard()
@@ -169,6 +228,13 @@ public class JigsawBoard : MonoBehaviour
 
                 // Position the tile in world space
                 tileObj.transform.position = new Vector3(x * pieceWidth, y * pieceHeight, 0) + offset;
+
+                // Store board bounds
+                boardCenter = transform.position; // world position of JigsawBoard
+                boardWorldWidth = boardWidth;
+                boardWorldHeight = boardHeight;
+
+                DrawBoardBorder();
             }
         }
     }
@@ -181,10 +247,14 @@ public class JigsawBoard : MonoBehaviour
         float camWidth = camHeight * cam.aspect;
 
         // Keep pieces within 80% of the screen, centered
-        float xMin = -camWidth / 2f * 0.8f;
+        /*float xMin = -camWidth / 2f * 0.8f;
         float xMax = camWidth / 2f * 0.8f;
         float yMin = -camHeight / 2f * 0.8f;
-        float yMax = camHeight / 2f * 0.8f;
+        float yMax = camHeight / 2f * 0.8f;*/
+        float xMin = -camWidth / 2f + tileWidth / 2f;
+        float xMax = camWidth / 2f - tileWidth / 2f;
+        float yMin = -camHeight / 2f + tileHeight / 2f;
+        float yMax = camHeight / 2f - tileHeight / 2f;
 
         foreach (GameObject pieceObj in allPieces)
         {
@@ -202,5 +272,11 @@ public class JigsawBoard : MonoBehaviour
             // int rotations = Random.Range(0, 4);
             // pieceObj.transform.rotation = Quaternion.Euler(0, 0, rotations * 90f);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(boardCenter, new Vector3(boardWorldWidth, boardWorldHeight, 0));
     }
 }
