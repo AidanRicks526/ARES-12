@@ -658,7 +658,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Puzzle_Controller
   tilePrefab: {fileID: 0}
   puzzleImage: {fileID: 0}
+  randomizePieceCount: 0
   totalPieces: 12
+  minPieces: 12
+  maxPieces: 25
   autoCalculate: 1
   manualColumns: 4
   manualRows: 4
@@ -1730,6 +1733,10 @@ PrefabInstance:
       propertyPath: puzzleImage
       value: 
       objectReference: {fileID: 2800000, guid: e9983c518194aab4da88623b9258c8e3, type: 3}
+    - target: {fileID: 1918202124357622118, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: randomizePieceCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2893618808789325492, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: m_Camera
       value: 

@@ -13,11 +13,17 @@ public class JigsawInteraction : JigsawTile
 
     public Vector3 CorrectPosition => correctPosition;
     public bool IsSnapped => isSnapped;
+    //private MeshRenderer meshRenderer;
 
-    void Start()
+    /*void Start()
     {
         if (correctPosition == Vector3.zero)
             correctPosition = transform.position;
+    }*/
+    void Awake()
+    {
+        //meshRenderer = GetComponent<MeshRenderer>();
+        SetZ(0f);
     }
 
     void OnMouseDown()
@@ -25,12 +31,14 @@ public class JigsawInteraction : JigsawTile
         if (isSnapped) return;
         dragOffset = transform.position - GetMouseWorldPos();
         isDragging = true;
-        GetComponent<Renderer>().sortingOrder = 10;
+        SetZ(-1f);
+        //GetComponent<Renderer>().sortingOrder = 10;
     }
 
     void OnMouseDrag()
     {
         if (!isDragging) return;
+        SetZ(-1f);
         transform.position = GetMouseWorldPos() + dragOffset;
     }
 
@@ -38,7 +46,8 @@ public class JigsawInteraction : JigsawTile
     {
         if (!isDragging) return;
         isDragging = false;
-        GetComponent<Renderer>().sortingOrder = 0;
+        SetZ(0f);
+        //GetComponent<Renderer>().sortingOrder = 0;
 
         if (Vector3.Distance(transform.position, correctPosition) <= snapDistance)
         {
@@ -50,8 +59,15 @@ public class JigsawInteraction : JigsawTile
     public void LockPiece()
     {
         isSnapped = true;
+        SetZ(1f);
         if (lockWhenSnapped)
             this.enabled = false;
+    }
+
+    private void SetZ(float z)
+    {
+        Vector3 p = transform.position;
+        transform.position = new Vector3(p.x, p.y, z);
     }
 
     private Vector3 GetMouseWorldPos()

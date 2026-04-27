@@ -8,11 +8,13 @@ public class JigsawBoard : MonoBehaviour
     [Header("Puzzle Configuration")]
     public GameObject tilePrefab; // Drag JigsawTile prefab here
     public Texture2D puzzleImage; // The full puzzle texture
+    public bool randomizePieceCount = false;
     public int totalPieces = 12;  // Number of pieces
+    public int minPieces = 12;
+    public int maxPieces = 25;
     public bool autoCalculate = true; // Manual override
     public int manualColumns = 4, manualRows = 4;// Manual override
     public bool maintainAspectRatio = true; // keep pieces square-ish
-
 
     [HideInInspector] public Vector3 boardCenter;
     [HideInInspector] public float boardWorldWidth;
@@ -48,6 +50,9 @@ public class JigsawBoard : MonoBehaviour
     }*/
     void OnEnable()
     {
+        if (randomizePieceCount)
+            totalPieces = Random.Range(minPieces, maxPieces + 1);
+
         //Clear any previously generated pieces
         foreach (Transform child in transform)
             Destroy(child.gameObject);
