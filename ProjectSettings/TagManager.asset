@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - JigsawPuzzle
+  - Player
   - 
   - 
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: E
     uniqueID: 1581125731
+    locked: 0
+  - name: Jigsaw
+    uniqueID: 2340176035
     locked: 0
   m_RenderingLayers:
   - Default
