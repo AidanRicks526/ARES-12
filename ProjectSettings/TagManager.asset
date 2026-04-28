@@ -59,6 +59,9 @@ TagManager:
   - name: player
     uniqueID: 1276074301
     locked: 0
+  - name: table
+    uniqueID: 3868862047
+    locked: 0
   - name: puzzle
     uniqueID: 1665883963
     locked: 0
