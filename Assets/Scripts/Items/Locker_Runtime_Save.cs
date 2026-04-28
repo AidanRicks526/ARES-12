@@ -1,16 +1,22 @@
-using UnityEngine;
+using System.Collections.Generic;
 
-public class Locker_Runtime_Save : MonoBehaviour
+
+public static class Locker_Runtime_Save
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private static HashSet<string> unlockedLockers = new HashSet<string>();
+
+    public static bool IsUnlocked(string id)
     {
-        
+        return unlockedLockers.Contains(id);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Unlock(string id)
     {
-        
+        unlockedLockers.Add(id);
+    }
+
+    public static void ResetAll()
+    {
+        unlockedLockers.Clear();
     }
 }
