@@ -10,6 +10,9 @@ public class Interaction_Symbol : MonoBehaviour
     [Header("Fade Settings")]
     public float fadeSpeed = 5f;
 
+    [Header("Linked Object")]
+    public GameObject objectToWatch; // drag this in inspector
+
     private SpriteRenderer spriteRenderer;
     private float targetAlpha = 0f;
 
@@ -26,6 +29,13 @@ public class Interaction_Symbol : MonoBehaviour
 
     void Update()
     {
+        // if watched object is gone → destroy this
+        if (objectToWatch == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         // smooth fade
         float currentAlpha = spriteRenderer.color.a;
         float newAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, fadeSpeed * Time.deltaTime);

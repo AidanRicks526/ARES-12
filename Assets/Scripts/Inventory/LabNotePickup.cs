@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class LabNotePickup : MonoBehaviour
@@ -15,7 +15,7 @@ public class LabNotePickup : MonoBehaviour
         noteDisplay = FindFirstObjectByType<NoteDisplay>();
         if (noteDisplay == null)
             Debug.LogError("NoteDisplay not found in scene!");
-    }*/
+    }
 
     private void Update()
     {
@@ -55,4 +55,4 @@ public class LabNotePickup : MonoBehaviour
             _playerInventory = null;
         }
     }
-}
+}*/

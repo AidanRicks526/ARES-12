@@ -13,7 +13,7 @@ TagManager:
   - UI
   - JigsawPuzzle
   - Player
-  - 
+  - Item
   - 
   - 
   - 
@@ -53,14 +53,14 @@ TagManager:
   - name: memory
     uniqueID: 3622577619
     locked: 0
-  - name: Item
-    uniqueID: 3328002879
-    locked: 0
   - name: player
     uniqueID: 1276074301
     locked: 0
   - name: table
     uniqueID: 3868862047
+    locked: 0
+  - name: Item
+    uniqueID: 3328002879
     locked: 0
   - name: puzzle
     uniqueID: 1665883963
