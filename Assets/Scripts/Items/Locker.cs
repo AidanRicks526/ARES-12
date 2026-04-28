@@ -11,32 +11,56 @@ public class LockerInteract : MonoBehaviour
     [Header("References")]
     public string playerTag = "Player";
 
+    [Header("Save ID (runtime only)")]
+    public string lockerID = "Locker_01";
+
     private Transform player;
 
+    [Header("UI")]
     public GameObject uiPanel;
     public TMP_InputField inputField;
     public TextMeshProUGUI feedbackText;
 
+    [Header("Reward")]
     public GameObject itemToSpawn;
     public Transform spawnPoint;
 
-    private bool isPlayerTouching = false;
-    private bool isUnlocked = false;
-    private bool isUIOpen = false;
+    private bool isPlayerTouching;
+    private bool isUnlocked;
+    private bool isUIOpen;
 
     void Start()
     {
+        // reset UI state
+        IsUIOpenGlobal = false;
+        isUIOpen = false;
+
+        if (uiPanel != null)
+            uiPanel.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // LOAD runtime save (NOT persistent)
+        isUnlocked = Locker_Runtime_Save.IsUnlocked(lockerID);
+
+        if (isUnlocked)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             player = playerObj.transform;
 
-        uiPanel.SetActive(false);
-        itemToSpawn.SetActive(false);
+        if (itemToSpawn != null)
+            itemToSpawn.SetActive(false);
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || isUnlocked) return;
 
         if (isPlayerTouching && !isUIOpen && Input.GetKeyDown(KeyCode.E))
         {
@@ -49,9 +73,14 @@ public class LockerInteract : MonoBehaviour
         isUIOpen = true;
         IsUIOpenGlobal = true;
 
-        uiPanel.SetActive(true);
-        inputField.text = "";
-        feedbackText.text = "";
+        if (uiPanel != null)
+            uiPanel.SetActive(true);
+
+        if (inputField != null)
+            inputField.text = "";
+
+        if (feedbackText != null)
+            feedbackText.text = "";
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -59,6 +88,8 @@ public class LockerInteract : MonoBehaviour
 
     public void SubmitPassword()
     {
+        if (isUnlocked) return;
+
         string entered = inputField.text;
 
         if (entered == correctPassword)
@@ -79,6 +110,11 @@ public class LockerInteract : MonoBehaviour
 
         isUnlocked = true;
 
+        // SAVE ONLY FOR THIS SESSION
+        Locker_Runtime_Save.Unlock(lockerID);
+
+        CloseUI();
+
         if (itemToSpawn != null)
         {
             if (spawnPoint != null)
@@ -86,6 +122,8 @@ public class LockerInteract : MonoBehaviour
 
             itemToSpawn.SetActive(true);
         }
+
+        Destroy(gameObject);
     }
 
     public void CloseUI()
@@ -93,7 +131,8 @@ public class LockerInteract : MonoBehaviour
         isUIOpen = false;
         IsUIOpenGlobal = false;
 
-        uiPanel.SetActive(false);
+        if (uiPanel != null)
+            uiPanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
