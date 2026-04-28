@@ -7,6 +7,8 @@ public class PuzzleGrid : MonoBehaviour
 
     public GameObject puzzlePanel;
 
+    public ShipLightController shipLightController;
+
     private Tile[,] tiles = new Tile[3, 3];
 
     void OnEnable()
@@ -88,11 +90,15 @@ public class PuzzleGrid : MonoBehaviour
         {
             Debug.Log("Puzzle Solved!");
 
+            shipLightController.SetLightsFull();
+
             ClosePuzzle();
         }
     }
     void ClosePuzzle()
     {
         puzzlePanel.SetActive(false);
+
+        GameStateManager.Instance.EnableLights();
     }
 }
