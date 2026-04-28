@@ -473,7 +473,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2420845060315497139}
         m_TargetAssemblyTypeName: NoteDisplay, Assembly-CSharp
         m_MethodName: CloseNote
         m_Mode: 1

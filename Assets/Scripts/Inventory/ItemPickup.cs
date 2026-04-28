@@ -8,8 +8,12 @@ public class ItemPickup : MonoBehaviour
     public float pickupRange = 2.5f;
 
     [Header("Puzzle Settings")]
-    public GameObject puzzleUI; // Drag Puzzle Panel here
+    //public GameObject puzzleUI; // Drag Puzzle Panel here
+    public JigsawPuzzleManager puzzleManager; // drag JigsawPuzzleManager here
     public float delayBeforePuzzle = 2.0f;
+
+    [Header("Note Settings")]
+    public LabNote noteData;
 
     private bool _isBeingPickedUp = false;
 
@@ -36,7 +40,15 @@ public class ItemPickup : MonoBehaviour
         _isBeingPickedUp = true;
 
         // 1. Add to inventory
-        inv.AddItem(itemData, amount);
+        if (itemData != null)
+            inv.AddItem(itemData, amount);
+
+        // 2.Show note if this is a note pickup
+        if (noteData != null)
+        {
+            inv.AddItem(noteData);
+            NoteDisplay.Instance.ShowNote(noteData);
+        }
 
         // 2. Play Animation 
         //Animator anim = GetComponent<Animator>();
@@ -50,21 +62,27 @@ public class ItemPickup : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
 
         // 5. Pop up the puzzle
-        if (puzzleUI != null)
+        if (puzzleManager != null)
         {
-            puzzleUI.SetActive(true);
+            puzzleManager.OpenPuzzle();
         }
 
+        // 5. Pop up the puzzle
+        /*if (puzzleUI != null)
+        {
+            puzzleUI.SetActive(true);
+        }*/
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        _playerInRange = true;
-    //        _playerInventory = other.GetComponent<Inventory>();
-    //    }
-    //}
 
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.CompareTag("Player"))
+        //    {
+        //        _playerInRange = true;
+        //        _playerInventory = other.GetComponent<Inventory>();
+        //    }
+        //}
+        
         // 6. destroy this object
         Destroy(gameObject, 0.1f);
     }
