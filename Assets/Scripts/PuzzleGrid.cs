@@ -14,14 +14,27 @@ public class PuzzleGrid : MonoBehaviour
     void OnEnable()
     {
         GenerateGrid();
+
+        // Ensure correct lighting state when puzzle opens
+        if (shipLightController != null)
+        {
+            shipLightController.SetLightsDim();
+        }
+        else
+        {
+            Debug.LogWarning("ShipLightController not assigned in PuzzleGrid");
+        }
     }
 
     void GenerateGrid()
     {
+        // Clear old tiles
         foreach (Transform child in gridParent)
         {
             Destroy(child.gameObject);
         }
+
+        // Create new grid
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
@@ -52,7 +65,6 @@ public class PuzzleGrid : MonoBehaviour
     public void OnTileClicked(int x, int y)
     {
         FlipTiles(x, y);
-
         CheckWin();
     }
 
@@ -90,15 +102,21 @@ public class PuzzleGrid : MonoBehaviour
         {
             Debug.Log("Puzzle Solved!");
 
-            shipLightController.SetLightsFull();
+            if (shipLightController != null)
+            {
+                shipLightController.SetLightsFull();
+            }
+            else
+            {
+                Debug.LogError("ShipLightController not assigned!");
+            }
 
             ClosePuzzle();
         }
     }
+
     void ClosePuzzle()
     {
         puzzlePanel.SetActive(false);
-
-        GameStateManager.Instance.EnableLights();
     }
 }

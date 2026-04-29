@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5518413988494595917}
   - component: {fileID: 8329889613507183687}
   - component: {fileID: 9123851942092862529}
-  - component: {fileID: 5045525741810233373}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -229,15 +228,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   maxSlots: 20
   slots: []
---- !u!114 &5045525741810233373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338982840798841226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93dd976c9e636354ba1a8987e83bb864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisibilityController
