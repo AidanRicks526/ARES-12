@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &107116433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2971839253773767796, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
+  m_PrefabInstance: {fileID: 571054985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200902590
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 377859534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17, y: -1.78, z: 0}
+  m_LocalPosition: {x: 0.17, y: -1.39, z: 0}
   m_LocalScale: {x: 1.02669, y: 0.87081295, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,13 +325,71 @@ PrefabInstance:
     - {fileID: 1415662998496316171, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2971839253773767796, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 571054987}
   m_SourcePrefab: {fileID: 100100000, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
 --- !u!4 &571054986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 625982795923254985, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
   m_PrefabInstance: {fileID: 571054985}
   m_PrefabAsset: {fileID: 0}
+--- !u!68 &571054987
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107116433}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.49366063, y: -0.33016825}
+  - {x: -0.49199268, y: 0.2417484}
+  - {x: -0.46510166, y: 0.3474387}
+  - {x: -0.47049809, y: 1.0302135}
+  - {x: -0.39855188, y: 1.1962667}
+  - {x: -0.4005947, y: 0.85932285}
+  - {x: -0.3708501, y: 1.1229196}
+  - {x: 0.30883434, y: 1.1172571}
+  - {x: 0.34373394, y: 0.942509}
+  - {x: 0.37828675, y: 1.2673826}
+  - {x: 0.4448724, y: 1.0759459}
+  - {x: 0.44488865, y: 0.26857126}
+  - {x: 0.44442153, y: 0.08311917}
+  - {x: 0.47252944, y: -0.33016822}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &650102692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,11 +412,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.03
+      value: 8.07
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8833
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.z
