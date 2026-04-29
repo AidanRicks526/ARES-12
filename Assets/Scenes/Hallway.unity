@@ -820,6 +820,7 @@ GameObject:
   - component: {fileID: 761537828}
   - component: {fileID: 761537827}
   - component: {fileID: 761537830}
+  - component: {fileID: 761537831}
   m_Layer: 0
   m_Name: SpaceSuit
   m_TagString: Untagged
@@ -886,8 +887,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -966964417
-  m_SortingLayer: 7
+  m_SortingLayerID: 1276074301
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -961,6 +962,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &761537831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761537826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f18514df9274c4aaab169539886a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
 --- !u!1 &853011771
 GameObject:
   m_ObjectHideFlags: 0

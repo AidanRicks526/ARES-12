@@ -515,11 +515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.066907
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0556551
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.z
@@ -957,11 +957,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.066907
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0556551
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8970342898770814220, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalScale.z
@@ -1313,9 +1313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
   offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
+  zoomSize: 5
+  minZoom: 10
+  maxZoom: 20
 --- !u!114 &1991255656
 MonoBehaviour:
   m_ObjectHideFlags: 0

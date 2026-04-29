@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interaction_Symbol
   playerTag: Player
   fadeSpeed: 5
+  objectToWatch: {fileID: 0}
 --- !u!114 &3069199729079033755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +176,7 @@ GameObject:
   - component: {fileID: 8435900336343983822}
   - component: {fileID: 1714052915101179686}
   - component: {fileID: 2131515215359130465}
+  - component: {fileID: 8969958044087162079}
   m_Layer: 0
   m_Name: Memory_0
   m_TagString: Untagged
@@ -242,8 +244,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -672389677
-  m_SortingLayer: 4
+  m_SortingLayerID: 1276074301
+  m_SortingLayer: 6
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8181081092598581178, guid: 0093c2beec41d1c498597f5a7837c54b, type: 3}
@@ -310,3 +312,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.56373537, y: -0.9990649}
   m_Radius: 4.9637365
+--- !u!114 &8969958044087162079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f18514df9274c4aaab169539886a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb19437294c307a44856e46746ce93fb
+guid: 666e84031fef2864f8e7e9a6d4004b5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3410654360815283793
-    second: Main_Core_table3_0
+      213: -3375355794584966577
+    second: DeadScientist 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -178,13 +178,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main_Core_table3_0
+      name: DeadScientist 1_0
       rect:
         serializedVersion: 2
-        x: 239
-        y: 249
-        width: 1048
-        height: 466
+        x: 84
+        y: 0
+        width: 1526
+        height: 855
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa1d7f3edebeaa0d0800000000000000
-      internalID: -3410654360815283793
+      spriteID: f4ae439c9c35821d0800000000000000
+      internalID: -3375355794584966577
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Main_Core_table3_0: -3410654360815283793
+      DeadScientist 1_0: -3375355794584966577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
