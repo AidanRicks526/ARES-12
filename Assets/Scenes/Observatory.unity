@@ -338,12 +338,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 423183626787710366, guid: b361f69228925ae4cbfdc6f90094b509, type: 3}
   m_PrefabInstance: {fileID: 1001925478971723290}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1643516937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2059867988395724314, guid: c520bab20b72750478eed9148fd3c17d, type: 3}
-  m_PrefabInstance: {fileID: 218249851778629551}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1716871396
+--- !u!1001 &1532088227
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -357,15 +352,23 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5cb2e379dc9e8544bb220b9d2ec02724, type: 2}
     - target: {fileID: 1488852566886667951, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_Name
+      value: LabNote6E
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801712279173639812, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: m_Name
       value: LabNote6
       objectReference: {fileID: 0}
+    - target: {fileID: 5787667772402321461, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: objectToWatch
+      value: 
+      objectReference: {fileID: 1532088228}
     - target: {fileID: 7487989656644327871, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8098844
+      value: -4.2068357
       objectReference: {fileID: 0}
     - target: {fileID: 7487989656644327871, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2322385
+      value: -0.80978334
       objectReference: {fileID: 0}
     - target: {fileID: 7487989656644327871, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -404,6 +407,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+--- !u!1 &1532088228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1801712279173639812, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+  m_PrefabInstance: {fileID: 1532088227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1643516937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2059867988395724314, guid: c520bab20b72750478eed9148fd3c17d, type: 3}
+  m_PrefabInstance: {fileID: 218249851778629551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1726703582
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +429,6 @@ GameObject:
   - component: {fileID: 1726703584}
   - component: {fileID: 1726703583}
   - component: {fileID: 1726703586}
-  - component: {fileID: 1726703587}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -846,8 +858,8 @@ SceneRoots:
   - {fileID: 1726703585}
   - {fileID: 685200617}
   - {fileID: 55445565}
-  - {fileID: 1716871396}
   - {fileID: 7910332767198147950}
   - {fileID: 1042482928172337837}
   - {fileID: 218249851778629551}
   - {fileID: 1001925478971723290}
+  - {fileID: 1532088227}
