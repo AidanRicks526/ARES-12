@@ -728,13 +728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleGrid
   tilePrefab: {fileID: 838118176517924192, guid: 5d7fb029a2a574649882a4c8a6549556, type: 3}
   gridParent: {fileID: 433070942}
-<<<<<<< Updated upstream
-  puzzlePanel: {fileID: 0}
-  shipLightController: {fileID: 0}
-=======
   puzzlePanel: {fileID: 1190402643}
   shipLightController: {fileID: 922084849}
->>>>>>> Stashed changes
 --- !u!114 &1190402645
 MonoBehaviour:
   m_ObjectHideFlags: 0
