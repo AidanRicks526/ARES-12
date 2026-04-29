@@ -329,9 +329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
   offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
+  zoomSize: 5
+  minZoom: 10
+  maxZoom: 20
 --- !u!114 &180721658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +595,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 838118176517924192, guid: 5d7fb029a2a574649882a4c8a6549556, type: 3}
   gridParent: {fileID: 433070942}
   puzzlePanel: {fileID: 0}
+  shipLightController: {fileID: 0}
 --- !u!114 &1190402645
 MonoBehaviour:
   m_ObjectHideFlags: 0

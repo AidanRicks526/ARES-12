@@ -316,26 +316,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2085452361}
-  - {fileID: 1738681536}
   - {fileID: 975138331}
-  - {fileID: 1788694602}
   - {fileID: 851785253}
   - {fileID: 6318272}
   - {fileID: 642481801}
+  - {fileID: 622113403}
+  - {fileID: 1635082606}
+  - {fileID: 972149564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &439553679 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6525451523908047886, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
-  m_PrefabInstance: {fileID: 669694757}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4349ffaa8a7956478e747d5b6f94db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JigsawPuzzleManager
 --- !u!1001 &622113402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,6 +478,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+--- !u!4 &622113403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+  m_PrefabInstance: {fileID: 622113402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642481800
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +880,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+--- !u!4 &972149564 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+  m_PrefabInstance: {fileID: 972149563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &975138331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 625982795923254985, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
@@ -956,7 +955,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -966964417
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -1236,11 +1235,13 @@ PrefabInstance:
     - {fileID: 3911813884584790439, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 152905043885781918, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1788694600}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
+--- !u!4 &1635082606 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3436890375609895556, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
+  m_PrefabInstance: {fileID: 1635082605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699801801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,9 +1350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
   offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
+  zoomSize: 5
+  minZoom: 10
+  maxZoom: 20
 --- !u!114 &1699801806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,10 +1403,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1699801804}
   - {fileID: 236976985}
-  - {fileID: 8845878833697999641}
   - {fileID: 1224947483}
   - {fileID: 937215374}
-  - {fileID: 8722982398964501349}
   - {fileID: 987923495}
-  - {fileID: 2145400824}
   - {fileID: 669694757}

@@ -542,25 +542,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
-<<<<<<< Updated upstream
---- !u!114 &1726703587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726703582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18d1d22827045b42ac53406a757ee0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
-  offset: {x: 0, y: 0, z: -10}
-  smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
-=======
 --- !u!1 &2051412427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5826979731415399883, guid: b361f69228925ae4cbfdc6f90094b509, type: 3}
@@ -858,7 +839,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0006e2b0e8739884ba2916c45b301a13, type: 3}
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

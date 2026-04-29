@@ -28,6 +28,9 @@ public class PlayerVisibilityController : MonoBehaviour
         if (GameStateManager.Instance != null && GameStateManager.Instance.lightsOn)
             return;
 
-        circleUI.position = cam.WorldToScreenPoint(transform.position);
+        if (circleUI != null && cam != null)
+        {
+            circleUI.position = cam.WorldToScreenPoint(transform.position);
+        }
     }
 }

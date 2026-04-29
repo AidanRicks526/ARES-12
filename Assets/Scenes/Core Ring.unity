@@ -425,9 +425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
   offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
+  zoomSize: 5
+  minZoom: 10
+  maxZoom: 20
 --- !u!114 &612307391
 MonoBehaviour:
   m_ObjectHideFlags: 0

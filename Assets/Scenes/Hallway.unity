@@ -879,7 +879,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -966964417
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
@@ -1734,6 +1734,7 @@ Transform:
   - {fileID: 656441517}
   - {fileID: 1848128747}
   - {fileID: 1939168190}
+  - {fileID: 9086669737400727759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1377866368
@@ -3171,9 +3172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCameraFollow
   offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
-  zoomSize: 3
-  minZoom: 2
-  maxZoom: 10
+  zoomSize: 5
+  minZoom: 10
+  maxZoom: 20
 --- !u!1001 &9086669737400727758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3195,8 +3196,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3436890375609895556, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 17.558908
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436890375609895556, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58131
+      value: 0.1914
       objectReference: {fileID: 0}
     - target: {fileID: 3436890375609895556, guid: f5a3fa5f6320e8d47a0b6bf7ce697338, type: 3}
       propertyPath: m_LocalPosition.y
