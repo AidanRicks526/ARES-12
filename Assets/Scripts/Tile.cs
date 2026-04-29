@@ -11,8 +11,9 @@ public class Tile : MonoBehaviour
     private PuzzleGrid grid;
     private Image image;
 
-    public Color onColor = Color.white;
-    public Color offColor = Color.black;
+    [Header("Tile Sprites")]
+    public Sprite onSprite;
+    public Sprite offSprite;
 
     public void Init(PuzzleGrid gridRef, int xPos, int yPos)
     {
@@ -40,6 +41,8 @@ public class Tile : MonoBehaviour
 
     void UpdateVisual()
     {
-        image.color = isOn ? onColor : offColor;
+        if (image == null) return;
+
+        image.sprite = isOn ? onSprite : offSprite;
     }
 }

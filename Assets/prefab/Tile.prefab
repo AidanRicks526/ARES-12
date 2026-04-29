@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16940583, g: 0.5471698, b: 0.06452473, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -137,8 +137,8 @@ MonoBehaviour:
   x: 7
   y: 8
   isOn: 0
-  onColor: {r: 0.14135213, g: 0.3962264, b: 0.046724804, a: 1}
-  offColor: {r: 0.38679248, g: 0.041963343, b: 0.041963343, a: 1}
+  onSprite: {fileID: 7982651147614291931, guid: a8f814cee286a554284aeee3e6bde5a3, type: 3}
+  offSprite: {fileID: 2648777378401956320, guid: 850d358acac4d9846a82a8f680634158, type: 3}
 --- !u!1 &4840301414051800075
 GameObject:
   m_ObjectHideFlags: 0
