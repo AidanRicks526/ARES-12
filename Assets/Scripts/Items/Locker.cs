@@ -31,17 +31,14 @@ public class LockerInteract : MonoBehaviour
 
     void Start()
     {
-        // reset UI state
+        // Reset UI state
         IsUIOpenGlobal = false;
         isUIOpen = false;
 
         if (uiPanel != null)
             uiPanel.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // LOAD runtime save (NOT persistent)
+        // Load runtime save
         isUnlocked = Locker_Runtime_Save.IsUnlocked(lockerID);
 
         if (isUnlocked)
@@ -82,8 +79,7 @@ public class LockerInteract : MonoBehaviour
         if (feedbackText != null)
             feedbackText.text = "";
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Note: Cursor state is NOT managed here. Assume external script handles it.
     }
 
     public void SubmitPassword()
@@ -110,7 +106,7 @@ public class LockerInteract : MonoBehaviour
 
         isUnlocked = true;
 
-        // SAVE ONLY FOR THIS SESSION
+        // Save only for this session
         Locker_Runtime_Save.Unlock(lockerID);
 
         CloseUI();
@@ -134,8 +130,7 @@ public class LockerInteract : MonoBehaviour
         if (uiPanel != null)
             uiPanel.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Note: Cursor state is NOT managed here. Assume external script handles it.
     }
 
     private void OnTriggerEnter2D(Collider2D other)
