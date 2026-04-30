@@ -1135,6 +1135,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 42f75c8c323ecba4da6c8d87d08e9580, type: 2}
+    - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: puzzleManager
       value: 
       objectReference: {fileID: 669694758}
@@ -1182,20 +1186,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: MemoryShard
       objectReference: {fileID: 0}
-    - target: {fileID: 8435900336343983822, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8435900336343983822, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -966964417
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8969958044087162079, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+    - target: {fileID: 7435135240111356917, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: objectToWatch
+      value: 
+      objectReference: {fileID: 1385465726}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+--- !u!1 &1385465726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+  m_PrefabInstance: {fileID: 1385465725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1542677419
 PrefabInstance:
   m_ObjectHideFlags: 0

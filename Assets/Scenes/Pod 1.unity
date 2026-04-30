@@ -1153,6 +1153,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9011f133568fae7468ebca4ab68b259a, type: 2}
+    - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: puzzleManager
       value: 
       objectReference: {fileID: 1466974161}
@@ -1200,11 +1204,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: MemoryShard
       objectReference: {fileID: 0}
+    - target: {fileID: 7435135240111356917, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: objectToWatch
+      value: 
+      objectReference: {fileID: 1754319011}
+    - target: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: m_Name
+      value: Memory_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+--- !u!1 &1754319011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+  m_PrefabInstance: {fileID: 1754319010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991255651
 GameObject:
   m_ObjectHideFlags: 0

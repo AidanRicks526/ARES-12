@@ -354,7 +354,7 @@ SpriteRenderer:
   m_Size: {x: 1.0560079, y: 1.1795788}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &296178006
 Transform:
@@ -1459,6 +1459,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: d7285cba4bb283d4fb5bfd338bd9eb6c, type: 2}
+    - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: puzzleManager
       value: 
       objectReference: {fileID: 668614893}
@@ -1510,6 +1514,10 @@ PrefabInstance:
       propertyPath: objectToWatch
       value: 
       objectReference: {fileID: 1217443441}
+    - target: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: m_Name
+      value: Memory_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

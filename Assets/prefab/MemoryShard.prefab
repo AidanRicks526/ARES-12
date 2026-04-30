@@ -174,9 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2775805912005836595}
   - component: {fileID: 8435900336343983822}
-  - component: {fileID: 1714052915101179686}
   - component: {fileID: 2131515215359130465}
-  - component: {fileID: 8969958044087162079}
   m_Layer: 0
   m_Name: Memory_0
   m_TagString: Untagged
@@ -244,8 +242,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1276074301
-  m_SortingLayer: 6
+  m_SortingLayerID: -966964417
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8181081092598581178, guid: 0093c2beec41d1c498597f5a7837c54b, type: 3}
@@ -258,24 +256,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1714052915101179686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179907993083046945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 11400000, guid: 42f75c8c323ecba4da6c8d87d08e9580, type: 2}
-  amount: 1
-  pickupRange: 2.5
-  puzzleManager: {fileID: 0}
-  delayBeforePuzzle: 0.8
-  noteData: {fileID: 0}
 --- !u!58 &2131515215359130465
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -312,15 +292,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.56373537, y: -0.9990649}
   m_Radius: 4.9637365
---- !u!114 &8969958044087162079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179907993083046945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f18514df9274c4aaab169539886a78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
