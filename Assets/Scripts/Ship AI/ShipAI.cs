@@ -15,25 +15,37 @@ public class ShipAI : MonoBehaviour
     public AudioSource sfxSource;
 
     [Header("Settings")]
-    public bool isManualMode = false;
     public float textSpeedMultiplier = 1f;
     public float fadeDuration = 0.3f;
 
-    private List<VoiceLine> currentDialogue = new List<VoiceLine>();
-    private int index = 0;
+    [Header("Legacy Compatibility")]
+    public bool isManualMode = false;
 
+    /// <summary>
+    /// Legacy hook for old UI systems.
+    /// No longer used in auto dialogue flow.
+    /// </summary>
+    public void OnNextLinePressed()
+    {
+        if (!isManualMode) return;
+
+        if (!IsPlaying) return;
+
+        Debug.Log("Manual advance requested (legacy mode)");
+
+        // Force skip current wait (safe advance)
+        StopAllCoroutines();
+    }
+
+    private List<VoiceLine> currentDialogue;
+    private int index;
     private bool isPlaying;
+
     public bool IsPlaying => isPlaying;
 
     void Start()
     {
         HideUIInstant();
-    }
-
-    public void OnNextLinePressed()
-    {
-        // Used by UI button to advance dialogue
-        // Only relevant if you expand manual mode later
     }
 
     public void PlayDialogue(List<VoiceLine> lines)
@@ -57,7 +69,7 @@ public class ShipAI : MonoBehaviour
 
             if (!CanPlay(line))
             {
-                index++;
+                index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
                 continue;
             }
 
@@ -65,9 +77,10 @@ public class ShipAI : MonoBehaviour
 
             yield return TypeText(line);
 
-            float duration = line.voiceClip != null
-                ? line.voiceClip.length
-                : line.fallbackDuration;
+            float duration = Mathf.Max(
+                line.voiceClip != null ? line.voiceClip.length : line.fallbackDuration,
+                line.subtitle.Length * line.typeSpeed
+            );
 
             if (line.voiceClip != null)
             {
@@ -75,15 +88,17 @@ public class ShipAI : MonoBehaviour
                 voiceSource.Play();
             }
 
+            // BRANCHING SYSTEM
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
+                continue;
             }
-            else
-            {
-                yield return new WaitForSeconds(duration);
-                index++;
-            }
+
+            yield return new WaitForSeconds(duration);
+
+            // LINEAR FLOW
+            index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
         }
 
         yield return Fade(0f);
@@ -92,15 +107,16 @@ public class ShipAI : MonoBehaviour
 
     bool CanPlay(VoiceLine line)
     {
-        // Inventory check (USES YOUR SYSTEM)
         if (line.requiredItem != null)
         {
             if (!Inventory.Instance.HasItem(line.requiredItem))
                 return false;
+
+            if (line.consumeItem)
+                Inventory.Instance.RemoveItem(line.requiredItem);
         }
 
-        // Timer check
-        if (line.triggerBeforeTime > 0f)
+        if (line.useTimerGate)
         {
             if (GameTimer.Instance != null &&
                 GameTimer.Instance.currentTime > line.triggerBeforeTime)
@@ -126,9 +142,6 @@ public class ShipAI : MonoBehaviour
         yield return new WaitUntil(() => picked);
 
         index = line.choices[chosenIndex].nextIndex;
-
-        if (index < 0)
-            index++;
     }
 
     IEnumerator TypeText(VoiceLine line)

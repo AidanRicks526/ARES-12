@@ -3,7 +3,7 @@
 [System.Serializable]
 public class VoiceLine
 {
-    [Header("Text")]
+    [Header("Identity")]
     public string speakerName = "SHIP AI";
 
     [TextArea(2, 5)]
@@ -17,11 +17,16 @@ public class VoiceLine
     public float fallbackDuration = 2f;
     public float typeSpeed = 0.03f;
 
-    [Header("Inventory Requirement")]
-    public ItemData requiredItem; // 🔥 direct reference to your item system
+    [Header("Progression")]
+    public int nextIndex = -1; // linear progression
 
-    [Header("Timer Requirement")]
-    public float triggerBeforeTime = -1f;
+    [Header("Restrictions")]
+    public ItemData requiredItem;
+    public bool consumeItem = false;
+
+    [Header("Timer Gate")]
+    public bool useTimerGate = false;
+    public float triggerBeforeTime = 0f;
 
     [Header("Branching")]
     public DialogueChoice[] choices;

@@ -3,34 +3,37 @@ using UnityEngine;
 
 public class ShipAIPanel : MonoBehaviour
 {
+    [Header("Dialogue Lines")]
     public VoiceLine[] lines;
 
-    private bool playerInRange;
-    private ShipAI shipAI;
+    [Header("Reference")]
+    public ShipAI shipAI;
 
-    void Start()
+    private bool playerInRange;
+
+    void Awake()
     {
-        shipAI = FindObjectOfType<ShipAI>();
+        // fallback safety (but assign manually preferred)
+        if (shipAI == null)
+            shipAI = FindFirstObjectByType<ShipAI>();
     }
 
     void Update()
     {
-        if (playerInRange && UserInput.WasInteractPressed && !shipAI.IsPlaying)
+        if (!playerInRange) return;
+        if (shipAI == null) return;
+
+        if (UserInput.WasInteractPressed && !shipAI.IsPlaying)
         {
-            Trigger();
+            TriggerDialogue();
         }
     }
 
-    void Trigger()
+    void TriggerDialogue()
     {
-        List<VoiceLine> valid = new List<VoiceLine>();
+        List<VoiceLine> sequence = new List<VoiceLine>(lines);
 
-        foreach (var line in lines)
-        {
-            valid.Add(line);
-        }
-
-        shipAI.PlayDialogue(valid);
+        shipAI.PlayDialogue(sequence);
     }
 
     void OnTriggerEnter2D(Collider2D other)
