@@ -74,4 +74,18 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
+
+    // Overload version (keeps old system working safely)
+    public bool HasItem(ItemData item, int amount)
+    {
+        int total = 0;
+
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.item == item)
+                total += slot.quantity;
+        }
+
+        return total >= amount;
+    }
 }

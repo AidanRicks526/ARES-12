@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ShipAI : MonoBehaviour
@@ -11,99 +10,125 @@ public class ShipAI : MonoBehaviour
     public TextMeshProUGUI speakerText;
     public TextMeshProUGUI subtitleText;
 
-    [Tooltip("The button the player clicks to advance text in Manual Mode.")]
-    public GameObject continueButton;
-
     [Header("Audio")]
     public AudioSource voiceSource;
     public AudioSource sfxSource;
 
     [Header("Settings")]
-    public float fadeDuration = 0.3f;
     public bool isManualMode = false;
-
-    [Range(0.1f, 5f)]
     public float textSpeedMultiplier = 1f;
+    public float fadeDuration = 0.3f;
 
-    private Queue<VoiceLine> queue = new Queue<VoiceLine>();
-    private bool isPlaying = false;
-    private bool nextButtonPressed = false;
+    private List<VoiceLine> currentDialogue = new List<VoiceLine>();
+    private int index = 0;
 
+    private bool isPlaying;
     public bool IsPlaying => isPlaying;
 
     void Start()
     {
-        if (dialogueCanvasGroup != null)
-        {
-            dialogueCanvasGroup.alpha = 0f;
-            dialogueCanvasGroup.interactable = false;
-            dialogueCanvasGroup.blocksRaycasts = false;
-        }
-
-        if (continueButton != null)
-            continueButton.SetActive(false);
+        HideUIInstant();
     }
 
     public void OnNextLinePressed()
     {
-        nextButtonPressed = true;
+        // Used by UI button to advance dialogue
+        // Only relevant if you expand manual mode later
     }
 
-    public void PlayVoiceLine(VoiceLine line)
+    public void PlayDialogue(List<VoiceLine> lines)
     {
-        queue.Enqueue(line);
-        if (!isPlaying)
-            StartCoroutine(ProcessQueue());
+        if (isPlaying) return;
+
+        currentDialogue = lines;
+        index = 0;
+
+        StartCoroutine(RunDialogue());
     }
 
-    IEnumerator ProcessQueue()
+    IEnumerator RunDialogue()
     {
         isPlaying = true;
+        yield return Fade(1f);
 
-        yield return StartCoroutine(FadeCanvas(1f));
-
-        while (queue.Count > 0)
+        while (index < currentDialogue.Count)
         {
-            VoiceLine line = queue.Dequeue();
+            VoiceLine line = currentDialogue[index];
+
+            if (!CanPlay(line))
+            {
+                index++;
+                continue;
+            }
+
             speakerText.text = line.speakerName;
 
-            yield return StartCoroutine(TypeText(line));
+            yield return TypeText(line);
 
-            float duration = line.fallbackDuration;
+            float duration = line.voiceClip != null
+                ? line.voiceClip.length
+                : line.fallbackDuration;
 
             if (line.voiceClip != null)
             {
                 voiceSource.clip = line.voiceClip;
                 voiceSource.Play();
-                duration = line.voiceClip.length;
             }
 
-            if (isManualMode)
+            if (line.choices != null && line.choices.Length > 0)
             {
-                if (continueButton != null)
-                    continueButton.SetActive(true);
-
-                nextButtonPressed = false;
-                yield return new WaitUntil(() => nextButtonPressed);
-
-                if (continueButton != null)
-                    continueButton.SetActive(false);
+                yield return HandleChoices(line);
             }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           else
+            else
             {
-                if (continueButton != null)
-                    continueButton.SetActive(false);
-
                 yield return new WaitForSeconds(duration);
+                index++;
             }
         }
 
-        yield return StartCoroutine(FadeCanvas(0f));
-
-        if (continueButton != null)
-            continueButton.SetActive(false);
-
+        yield return Fade(0f);
         isPlaying = false;
+    }
+
+    bool CanPlay(VoiceLine line)
+    {
+        // Inventory check (USES YOUR SYSTEM)
+        if (line.requiredItem != null)
+        {
+            if (!Inventory.Instance.HasItem(line.requiredItem))
+                return false;
+        }
+
+        // Timer check
+        if (line.triggerBeforeTime > 0f)
+        {
+            if (GameTimer.Instance != null &&
+                GameTimer.Instance.currentTime > line.triggerBeforeTime)
+                return false;
+        }
+
+        return true;
+    }
+
+    IEnumerator HandleChoices(VoiceLine line)
+    {
+        bool picked = false;
+        int chosenIndex = -1;
+
+        ChoiceUI.Instance.OnChoiceSelected = (i) =>
+        {
+            chosenIndex = i;
+            picked = true;
+        };
+
+        ChoiceUI.Instance.Show(line.choices);
+
+        yield return new WaitUntil(() => picked);
+
+        index = line.choices[chosenIndex].nextIndex;
+
+        if (index < 0)
+            index++;
     }
 
     IEnumerator TypeText(VoiceLine line)
@@ -121,21 +146,23 @@ public class ShipAI : MonoBehaviour
         }
     }
 
-    IEnumerator FadeCanvas(float target)
+    IEnumerator Fade(float target)
     {
         float start = dialogueCanvasGroup.alpha;
-        float time = 0f;
+        float t = 0f;
 
-        dialogueCanvasGroup.interactable = (target > 0);
-        dialogueCanvasGroup.blocksRaycasts = (target > 0);
-
-        while (time < fadeDuration)
+        while (t < fadeDuration)
         {
-            time += Time.deltaTime;
-            dialogueCanvasGroup.alpha = Mathf.Lerp(start, target, time / fadeDuration);
+            t += Time.deltaTime;
+            dialogueCanvasGroup.alpha = Mathf.Lerp(start, target, t / fadeDuration);
             yield return null;
         }
 
         dialogueCanvasGroup.alpha = target;
+    }
+
+    void HideUIInstant()
+    {
+        dialogueCanvasGroup.alpha = 0f;
     }
 }

@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipAIPanel : MonoBehaviour
 {
     public VoiceLine[] lines;
 
-    private bool playerInRange = false;
+    private bool playerInRange;
     private ShipAI shipAI;
 
     void Start()
@@ -16,31 +17,31 @@ public class ShipAIPanel : MonoBehaviour
     {
         if (playerInRange && UserInput.WasInteractPressed && !shipAI.IsPlaying)
         {
-            TriggerDialogue();
+            Trigger();
         }
     }
 
-    void TriggerDialogue()
+    void Trigger()
     {
+        List<VoiceLine> valid = new List<VoiceLine>();
+
         foreach (var line in lines)
         {
-            shipAI.PlayVoiceLine(line);
+            valid.Add(line);
         }
+
+        shipAI.PlayDialogue(valid);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerInRange = true;
-        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerInRange = false;
-        }
     }
 }

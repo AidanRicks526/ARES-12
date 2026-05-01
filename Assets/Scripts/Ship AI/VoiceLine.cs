@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class VoiceLine
@@ -11,9 +11,18 @@ public class VoiceLine
 
     [Header("Audio")]
     public AudioClip voiceClip;
-    public AudioClip typingSFX; // optional beep sound
+    public AudioClip typingSFX;
 
     [Header("Timing")]
     public float fallbackDuration = 2f;
     public float typeSpeed = 0.03f;
+
+    [Header("Inventory Requirement")]
+    public ItemData requiredItem; // 🔥 direct reference to your item system
+
+    [Header("Timer Requirement")]
+    public float triggerBeforeTime = -1f;
+
+    [Header("Branching")]
+    public DialogueChoice[] choices;
 }
