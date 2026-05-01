@@ -15,6 +15,8 @@ public class KittyCat : MonoBehaviour
     private bool isExiting = false;
     private float fadeSpeed = 3f;
 
+    private Animator animator;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +29,7 @@ public class KittyCat : MonoBehaviour
     {
         // search for player at start
         FindPlayer();
+        
     }
 
     void FindPlayer()
@@ -75,6 +78,7 @@ public class KittyCat : MonoBehaviour
         }
 
         rb.linearVelocity = moveDir * moveSpeed;
+        animator.SetBool("CatRun", true);
     }
 
     void StartExit()
