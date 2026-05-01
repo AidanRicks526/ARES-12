@@ -103,7 +103,6 @@ public class PuzzleGrid : MonoBehaviour
         }
     }
 
-    // 🔥 Centralized solve logic (used by both normal play + debug)
     void SolvePuzzle()
     {
         Debug.Log("PUZZLE SOLVED");
@@ -115,9 +114,7 @@ public class PuzzleGrid : MonoBehaviour
         if (shipLightController != null)
             shipLightController.SetLightsFull();
 
-        // 🔥 FORCE PLAYER LIGHT UPDATE
-        PlayerLightController player = FindObjectOfType<PlayerLightController>();
-
+        PlayerLightController player = FindFirstObjectByType<PlayerLightController>();
         if (player != null)
         {
             player.ApplyState();
@@ -130,7 +127,6 @@ public class PuzzleGrid : MonoBehaviour
         ClosePuzzle();
     }
 
-    // 🔥 DEBUG FORCE SOLVE
     void ForceSolvePuzzle()
     {
         // Turn all tiles ON visually

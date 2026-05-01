@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8057217194738782928}
   - component: {fileID: 7889747817494059806}
   - component: {fileID: 8258979065588961685}
-  - component: {fileID: 346707927414097321}
+  - component: {fileID: 4562638353149506203}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -112,8 +112,9 @@ MonoBehaviour:
   CurrentDoorPosition: 0
   isLocked: 1
   requiredBadge: {fileID: 0}
---- !u!68 &346707927414097321
-EdgeCollider2D:
+  spawnPoint: {fileID: 8057217194738782928}
+--- !u!61 &4562638353149506203
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,16 +148,14 @@ EdgeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.46, y: 11}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.46, y: 11}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 2.524023, y: -5.4843626}
-  - {x: 0.7459401, y: -5.289252}
-  - {x: -2.902143, y: -3.4726129}
-  - {x: -2.7587357, y: 4.4732857}
-  - {x: -2.2144418, y: 5.4843607}
-  - {x: 2.5504224, y: 4.2888618}
-  - {x: 2.8050604, y: -5.6544185}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0

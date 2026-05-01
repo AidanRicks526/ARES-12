@@ -31,8 +31,7 @@ public class ShipLightController : MonoBehaviour
     {
         if (globalLight != null) return;
 
-        Light2D[] lights = FindObjectsOfType<Light2D>();
-
+        Light2D[] lights = FindObjectsByType<Light2D>(FindObjectsSortMode.None);
         foreach (var light in lights)
         {
             if (light.lightType == Light2D.LightType.Global)

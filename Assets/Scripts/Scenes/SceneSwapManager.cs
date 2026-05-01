@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,21 +9,11 @@ public class SceneSwapManager : MonoBehaviour
     private static bool _loadFromDoor;
 
     private GameObject _player;
-    private Collider2D _playerColl;
-    private Collider2D _doorColl;
-    private Vector3 _playerSpawnPosition;
-
     private DoorTriggerInteraction.DoorToSpawnAt _doorToSpawnTo;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _playerColl = _player.GetComponent<Collider2D>();
+        if (instance == null) instance = this;
     }
 
     private void OnEnable()
@@ -40,63 +29,60 @@ public class SceneSwapManager : MonoBehaviour
     public static void SwapSceneFromDoorUse(SceneField myScene, DoorTriggerInteraction.DoorToSpawnAt doorToSpawnAt)
     {
         _loadFromDoor = true;
-        instance.StartCoroutine(instance.FadeOutThenChangeScene(myScene, doorToSpawnAt));
+        instance._doorToSpawnTo = doorToSpawnAt;
+        instance.StartCoroutine(instance.LoadSceneRoutine(myScene));
     }
 
-    private IEnumerator FadeOutThenChangeScene(SceneField myScene, DoorTriggerInteraction.DoorToSpawnAt doorToSpawnAt = DoorTriggerInteraction.DoorToSpawnAt.none)
+    private IEnumerator LoadSceneRoutine(SceneField myScene)
     {
         SceneFadeManager.instance.StartFadeOut();
 
         while (SceneFadeManager.instance.IsFadingOut)
-        {
             yield return null;
-        }
-
-        _doorToSpawnTo = doorToSpawnAt;
 
         SceneManager.LoadScene(myScene.SceneName);
     }
 
-    public DoorTriggerInteraction.DoorToSpawnAt GetSpawnDoor()
-    {
-        return _doorToSpawnTo;
-    }
-
-    //CALLED WHENEVER A SCENE IS LOADED
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneFadeManager.instance.StartFadeIn();
 
-        if (_loadFromDoor)
+        if (!_loadFromDoor) return;
+
+        // ALWAYS re-fetch player after scene load
+        _player = GameObject.FindGameObjectWithTag("Player");
+
+        if (_player == null)
         {
-            FindDoor(_doorToSpawnTo);
-            _player.transform.position = _playerSpawnPosition;
-            _loadFromDoor = false;
+            Debug.LogError("Player not found in scene!");
+            return;
         }
 
-    }
+        DoorTriggerInteraction targetDoor = FindDoor(_doorToSpawnTo);
 
-    private void FindDoor(DoorTriggerInteraction.DoorToSpawnAt doorSpawnNumber)
-    {
-        DoorTriggerInteraction[] doors = FindObjectsByType<DoorTriggerInteraction>(FindObjectsSortMode.None);
-
-        for (int i = 0; i < doors.Length; i++)
+        if (targetDoor == null)
         {
-            if (doors[i].CurrentDoorPosition == doorSpawnNumber)
-            {
-                _doorColl = doors[i].gameObject.GetComponent<Collider2D>();
-
-                CalculateSpawnPosition();
-                return;
-            }
+            Debug.LogError("Target door not found!");
+            return;
         }
 
+        // DIRECT SPAWN USING ACTUAL SCENE POSITION
+        _player.transform.position = targetDoor.GetSpawnPosition();
 
+        _loadFromDoor = false;
     }
 
-    private void CalculateSpawnPosition()
+    private DoorTriggerInteraction FindDoor(DoorTriggerInteraction.DoorToSpawnAt door)
     {
-        float colliderHight = _playerColl.bounds.extents.y;
-        _playerSpawnPosition = _doorColl.transform.position - new Vector3(0f, colliderHight, 0f);
+        DoorTriggerInteraction[] doors =
+            FindObjectsByType<DoorTriggerInteraction>(FindObjectsSortMode.None);
+
+        foreach (var d in doors)
+        {
+            if (d.CurrentDoorPosition == door)
+                return d;
+        }
+
+        return null;
     }
 }

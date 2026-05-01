@@ -36,17 +36,33 @@ public class DoorTriggerInteraction : TriggerInteractionBase
     [SerializeField] private bool isLocked = true;
     [SerializeField] private ItemData requiredBadge;
 
+    [Header("Spawn Point (where player appears)")]
+    [SerializeField] private Transform spawnPoint;
+
+    public Vector3 GetSpawnPosition()
+    {
+        return spawnPoint != null ? spawnPoint.position : transform.position;
+    }
+
     public override void interact()
     {
         if (isLocked)
         {
-            Debug.Log($"CardSwipeManager.Instance = {CardSwipeManager.Instance}");   // Add this
+            Debug.Log($"CardSwipeManager.Instance = {CardSwipeManager.Instance}");
             Debug.Log($"requiredBadge = {requiredBadge}");
 
             CardSwipeManager.Instance.ShowSwipePanel(this, requiredBadge);
         }
         else
         {
+            // SAVE door positions BEFORE leaving scene
+            Door_Looper looper = FindFirstObjectByType<Door_Looper>();
+            if (looper != null)
+            {
+                looper.SaveDoorPositions();
+            }
+
+            // THEN swap scene
             SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
         }
     }
