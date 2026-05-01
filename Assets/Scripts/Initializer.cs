@@ -8,6 +8,7 @@ public static class Initializer
         Debug.Log("Initializer executed before scene load.");
         Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("PERSISTOBJECTS")));
         Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("NoteCanvas")));
+        Object.DontDestroyOnLoad(Object.Instantiate(Resources.Load("GameManager")));
 
 
     }

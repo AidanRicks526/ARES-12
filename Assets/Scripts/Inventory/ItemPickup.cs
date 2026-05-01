@@ -17,6 +17,15 @@ public class ItemPickup : MonoBehaviour
 
     private bool _isBeingPickedUp = false;
 
+    private void Start()
+    {
+        if (GameManager.Instance == null) return;
+
+        ItemData id = itemData != null ? itemData : noteData;
+        if (id != null && GameManager.Instance.IsCollected(id))
+            gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (_isBeingPickedUp) return;
@@ -48,6 +57,13 @@ public class ItemPickup : MonoBehaviour
         {
             inv.AddItem(noteData);
             NoteDisplay.Instance.ShowNote(noteData);
+        }
+
+        // Record the pickup so it stays gone after a scene reload
+        if (GameManager.Instance != null)
+        {
+            if (itemData != null) GameManager.Instance.RegisterCollected(itemData);
+            if (noteData != null) GameManager.Instance.RegisterCollected(noteData);
         }
 
         // 2. Play Animation 

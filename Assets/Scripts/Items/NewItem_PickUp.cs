@@ -12,6 +12,13 @@ public class NewItem_PickUp : MonoBehaviour
     private bool _playerInRange;
     private Inventory _playerInventory;
 
+    private void Start()
+    {
+        /*if (itemData == null) return;
+        if (GameManager.Instance != null && GameManager.Instance.IsCollected(itemData))
+            gameObject.SetActive(false);*/
+    }
+
     private void Update()
     {
         if (_playerInRange && UserInput.WasInteractPressed)
@@ -37,6 +44,9 @@ public class NewItem_PickUp : MonoBehaviour
         {
             EquipItem();
         }
+
+        /*if (GameManager.Instance != null) // SG code
+            GameManager.Instance.RegisterCollected(itemData);*/
 
         Destroy(gameObject);
     }
