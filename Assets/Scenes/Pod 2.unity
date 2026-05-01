@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8450286112191566305, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: m_Radius
-      value: 4.636634
+      value: 5.5334806
       objectReference: {fileID: 0}
     - target: {fileID: 8450286112191566305, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: m_Offset.x
@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8450286112191566305, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: m_Offset.y
-      value: -5.003494
+      value: -4.106653
       objectReference: {fileID: 0}
     - target: {fileID: 8799658866265776519, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: objectToWatch
@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 296178004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.7153, y: -3.92, z: 0}
+  m_LocalPosition: {x: 9.7153, y: -3.14, z: 0}
   m_LocalScale: {x: 0.4502375, y: 0.45580798, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,11 +343,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.2835274, y: 1.6317267}
-  - {x: -2.5543208, y: 1.9506857}
-  - {x: -0.4735936, y: 0.047697127}
-  - {x: 2.3635569, y: -0.16720444}
-  - {x: 2.4525409, y: 1.6293766}
+  - {x: 2.1418629, y: -0.691193}
+  - {x: -2.4409866, y: -0.14833891}
+  - {x: -0.89859146, y: -2.6950278}
+  - {x: 2.420224, y: -2.8539557}
+  - {x: 2.2542114, y: -0.8894515}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -399,17 +399,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.16566348, y: 0.83905625}
+  m_Offset: {x: -0.16566348, y: -1.4978553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.51613134, y: 0.0376429}
+    pivot: {x: 0.5325725, y: 0.9195925}
     oldSize: {x: 6.32, y: 3.15}
     newSize: {x: 2.8455012, y: 1.4357952}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.8115525, y: 2.486186}
+  m_Size: {x: 5.8115525, y: 3.3537805}
   m_EdgeRadius: 0
 --- !u!1 &362194486 stripped
 GameObject:
@@ -564,6 +564,7 @@ Transform:
   - {fileID: 296178006}
   - {fileID: 633787308}
   - {fileID: 1086522859}
+  - {fileID: 531666041}
   - {fileID: 800159429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -577,7 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531666041}
   - component: {fileID: 531666040}
-  - component: {fileID: 531666043}
+  - component: {fileID: 531666044}
   m_Layer: 0
   m_Name: DeadScientist_0
   m_TagString: Untagged
@@ -653,58 +654,25 @@ Transform:
   m_GameObject: {fileID: 531666039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8159904, y: -2.77, z: 0}
-  m_LocalScale: {x: 0.48338082, y: 0.76525384, z: 1}
+  m_LocalPosition: {x: 0.68, y: -3.45, z: 0}
+  m_LocalScale: {x: 0.48338082, y: 0.5447842, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1086522859}
+  m_Father: {fileID: 487361900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &531666043
-BoxCollider2D:
+--- !u!114 &531666044
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531666039}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.19312358, y: 1.2756559}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.26, y: 8.55}
-    newSize: {x: 8.49, y: 2.76}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 6.891297, y: 2.1146061}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f18514df9274c4aaab169539886a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
+  yOffset: 0
 --- !u!1001 &577411826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1510,8 +1478,7 @@ Transform:
   m_LocalPosition: {x: 2.1600003, y: -1.95, z: 0}
   m_LocalScale: {x: 1, y: 0.7119, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 531666041}
+  m_Children: []
   m_Father: {fileID: 487361900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1086522860
@@ -1535,6 +1502,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1346259139681694146, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: m_Radius
+      value: 3.031239
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346259139681694146, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: m_Offset.x
+      value: -2.3048294
+      objectReference: {fileID: 0}
     - target: {fileID: 3069199729079033755, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: itemData
       value: 
