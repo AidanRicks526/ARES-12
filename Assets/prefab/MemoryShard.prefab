@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2465779757123446277}
   - component: {fileID: 1346259139681694146}
   - component: {fileID: 7435135240111356917}
-  - component: {fileID: 3069199729079033755}
   m_Layer: 0
   m_Name: MemoryShard
   m_TagString: Untagged
@@ -145,25 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interaction_Symbol
   playerTag: Player
   fadeSpeed: 5
-  objectToWatch: {fileID: 0}
---- !u!114 &3069199729079033755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977955888484510100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 0}
-  amount: 1
-  pickupRange: 2.5
-  puzzleManager: {fileID: 0}
-  delayBeforePuzzle: 2
-  noteData: {fileID: 0}
+  objectToWatch: {fileID: 9179907993083046945}
 --- !u!1 &9179907993083046945
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +156,8 @@ GameObject:
   - component: {fileID: 2775805912005836595}
   - component: {fileID: 8435900336343983822}
   - component: {fileID: 2131515215359130465}
+  - component: {fileID: 3273008341805965491}
+  - component: {fileID: 5990702758547528559}
   m_Layer: 0
   m_Name: Memory_0
   m_TagString: Untagged
@@ -191,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 9179907993083046945}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0666666, y: -1.833333, z: 0}
+  m_LocalPosition: {x: -3.03, y: -2, z: 0}
   m_LocalScale: {x: 0.38504064, y: 0.38504064, z: 0.11551221}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -246,7 +229,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8181081092598581178, guid: 0093c2beec41d1c498597f5a7837c54b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18b8b8f320613a743b6d6dd9e7ad213b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,3 +275,43 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.56373537, y: -0.9990649}
   m_Radius: 4.9637365
+--- !u!95 &3273008341805965491
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7401ad1e08a5d654e97778d23f458274, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5990702758547528559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 0}
+  amount: 1
+  pickupRange: 2.5
+  puzzleManager: {fileID: 0}
+  delayBeforePuzzle: 2
+  noteData: {fileID: 0}

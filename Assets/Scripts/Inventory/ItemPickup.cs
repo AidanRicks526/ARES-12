@@ -51,8 +51,8 @@ public class ItemPickup : MonoBehaviour
         }
 
         // 2. Play Animation 
-        //Animator anim = GetComponent<Animator>();
-        //if (anim != null) anim.SetTrigger("Collect");
+        Animator anim = GetComponent<Animator>();
+        if (anim != null) anim.SetTrigger("Collect");
 
         // 3. Wait for the animation
         yield return new WaitForSeconds(delayBeforePuzzle);
