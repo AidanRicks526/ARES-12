@@ -8,7 +8,7 @@ public class GameStateManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -16,11 +16,13 @@ public class GameStateManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Debug.Log("GameStateManager ACTIVE | lightsOn = " + lightsOn);
     }
 
     public void EnableLights()
     {
         lightsOn = true;
-        Debug.Log("GLOBAL STATE: Lights ON");
+        Debug.Log("LIGHTS ENABLED GLOBALLY");
     }
 }

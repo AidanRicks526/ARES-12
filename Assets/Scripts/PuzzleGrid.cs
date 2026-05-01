@@ -1,40 +1,40 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PuzzleGrid : MonoBehaviour
 {
     public GameObject tilePrefab;
     public Transform gridParent;
-
     public GameObject puzzlePanel;
 
     public ShipLightController shipLightController;
+
+    [Header("Debug")]
+    public KeyCode debugSolveKey = KeyCode.P;
 
     private Tile[,] tiles = new Tile[3, 3];
 
     void OnEnable()
     {
         GenerateGrid();
+    }
 
-        // Ensure correct lighting state when puzzle opens
-        if (shipLightController != null)
+    void Update()
+    {
+        // DEBUG: Press key to auto-solve puzzle
+        if (Input.GetKeyDown(debugSolveKey))
         {
-            shipLightController.SetLightsDim();
-        }
-        else
-        {
-            Debug.LogWarning("ShipLightController not assigned in PuzzleGrid");
+            Debug.Log("DEBUG: Force solving puzzle");
+            ForceSolvePuzzle();
         }
     }
 
     void GenerateGrid()
     {
-        // Clear old tiles
         foreach (Transform child in gridParent)
         {
             Destroy(child.gameObject);
         }
 
-        // Create new grid
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
@@ -43,7 +43,6 @@ public class PuzzleGrid : MonoBehaviour
                 Tile tile = obj.GetComponent<Tile>();
 
                 tile.Init(this, x, y);
-
                 tiles[x, y] = tile;
             }
         }
@@ -100,19 +99,40 @@ public class PuzzleGrid : MonoBehaviour
 
         if (allOn)
         {
-            Debug.Log("Puzzle Solved!");
-
-            if (shipLightController != null)
-            {
-                shipLightController.SetLightsFull();
-            }
-            else
-            {
-                Debug.LogError("ShipLightController not assigned!");
-            }
-
-            ClosePuzzle();
+            SolvePuzzle();
         }
+    }
+
+    // 🔥 Centralized solve logic (used by both normal play + debug)
+    void SolvePuzzle()
+    {
+        Debug.Log("PUZZLE SOLVED");
+
+        if (GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.EnableLights();
+        }
+
+        if (shipLightController != null)
+        {
+            shipLightController.SetLightsFull();
+        }
+
+        ClosePuzzle();
+    }
+
+    // 🔥 DEBUG FORCE SOLVE
+    void ForceSolvePuzzle()
+    {
+        // Turn all tiles ON visually
+        foreach (var tile in tiles)
+        {
+            if (!tile.isOn)
+                tile.Toggle();
+        }
+
+        // Trigger normal solve flow
+        SolvePuzzle();
     }
 
     void ClosePuzzle()

@@ -1,13 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class ShipLightController : MonoBehaviour
 {
-    [Header("Ship Lights")]
-    public Light2D[] shipLights;
+    [Header("Global Light (auto-found if empty)")]
+    public Light2D globalLight;
 
-    [Header("Darkness Overlay (UI)")]
+    [Header("Darkness Overlay")]
     public CanvasGroup darknessOverlay;
 
     [Header("Intensity Settings")]
@@ -17,32 +17,79 @@ public class ShipLightController : MonoBehaviour
     [Header("Fade Settings")]
     public float fadeDuration = 1f;
 
-    void Start()
+    void Awake()
     {
-        SetLightsDim();
-        SetOverlayInstant(true);
+        AutoFindGlobalLight();
     }
 
-    public void SetLightsDim()
+    void Start()
     {
-        SetIntensity(dimIntensity);
-        FadeOverlay(true);
+        ApplyStateFromGameManager();
+    }
+
+    void AutoFindGlobalLight()
+    {
+        if (globalLight != null) return;
+
+        Light2D[] lights = FindObjectsOfType<Light2D>();
+
+        foreach (var light in lights)
+        {
+            if (light.lightType == Light2D.LightType.Global)
+            {
+                globalLight = light;
+                Debug.Log("Auto-found Global Light in scene: " + light.name);
+                return;
+            }
+        }
+
+        Debug.LogError("No Global Light2D found in scene!");
+    }
+
+    void ApplyStateFromGameManager()
+    {
+        if (GameStateManager.Instance == null)
+        {
+            Debug.LogError("No GameStateManager found!");
+            return;
+        }
+
+        if (GameStateManager.Instance.lightsOn)
+        {
+            Debug.Log("Scene load → LIGHTS ON");
+            SetLightsImmediate(fullIntensity);
+            SetOverlayInstant(false);
+        }
+        else
+        {
+            Debug.Log("Scene load → LIGHTS OFF");
+            SetLightsImmediate(dimIntensity);
+            SetOverlayInstant(true);
+        }
     }
 
     public void SetLightsFull()
     {
-        SetIntensity(fullIntensity);
+        SetLightsImmediate(fullIntensity);
         FadeOverlay(false);
     }
 
-    void SetIntensity(float value)
+    public void SetLightsDim()
     {
-        if (shipLights == null) return;
+        SetLightsImmediate(dimIntensity);
+        FadeOverlay(true);
+    }
 
-        foreach (var light in shipLights)
+    void SetLightsImmediate(float value)
+    {
+        if (globalLight != null)
         {
-            if (light != null)
-                light.intensity = value;
+            globalLight.intensity = value;
+            Debug.Log("Set Global Light intensity to: " + value);
+        }
+        else
+        {
+            Debug.LogError("Global Light missing!");
         }
     }
 
@@ -52,7 +99,6 @@ public class ShipLightController : MonoBehaviour
 
         darknessOverlay.alpha = enabled ? 1f : 0f;
         darknessOverlay.blocksRaycasts = enabled;
-        darknessOverlay.interactable = enabled;
     }
 
     void FadeOverlay(bool fadeIn)
@@ -69,16 +115,10 @@ public class ShipLightController : MonoBehaviour
         float end = fadeIn ? 1f : 0f;
         float t = 0f;
 
-        darknessOverlay.blocksRaycasts = fadeIn;
-        darknessOverlay.interactable = fadeIn;
-
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
-            float normalized = t / fadeDuration;
-
-            darknessOverlay.alpha = Mathf.Lerp(start, end, normalized);
-
+            darknessOverlay.alpha = Mathf.Lerp(start, end, t / fadeDuration);
             yield return null;
         }
 
