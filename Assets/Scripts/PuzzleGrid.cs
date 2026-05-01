@@ -108,14 +108,23 @@ public class PuzzleGrid : MonoBehaviour
     {
         Debug.Log("PUZZLE SOLVED");
 
-        if (GameStateManager.Instance != null)
-        {
-            GameStateManager.Instance.EnableLights();
-        }
+        // Global state
+        GameStateManager.Instance.EnableLights();
 
+        // Scene lighting
         if (shipLightController != null)
-        {
             shipLightController.SetLightsFull();
+
+        // 🔥 FORCE PLAYER LIGHT UPDATE
+        PlayerLightController player = FindObjectOfType<PlayerLightController>();
+
+        if (player != null)
+        {
+            player.ApplyState();
+        }
+        else
+        {
+            Debug.LogWarning("No PlayerLightController found in scene");
         }
 
         ClosePuzzle();
