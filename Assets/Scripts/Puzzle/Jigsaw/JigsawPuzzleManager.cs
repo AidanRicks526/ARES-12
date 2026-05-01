@@ -18,6 +18,11 @@ public class JigsawPuzzleManager : MonoBehaviour
     private JigsawInteraction[] allTiles;
     private Light2D light2D;
 
+    // Camera state we restore when the puzzle closes
+    private SimpleCameraFollow cameraFollow;
+    private Vector3 cameraSavedPosition;
+    private bool cameraFollowWasEnabled;
+
 
     void Start()
     {
@@ -60,6 +65,22 @@ public class JigsawPuzzleManager : MonoBehaviour
         if (isOpen) return;// Guard against double opening
         isOpen = true;
         LockerInteract.IsUIOpenGlobal = true;   // freeze player movement
+
+        // Snap the camera to (0, 0) so the world-space board renders centered.
+        // Disable the follow script so it doesn't drag the camera back to the player.
+        if (Camera.main != null)
+        {
+            cameraFollow = Camera.main.GetComponent<SimpleCameraFollow>();
+            cameraSavedPosition = Camera.main.transform.position;
+            if (cameraFollow != null)
+            {
+                cameraFollowWasEnabled = cameraFollow.enabled;
+                cameraFollow.enabled = false;
+            }
+            // Keep the camera's existing z (typically -10 for 2D)
+            Camera.main.transform.position = new Vector3(0f, 0f, cameraSavedPosition.z);
+        }
+
         jigsawCanvas.SetActive(true);
         jigsawRoot.SetActive(true);
         if (light2D != null) light2D.enabled = false;
@@ -104,6 +125,13 @@ public class JigsawPuzzleManager : MonoBehaviour
         jigsawRoot.SetActive(false);
         if (light2D != null) light2D.enabled = true;
         if (lightsUI != null) lightsUI.SetActive(true);
+
+        // Restore the camera to where it was before the puzzle opened.
+        if (Camera.main != null)
+        {
+            Camera.main.transform.position = cameraSavedPosition;
+            if (cameraFollow != null) cameraFollow.enabled = cameraFollowWasEnabled;
+        }
     }
 
     IEnumerator RevealText()
