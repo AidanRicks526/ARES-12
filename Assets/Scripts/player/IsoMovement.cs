@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,14 +8,22 @@ public class IsoMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float acceleration = 10f;
     public float deceleration = 15f;
+    float baseScaleX;
+
 
     private Rigidbody2D rb;
     private Vector2 input;
     private Vector2 currentVelocity;
+    private Animator animator;
+    private bool moving;
+
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+        baseScaleX = Mathf.Abs(transform.localScale.x);
+
     }
 
     // Called by PlayerInput
@@ -22,6 +31,8 @@ public class IsoMovement : MonoBehaviour
     {
         input = value.Get<Vector2>();
     }
+
+
 
     void FixedUpdate()
     {
@@ -38,6 +49,7 @@ public class IsoMovement : MonoBehaviour
 
         if (input.magnitude > 0)
         {
+
             currentVelocity = Vector2.Lerp(
                 currentVelocity,
                 targetVelocity,
@@ -46,6 +58,7 @@ public class IsoMovement : MonoBehaviour
         }
         else
         {
+
             currentVelocity = Vector2.Lerp(
                 currentVelocity,
                 Vector2.zero,
@@ -54,5 +67,25 @@ public class IsoMovement : MonoBehaviour
         }
 
         rb.linearVelocity = currentVelocity;
+
     }
+
+    private void Update()
+    {
+        moving = input.magnitude > 0.1f;
+
+        animator.SetBool("Running", moving);
+
+        if (input.x != 0)
+        {
+            transform.localScale = new Vector3(
+                baseScaleX * Mathf.Sign(input.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
+        }
+    }
+
+
+
 }

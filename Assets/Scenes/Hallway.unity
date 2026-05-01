@@ -517,12 +517,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: isLocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: DoorToSpawnTo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+      propertyPath: requiredBadge
+      value: 
+      objectReference: {fileID: 11400000, guid: 04c160d5e10160a498dadf77e13ec85e, type: 2}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: CurrentDoorPosition
       value: 1

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8057217194738782928}
   - component: {fileID: 7889747817494059806}
   - component: {fileID: 8258979065588961685}
-  - component: {fileID: 6899965579062353414}
+  - component: {fileID: 346707927414097321}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -112,7 +112,7 @@ MonoBehaviour:
   CurrentDoorPosition: 0
   isLocked: 1
   requiredBadge: {fileID: 0}
---- !u!68 &6899965579062353414
+--- !u!68 &346707927414097321
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,13 +149,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.577436, y: 4.5769577}
-  - {x: -2.0232344, y: 5.5201054}
-  - {x: 2.6079702, y: 4.3149586}
-  - {x: 2.620988, y: -5.504075}
-  - {x: 0.57540894, y: -5.2667775}
-  - {x: -2.7828026, y: -3.5506034}
-  - {x: -2.7242112, y: 4.386252}
+  - {x: 2.524023, y: -5.4843626}
+  - {x: 0.7459401, y: -5.289252}
+  - {x: -2.902143, y: -3.4726129}
+  - {x: -2.7587357, y: 4.4732857}
+  - {x: -2.2144418, y: 5.4843607}
+  - {x: 2.5504224, y: 4.2888618}
+  - {x: 2.8050604, y: -5.6544185}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
