@@ -29,6 +29,13 @@ public class IsoMovement : MonoBehaviour
     // Called by PlayerInput
     public void OnMove(InputValue value)
     {
+        //SG code
+        if (LockerInteract.IsUIOpenGlobal)
+        {
+            input = Vector2.zero;
+            return;
+        }
+        //OG code
         input = value.Get<Vector2>();
     }
 
@@ -72,6 +79,14 @@ public class IsoMovement : MonoBehaviour
 
     private void Update()
     {
+        if (LockerInteract.IsUIOpenGlobal) //SG Code
+        {
+            input = Vector2.zero;
+            moving = false;
+            animator.SetBool("Running", false);
+            return;
+        }
+
         moving = input.magnitude > 0.1f;
 
         animator.SetBool("Running", moving);

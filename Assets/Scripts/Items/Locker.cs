@@ -3,7 +3,8 @@ using TMPro;
 
 public class LockerInteract : MonoBehaviour
 {
-    public static bool IsUIOpenGlobal { get; private set; }
+    //public static bool IsUIOpenGlobal { get; private set; }
+    public static bool IsUIOpenGlobal { get; set; }
 
     [Header("Settings")]
     public string correctPassword = "A123";

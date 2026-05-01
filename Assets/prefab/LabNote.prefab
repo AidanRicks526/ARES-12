@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3557807043496736269}
   - component: {fileID: 6714305127919170187}
   - component: {fileID: 5787667772402321461}
+  - component: {fileID: -1929909682232500648}
   m_Layer: 0
   m_Name: LabNote
   m_TagString: Untagged
@@ -145,6 +146,21 @@ MonoBehaviour:
   playerTag: Player
   fadeSpeed: 5
   objectToWatch: {fileID: 0}
+--- !u!114 &-1929909682232500648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488852566886667951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64425fd5df3f884caabd7a9301383b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectible
+  objectID: 
+  sceneName: 
+  collectFX: {fileID: 0}
 --- !u!1 &1801712279173639812
 GameObject:
   m_ObjectHideFlags: 0

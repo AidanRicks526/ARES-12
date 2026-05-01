@@ -1,6 +1,6 @@
 using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(Collider2D))]
 public class JigsawInteraction : JigsawTile
 {
     [Header("Snapping")]
@@ -14,6 +14,7 @@ public class JigsawInteraction : JigsawTile
     public Vector3 CorrectPosition => correctPosition;
     public bool IsSnapped => isSnapped;
     //private MeshRenderer meshRenderer;
+    
 
     /*void Start()
     {
@@ -62,6 +63,8 @@ public class JigsawInteraction : JigsawTile
         SetZ(1f);
         if (lockWhenSnapped)
             this.enabled = false;
+
+        FindFirstObjectByType<JigsawPuzzleManager>().CheckCompletion();
     }
 
     private void SetZ(float z)

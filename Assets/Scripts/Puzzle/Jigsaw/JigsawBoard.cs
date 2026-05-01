@@ -108,19 +108,41 @@ public class JigsawBoard : MonoBehaviour
         }
     }
 
+    [Range(0.1f, 1f)]
+    public float screenFillFraction = 0.85f; // % of the camera viewport the board may occupy
+
     void AutoSizeToScreen()
     {
         Camera cam = Camera.main;
         float vertExtent = cam.orthographicSize;
         float horizExtent = vertExtent * cam.aspect;
 
-        float boardHeight = 2f * vertExtent * 0.85f;
-        float boardWidth = 2f * horizExtent * 0.85f;
+        // Available area on screen (with margin)
+        float maxBoardWidth  = 2f * horizExtent * screenFillFraction;
+        float maxBoardHeight = 2f * vertExtent  * screenFillFraction;
 
-        float tileSize = Mathf.Min(boardWidth / columns, boardHeight / rows);
-        tileWidth = tileSize;
-        tileHeight = tileSize;
-        tileSize = Mathf.Min(tileSize, 5f); // Avoid board overflow when piece count is low
+        // Image aspect (width / height)
+        float imgAspect = (float)puzzleImage.width / puzzleImage.height;
+        float availAspect = maxBoardWidth / maxBoardHeight;
+
+        float boardWidth, boardHeight;
+        if (imgAspect > availAspect)
+        {
+            // Image is wider than the viewport area — width-limited
+            boardWidth = maxBoardWidth;
+            boardHeight = boardWidth / imgAspect;
+        }
+        else
+        {
+            // Image is taller (or matches) — height-limited
+            boardHeight = maxBoardHeight;
+            boardWidth = boardHeight * imgAspect;
+        }
+
+        // Tiles fill the board exactly. They will not be perfectly square
+        // unless columns/rows happens to match the image's aspect ratio.
+        tileWidth = boardWidth / columns;
+        tileHeight = boardHeight / rows;
     }
 
     void GenerateEdgeTypes()
@@ -235,6 +257,7 @@ public class JigsawBoard : MonoBehaviour
                 tileObj.transform.position = new Vector3(x * pieceWidth, y * pieceHeight, 0) + offset;
 
                 // Store board bounds
+                //boardCenter = Vector3.zero; // world position of JigsawBoard
                 boardCenter = transform.position; // world position of JigsawBoard
                 boardWorldWidth = boardWidth;
                 boardWorldHeight = boardHeight;
