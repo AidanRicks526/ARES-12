@@ -267,15 +267,15 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7499154508442906066, guid: e1f7d442ea93e5f4ba73bb101e8bd774, type: 3}
+  m_Sprite: {fileID: 7499154508442906066, guid: c7d412912f2ea0d4f95cb2617c86247d, type: 3}
   m_Color: {r: 0.754717, g: 0.72505045, b: 0.66571736, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1.0560079, y: 1.1795788}
+  m_Size: {x: 2.8455012, y: 1.4357952}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &296178006
 Transform:
@@ -286,8 +286,8 @@ Transform:
   m_GameObject: {fileID: 296178004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.4967, y: -3.6058, z: 0}
-  m_LocalScale: {x: 3.16, y: 1.575, z: 1}
+  m_LocalPosition: {x: 9.7153, y: -3.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 487361900}
@@ -343,11 +343,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.410514, y: 0.087113455}
-  - {x: -0.37981638, y: 0.06322645}
-  - {x: -0.114228114, y: -0.56846446}
-  - {x: 0.43098587, y: -0.5558581}
-  - {x: 0.43782616, y: 0.08711361}
+  - {x: 1.1204354, y: 0.11477263}
+  - {x: -1.2280334, y: 0.30294034}
+  - {x: -0.29862344, y: -0.67910165}
+  - {x: 1.1870065, y: -0.71259445}
+  - {x: 1.1200876, y: 0.08711361}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -398,17 +398,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.07744905, y: -0.17758971}
+  m_Offset: {x: -0.021257877, y: 0.019721389}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.32, y: 3.15}
-    newSize: {x: 1.0560079, y: 1.1795788}
+    newSize: {x: 2.8455012, y: 1.4357952}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.92803913, y: 1.2853116}
+  m_Size: {x: 2.7501612, y: 1.6799338}
   m_EdgeRadius: 0
 --- !u!1 &362194486 stripped
 GameObject:
