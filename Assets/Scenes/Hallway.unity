@@ -192,11 +192,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
---- !u!4 &151386067 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
-  m_PrefabInstance: {fileID: 308717027}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &180156242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,7 +425,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 761537829}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3087423527957689945, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_Name
@@ -482,11 +477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9399996
+      value: -8.53
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15210009
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 8057217194738782928, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -522,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: isLocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: DoorToSpawnTo
@@ -531,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: requiredBadge
       value: 
-      objectReference: {fileID: 11400000, guid: 04c160d5e10160a498dadf77e13ec85e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: CurrentDoorPosition
       value: 1
@@ -1024,8 +1019,7 @@ Transform:
   m_LocalPosition: {x: -4.59, y: -2.2321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 151386067}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &761537830
@@ -1087,6 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
   yOffset: 0
+  precision: 100
 --- !u!1 &853011771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,8 +3362,8 @@ Transform:
   m_GameObject: {fileID: 1811945335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0997, y: 0.2634, z: 0}
-  m_LocalScale: {x: 34.98744, y: 23.224798, z: 1}
+  m_LocalPosition: {x: 0.8963, y: 0.2159, z: 0}
+  m_LocalScale: {x: 50.45087, y: 33.377155, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4201,6 +4196,7 @@ SceneRoots:
   - {fileID: 1681246131}
   - {fileID: 1377866368}
   - {fileID: 1723646418}
+  - {fileID: 308717027}
   - {fileID: 1270628348}
   - {fileID: 871476838}
   - {fileID: 1469902849}
