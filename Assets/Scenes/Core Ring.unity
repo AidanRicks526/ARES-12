@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4122952269263737108, guid: 8e248c085163b5748ab8656b0b04504e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.620003
+      value: -17.54
       objectReference: {fileID: 0}
     - target: {fileID: 4122952269263737108, guid: 8e248c085163b5748ab8656b0b04504e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1467,11 +1467,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CircularHallway
   segments:
+  - {fileID: 1464384889}
   - {fileID: 1804554387}
   - {fileID: 1785564827}
   - {fileID: 1206538561}
-  - {fileID: 1464384889}
-  segmentLength: 10
+  manualStep: 0
 --- !u!4 &1189568633
 Transform:
   m_ObjectHideFlags: 0
