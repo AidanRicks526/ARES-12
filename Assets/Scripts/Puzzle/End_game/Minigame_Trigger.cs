@@ -1,25 +1,37 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Minigame_Trigger : MonoBehaviour
 {
-    [Header("Reference")]
-    public GameObject imageObject; // Drag "Fade_IN" here
+    [Header("Scene Objects")]
+    public GameObject mazeObject;
+    public GameObject playerObject;
 
-    private CanvasGroup imageCanvasGroup;
+    [Header("Objects to Disable On Start")]
+    public List<GameObject> objectsToDisable = new List<GameObject>();
+
+    [Header("Fade Target (ANY GameObject)")]
+    public GameObject fadeObject;
+
+    [Header("Ghost Player")]
+    public GameObject extraObjectToActivate;
+
+    public float fadeDuration = 1f;
+
+    private CanvasGroup canvasGroup;
+    private bool triggered;
 
     void Start()
     {
-        // Automatically find or add the group so you don't have to do it manually
-        imageCanvasGroup = imageObject.GetComponent<CanvasGroup>();
-        if (imageCanvasGroup == null)
-            imageCanvasGroup = imageObject.AddComponent<CanvasGroup>();
+        // Ensure CanvasGroup exists
+        canvasGroup = fadeObject.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = fadeObject.AddComponent<CanvasGroup>();
+
+        canvasGroup.alpha = 0f;
+        fadeObject.SetActive(false);
     }
-
-    [Header("Settings")]
-    public float fadeDuration = 1f;
-
-    private bool triggered = false;
 
     void Update()
     {
@@ -28,32 +40,43 @@ public class Minigame_Trigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             triggered = true;
-            StartCoroutine(FadeInThenDestroy());
+            StartCoroutine(StartMinigameSequence());
         }
     }
 
-    IEnumerator FadeInThenDestroy()
+    IEnumerator StartMinigameSequence()
     {
-        float t = 0f;
+        // Disable everything in list
+        foreach (GameObject obj in objectsToDisable)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
 
-        // ensure starting invisible
-        imageCanvasGroup.alpha = 0f;
-        imageCanvasGroup.gameObject.SetActive(true);
+        mazeObject.SetActive(true);
+        playerObject.SetActive(true);
+
+        if (extraObjectToActivate != null)
+            extraObjectToActivate.SetActive(true);
+
+        fadeObject.SetActive(true);
+
+        // fade in
+        float t = 0f;
 
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
             float normalized = t / fadeDuration;
-            imageCanvasGroup.alpha = Mathf.Lerp(0f, 1f, normalized);
+
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, normalized);
             yield return null;
         }
 
-        imageCanvasGroup.alpha = 1f;
+        canvasGroup.alpha = 1f;
 
-        // small pause so it “lands”
         yield return new WaitForSeconds(0.2f);
 
-        // destroy THIS object (the trigger object)
         Destroy(gameObject);
     }
 }

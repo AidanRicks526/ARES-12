@@ -78,6 +78,9 @@ TagManager:
   - name: EndGame
     uniqueID: 1726044567
     locked: 0
+  - name: EndGame2
+    uniqueID: 1994595601
+    locked: 0
   - name: Jigsaw
     uniqueID: 2340176035
     locked: 0
