@@ -46,25 +46,22 @@ public class Minigame_Trigger : MonoBehaviour
 
     IEnumerator StartMinigameSequence()
     {
-        // 🔥 Disable everything in list
+        // Disable everything in list
         foreach (GameObject obj in objectsToDisable)
         {
             if (obj != null)
                 obj.SetActive(false);
         }
 
-        // Step 1: activate gameplay
         mazeObject.SetActive(true);
         playerObject.SetActive(true);
 
-        // ✨ activate extra object
         if (extraObjectToActivate != null)
             extraObjectToActivate.SetActive(true);
 
-        // Step 2: activate fade object
         fadeObject.SetActive(true);
 
-        // Step 3: fade in
+        // fade in
         float t = 0f;
 
         while (t < fadeDuration)
