@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI; // Required for RawImage
 using System.Collections;
 
-public class Minigame_FadeManager : MonoBehaviour
+public class Minigame_fade_manager : MonoBehaviour
 {
-    public CanvasGroup failImage;
-    public CanvasGroup winImage;
+    [Header("UI Images")]
+    public RawImage failImage; // Changed from Image to RawImage
+    public RawImage winImage;  // Changed from Image to RawImage
 
     public float fadeDuration = 1f;
 
@@ -18,20 +20,28 @@ public class Minigame_FadeManager : MonoBehaviour
         StartCoroutine(FadeIn(winImage));
     }
 
-    IEnumerator FadeIn(CanvasGroup cg)
+    IEnumerator FadeIn(RawImage img) // Changed parameter type
     {
-        cg.gameObject.SetActive(true);
-        cg.alpha = 0f;
+        img.gameObject.SetActive(true);
+
+        Color c = img.color;
+        c.a = 0f;
+        img.color = c;
 
         float t = 0f;
 
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
-            cg.alpha = Mathf.Lerp(0f, 1f, t / fadeDuration);
+            float normalized = t / fadeDuration;
+
+            c.a = Mathf.Lerp(0f, 1f, normalized);
+            img.color = c;
+
             yield return null;
         }
 
-        cg.alpha = 1f;
+        c.a = 1f;
+        img.color = c;
     }
 }
