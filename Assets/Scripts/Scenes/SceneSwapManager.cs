@@ -28,7 +28,9 @@ public class SceneSwapManager : MonoBehaviour
 
     public static void SwapSceneFromDoorUse(SceneField myScene, DoorTriggerInteraction.DoorToSpawnAt doorToSpawnAt)
     {
+
         _loadFromDoor = true;
+        FindObjectOfType<CircularHallway>()?.SaveOrientation();
         instance._doorToSpawnTo = doorToSpawnAt;
         instance.StartCoroutine(instance.LoadSceneRoutine(myScene));
     }
