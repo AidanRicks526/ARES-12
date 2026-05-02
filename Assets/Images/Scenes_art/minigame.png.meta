@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 0738b129836f8df43a73c919a72fabaa
+guid: cf89271458aba534ea667e6bf266adfc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5619944346651314954
-    second: counter67_0
-  - first:
-      213: 5829027464534916844
-    second: counter67_1
+      213: -8375605174008269873
+    second: minigame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5016766, y: 0.74309266}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -181,45 +178,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: counter67_0
+      name: minigame_0
       rect:
         serializedVersion: 2
-        x: 221
-        y: 468
-        width: 50
-        height: 26
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f432687462f102b0800000000000000
-      internalID: -5619944346651314954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: counter67_1
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 149
-        width: 1004
-        height: 828
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cee7991789dd4e050800000000000000
-      internalID: 5829027464534916844
+      spriteID: fc33058587fd3cb80800000000000000
+      internalID: -8375605174008269873
       vertices: []
       indices: 
       edges: []
@@ -228,8 +203,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -238,8 +213,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      counter67_0: -5619944346651314954
-      counter67_1: 5829027464534916844
+      minigame_0: -8375605174008269873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

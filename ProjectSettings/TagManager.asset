@@ -74,6 +74,9 @@ TagManager:
   - name: E
     uniqueID: 1581125731
     locked: 0
+  - name: EndGame
+    uniqueID: 1726044567
+    locked: 0
   - name: Jigsaw
     uniqueID: 2340176035
     locked: 0

@@ -30,8 +30,7 @@ public class SceneSwapManager : MonoBehaviour
     {
 
         _loadFromDoor = true;
-        FindObjectOfType<CircularHallway>()?.SaveOrientation();
-        instance._doorToSpawnTo = doorToSpawnAt;
+        FindFirstObjectByType<CircularHallway>()?.SaveOrientation(); instance._doorToSpawnTo = doorToSpawnAt;
         instance.StartCoroutine(instance.LoadSceneRoutine(myScene));
     }
 

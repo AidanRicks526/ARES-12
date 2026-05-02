@@ -14,17 +14,15 @@ public class HallwayTrigger : MonoBehaviour
 
         float horizontalVelocity = rb.linearVelocity.x; // use rb.velocity.x for older Unity
 
-        // Right trigger (collider_R) ñ only recycle when moving right
+        // Right trigger (collider_R) ÅEonly recycle when moving right
         if (!isLeftTrigger && horizontalVelocity > 0)
         {
-            CircularHallway manager = FindObjectOfType<CircularHallway>();
-            manager?.MoveLeftmostToRight();
+            CircularHallway manager = Object.FindFirstObjectByType<CircularHallway>(); manager?.MoveLeftmostToRight();
         }
-        // Left trigger (collider_L) ñ only recycle when moving left
+        // Left trigger (collider_L) ÅEonly recycle when moving left
         else if (isLeftTrigger && horizontalVelocity < 0)
         {
-            CircularHallway manager = FindObjectOfType<CircularHallway>();
-            manager?.MoveRightmostToLeft();
+            CircularHallway manager = Object.FindFirstObjectByType<CircularHallway>(); manager?.MoveRightmostToLeft();
         }
         // If player is moving opposite direction or standing still, do nothing
     }
