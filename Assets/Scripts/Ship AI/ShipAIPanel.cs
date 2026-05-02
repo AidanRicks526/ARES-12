@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShipAIPanel : MonoBehaviour
 {
-    [Header("Dialogue Lines")]
+    [Header("Dialogue")]
     public VoiceLine[] lines;
 
     [Header("Reference")]
@@ -13,7 +13,6 @@ public class ShipAIPanel : MonoBehaviour
 
     void Awake()
     {
-        // fallback safety (but assign manually preferred)
         if (shipAI == null)
             shipAI = FindFirstObjectByType<ShipAI>();
     }
@@ -32,7 +31,6 @@ public class ShipAIPanel : MonoBehaviour
     void TriggerDialogue()
     {
         List<VoiceLine> sequence = new List<VoiceLine>(lines);
-
         shipAI.PlayDialogue(sequence);
     }
 

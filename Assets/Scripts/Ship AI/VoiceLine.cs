@@ -18,7 +18,7 @@ public class VoiceLine
     public float typeSpeed = 0.03f;
 
     [Header("Progression")]
-    public int nextIndex = -1; // linear progression
+    public int nextIndex = -1;
 
     [Header("Restrictions")]
     public ItemData requiredItem;

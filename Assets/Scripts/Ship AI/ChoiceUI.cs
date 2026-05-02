@@ -1,45 +1,68 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ChoiceUI : MonoBehaviour
 {
     public static ChoiceUI Instance;
 
     public GameObject panel;
-    public Transform buttonContainer;
-    public Button buttonPrefab;
+    public Button[] buttons;
+    public TextMeshProUGUI[] buttonTexts;
 
     public Action<int> OnChoiceSelected;
 
     void Awake()
     {
         Instance = this;
+
+        if (panel == null)
+            Debug.LogError("ChoiceUI: Panel not assigned!");
+
         panel.SetActive(false);
     }
 
     public void Show(DialogueChoice[] choices)
     {
-        panel.SetActive(true);
-
-        foreach (Transform child in buttonContainer)
+        if (choices == null || choices.Length == 0)
         {
-            Destroy(child.gameObject);
+            Debug.LogError("ChoiceUI: No choices provided!");
+            return;
         }
 
-        for (int i = 0; i < choices.Length; i++)
+        if (panel == null || buttons == null || buttonTexts == null)
         {
-            int index = i;
+            Debug.LogError("ChoiceUI: UI not fully assigned!");
+            return;
+        }
 
-            Button btn = Instantiate(buttonPrefab, buttonContainer);
-            btn.GetComponentInChildren<TMP_Text>().text = choices[i].choiceText;
+        panel.SetActive(true);
 
-            btn.onClick.AddListener(() =>
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (i < choices.Length && choices[i] != null)
             {
-                panel.SetActive(false);
-                OnChoiceSelected?.Invoke(index);
-            });
+                int index = i;
+
+                buttons[i].gameObject.SetActive(true);
+
+                if (buttonTexts[i] != null)
+                    buttonTexts[i].text = choices[i].choiceText;
+                else
+                    Debug.LogError("Missing button text at index " + i);
+
+                buttons[i].onClick.RemoveAllListeners();
+                buttons[i].onClick.AddListener(() =>
+                {
+                    panel.SetActive(false);
+                    OnChoiceSelected?.Invoke(index);
+                });
+            }
+            else
+            {
+                buttons[i].gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -21,22 +21,6 @@ public class ShipAI : MonoBehaviour
     [Header("Legacy Compatibility")]
     public bool isManualMode = false;
 
-    /// <summary>
-    /// Legacy hook for old UI systems.
-    /// No longer used in auto dialogue flow.
-    /// </summary>
-    public void OnNextLinePressed()
-    {
-        if (!isManualMode) return;
-
-        if (!IsPlaying) return;
-
-        Debug.Log("Manual advance requested (legacy mode)");
-
-        // Force skip current wait (safe advance)
-        StopAllCoroutines();
-    }
-
     private List<VoiceLine> currentDialogue;
     private int index;
     private bool isPlaying;
@@ -63,7 +47,7 @@ public class ShipAI : MonoBehaviour
         isPlaying = true;
         yield return Fade(1f);
 
-        while (index < currentDialogue.Count)
+        while (index >= 0 && index < currentDialogue.Count)
         {
             VoiceLine line = currentDialogue[index];
 
@@ -88,7 +72,7 @@ public class ShipAI : MonoBehaviour
                 voiceSource.Play();
             }
 
-            // BRANCHING SYSTEM
+            // Branching
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
@@ -97,7 +81,7 @@ public class ShipAI : MonoBehaviour
 
             yield return new WaitForSeconds(duration);
 
-            // LINEAR FLOW
+            // Linear progression
             index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
         }
 
@@ -176,6 +160,17 @@ public class ShipAI : MonoBehaviour
 
     void HideUIInstant()
     {
+        dialogueCanvasGroup.alpha = 0f;
+    }
+
+    // Legacy compatibility (prevents Settings_Menu errors)
+    public void OnNextLinePressed()
+    {
+        if (!isManualMode) return;
+        if (!IsPlaying) return;
+
+        StopAllCoroutines();
+        isPlaying = false;
         dialogueCanvasGroup.alpha = 0f;
     }
 }
