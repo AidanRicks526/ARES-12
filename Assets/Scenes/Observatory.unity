@@ -3955,6 +3955,18 @@ PrefabInstance:
       propertyPath: objectToWatch
       value: 
       objectReference: {fileID: 1532088228}
+    - target: {fileID: 6714305127919170187, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: m_Radius
+      value: 2.909571
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714305127919170187, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: m_Offset.x
+      value: -3.5660663
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714305127919170187, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.6452131
+      objectReference: {fileID: 0}
     - target: {fileID: 7487989656644327871, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5855
