@@ -77,8 +77,7 @@ public class ShipAI : MonoBehaviour
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
-                index = line.choices[index].nextIndex;
-                continue;
+                continue; // 🔥 HandleChoices already sets index correctly
             }
 
             // =========================
