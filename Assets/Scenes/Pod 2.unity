@@ -1037,6 +1037,10 @@ PrefabInstance:
       value: 2.155673
       objectReference: {fileID: 0}
     - target: {fileID: 1622720227493830250, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622720227493830250, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: m_Offset.y
       value: -0.36650354
       objectReference: {fileID: 0}
@@ -1213,6 +1217,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 492736188200356434, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918202124357622118, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: puzzleImage
+      value: 
+      objectReference: {fileID: 2800000, guid: 486531bf496e5114da79af4a1ce49583, type: 3}
     - target: {fileID: 3501818547738660573, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1256,6 +1268,10 @@ PrefabInstance:
     - target: {fileID: 6213905716198329983, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: m_Name
       value: JigsawManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396861899170600424, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2153,6 +2169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: puzzleManager
+      value: 
+      objectReference: {fileID: 668614893}
     - target: {fileID: 5977955888484510100, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: m_Name
       value: MemoryShard

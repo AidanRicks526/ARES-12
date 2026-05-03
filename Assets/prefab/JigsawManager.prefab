@@ -31,8 +31,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3764509722982842666}
   - {fileID: 1606017148048367088}
+  - {fileID: 3764509722982842666}
   m_Father: {fileID: 3501818547738660573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   tileWidth: 1
   tileHeight: 1
   curveResolution: 8
+  screenFillFraction: 0.85
 --- !u!1 &2560393434735548383
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +351,7 @@ MonoBehaviour:
   jigsawRoot: {fileID: 8396861899170600424}
   closeButton: {fileID: 7843179377636508994}
   fadeDuration: 1.5
+  lightsUI: {fileID: 0}
   textOverlayGroup: {fileID: 7030209668704218335}
 --- !u!1 &7226955372579731423
 GameObject:
@@ -602,7 +604,7 @@ SortingGroup:
   m_GameObject: {fileID: 8396861899170600424}
   m_Enabled: 1
   m_SortingLayerID: -1954791261
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0

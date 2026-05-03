@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2465779757123446277}
   - component: {fileID: 1346259139681694146}
   - component: {fileID: 7435135240111356917}
-  - component: {fileID: 2563890234108092040}
   m_Layer: 0
   m_Name: MemoryShard
   m_TagString: Untagged
@@ -146,19 +145,6 @@ MonoBehaviour:
   playerTag: Player
   fadeSpeed: 5
   objectToWatch: {fileID: 0}
---- !u!114 &2563890234108092040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977955888484510100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c469386e34d254f86df42ee914933b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PuzzleObject
-  id: {fileID: 0}
 --- !u!1 &9179907993083046945
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +157,7 @@ GameObject:
   - component: {fileID: 8435900336343983822}
   - component: {fileID: 3200376462637676305}
   - component: {fileID: 5932947324375279877}
+  - component: {fileID: 2791533749362779387}
   m_Layer: 0
   m_Name: Memory_3
   m_TagString: Untagged
@@ -292,3 +279,49 @@ MonoBehaviour:
   puzzleManager: {fileID: 0}
   delayBeforePuzzle: 2
   noteData: {fileID: 0}
+--- !u!61 &2791533749362779387
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.62308264, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 17.54, y: 12.4}
+    newSize: {x: 14.95, y: 12.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 15.555366, y: 12.4}
+  m_EdgeRadius: 0
