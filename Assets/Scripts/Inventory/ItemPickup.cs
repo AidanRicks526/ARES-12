@@ -17,6 +17,7 @@ public class ItemPickup : MonoBehaviour
 
     private bool _isBeingPickedUp = false;
 
+    // SG code
     private void Start()
     {
         if (GameManager.Instance == null) return;
@@ -48,18 +49,16 @@ public class ItemPickup : MonoBehaviour
 
         _isBeingPickedUp = true;
 
-        // 1. Add to inventory
-        if (itemData != null)
-            inv.AddItem(itemData, amount);
+        // 1. Add to inventory — only one item per pickup, even if both fields are set.
+        ItemData itemToAdd = itemData != null ? itemData : noteData;
+        if (itemToAdd != null)
+            inv.AddItem(itemToAdd, amount);
 
-        // 2.Show note if this is a note pickup
+        // 2. If this pickup is also a note, show the note display.
         if (noteData != null)
-        {
-            inv.AddItem(noteData);
             NoteDisplay.Instance.ShowNote(noteData);
-        }
 
-        // Record the pickup so it stays gone after a scene reload
+        // SG code, Record the pickup so it stays gone after a scene reload
         if (GameManager.Instance != null)
         {
             if (itemData != null) GameManager.Instance.RegisterCollected(itemData);

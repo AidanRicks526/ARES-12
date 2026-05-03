@@ -278,6 +278,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
   yOffset: 0
   precision: 100
+--- !u!1 &10935358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1488852566886667951, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+  m_PrefabInstance: {fileID: 2053414397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &10935364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10935358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f18514df9274c4aaab169539886a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
+  yOffset: 0
+  precision: 100
+--- !u!114 &10935365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10935358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 0}
+  amount: 1
+  pickupRange: 2.5
+  puzzleManager: {fileID: 0}
+  delayBeforePuzzle: 2
+  noteData: {fileID: 11400000, guid: 8a7ceac13f242d84a81f5d4c3fd110c2, type: 2}
 --- !u!1001 &74531461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -372,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3063766813522197384, guid: b361f69228925ae4cbfdc6f90094b509, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2413,10 +2450,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 854235716639851535, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+    - {fileID: 5486041449839374963, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1488852566886667951, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 10935365}
+    - targetCorrespondingSourceObject: {fileID: 1488852566886667951, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 10935364}
   m_SourcePrefab: {fileID: 100100000, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
 --- !u!1 &2053414398 stripped
 GameObject:

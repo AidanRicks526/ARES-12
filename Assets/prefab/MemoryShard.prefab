@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2465779757123446277}
   - component: {fileID: 1346259139681694146}
   - component: {fileID: 7435135240111356917}
+  - component: {fileID: -8173603128811586766}
   m_Layer: 0
   m_Name: MemoryShard
   m_TagString: Untagged
@@ -145,6 +146,19 @@ MonoBehaviour:
   playerTag: Player
   fadeSpeed: 5
   objectToWatch: {fileID: 0}
+--- !u!114 &-8173603128811586766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5977955888484510100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c469386e34d254f86df42ee914933b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleObject
+  id: {fileID: 0}
 --- !u!1 &9179907993083046945
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,8 +170,8 @@ GameObject:
   - component: {fileID: 2775805912005836595}
   - component: {fileID: 8435900336343983822}
   - component: {fileID: 3200376462637676305}
-  - component: {fileID: 5932947324375279877}
   - component: {fileID: 2791533749362779387}
+  - component: {fileID: 5932947324375279877}
   m_Layer: 0
   m_Name: Memory_3
   m_TagString: Untagged
@@ -261,24 +275,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5932947324375279877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179907993083046945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 0}
-  amount: 1
-  pickupRange: 2.5
-  puzzleManager: {fileID: 0}
-  delayBeforePuzzle: 2
-  noteData: {fileID: 0}
 --- !u!61 &2791533749362779387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -325,3 +321,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 15.555366, y: 12.4}
   m_EdgeRadius: 0
+--- !u!114 &5932947324375279877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45258918c053c3d47bb0287e064feef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemData: {fileID: 0}
+  amount: 1
+  pickupRange: 2.5
+  puzzleManager: {fileID: 0}
+  delayBeforePuzzle: 2
+  noteData: {fileID: 0}

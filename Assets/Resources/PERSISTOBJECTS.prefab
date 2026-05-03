@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 6330749193641309898}
   - component: {fileID: 3032752238026503259}
   - component: {fileID: 1312751972224434844}
-  - component: {fileID: 4046968493209986773}
   - component: {fileID: 1784921417159330885}
   - component: {fileID: 1358822055372892502}
   - component: {fileID: 836682818427554190}
@@ -349,20 +348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   maxSlots: 20
   slots: []
---- !u!114 &4046968493209986773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247269977702673591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd62085ea51d8745a161916cf690651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryTester
-  inventory: {fileID: 1312751972224434844}
-  testItem: {fileID: 11400000, guid: 2c4be591b7ef85742b8a3049f26b22ea, type: 2}
 --- !u!114 &1784921417159330885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
   yOffset: 0
+  precision: 100
 --- !u!114 &836682818427554190
 MonoBehaviour:
   m_ObjectHideFlags: 0
