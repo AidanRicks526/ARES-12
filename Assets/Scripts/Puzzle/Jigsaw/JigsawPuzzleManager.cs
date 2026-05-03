@@ -6,22 +6,26 @@ using UnityEngine.Rendering.Universal;
 public class JigsawPuzzleManager : MonoBehaviour
 {
     [Header("References")]
-    public GameObject jigsawCanvas;   // The Canvas with background + close button
-    public GameObject jigsawRoot;     // The GameObject holding JigsawBoard
+    public GameObject jigsawCanvas;
+    public GameObject jigsawRoot;
     public Button closeButton;
-    public float fadeDuration = 1.5f; // e.g. 1.5 seconds 
+    public float fadeDuration = 1.5f;
 
-    public GameObject lightsUI;       // Drag the Lights_UI GameObject here in the Inspector
+    public GameObject lightsUI;
 
     private bool isOpen = false;
     public CanvasGroup textOverlayGroup;
     private JigsawInteraction[] allTiles;
     private Light2D light2D;
 
-    // Camera state we restore when the puzzle closes
     private SimpleCameraFollow cameraFollow;
     private Vector3 cameraSavedPosition;
     private bool cameraFollowWasEnabled;
+
+    [Header("Panel Settings")]
+    public Image puzzlePanel;
+    [Range(0f, 1f)]
+    public float startingAlpha = 0.5f; // Set this to 0.5 in Inspector for 50% transparency
 
 
     void Start()
@@ -30,21 +34,20 @@ public class JigsawPuzzleManager : MonoBehaviour
         jigsawCanvas.SetActive(false);
         jigsawRoot.SetActive(false);
 
+        // Initialize at your preferred transparency
+        SetPanelAlpha(startingAlpha);
+
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
             light2D = player.GetComponentInChildren<Light2D>(true);
-        if (light2D == null)
-            Debug.LogWarning("JigsawPuzzleManager could not find a Light2D under the Player.", this);
     }
 
     void Update()
     {
-        // Temporary: press Space to open puzzle for testing
         if (Input.GetKeyDown(KeyCode.Space))
             OpenPuzzle();
 
-        // DEBUG: Press P to instantly complete the puzzle
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.P) && isOpen)
         {
             foreach (var tile in allTiles)
@@ -55,19 +58,17 @@ public class JigsawPuzzleManager : MonoBehaviour
                     tile.LockPiece();
                 }
             }
+            CheckCompletion();
         }
-        #endif
-
+#endif
     }
 
     public void OpenPuzzle()
     {
-        if (isOpen) return;// Guard against double opening
+        if (isOpen) return;
         isOpen = true;
-        LockerInteract.IsUIOpenGlobal = true;   // freeze player movement
+        LockerInteract.IsUIOpenGlobal = true;
 
-        // Snap the camera to (0, 0) so the world-space board renders centered.
-        // Disable the follow script so it doesn't drag the camera back to the player.
         if (Camera.main != null)
         {
             cameraFollow = Camera.main.GetComponent<SimpleCameraFollow>();
@@ -77,56 +78,53 @@ public class JigsawPuzzleManager : MonoBehaviour
                 cameraFollowWasEnabled = cameraFollow.enabled;
                 cameraFollow.enabled = false;
             }
-            // Keep the camera's existing z (typically -10 for 2D)
             Camera.main.transform.position = new Vector3(0f, 0f, cameraSavedPosition.z);
         }
 
         jigsawCanvas.SetActive(true);
         jigsawRoot.SetActive(true);
+
+        // Force the panel to start at 50% transparency (0.5f alpha)
+        if (puzzlePanel != null)
+        {
+            puzzlePanel.gameObject.SetActive(true);
+            SetPanelAlpha(startingAlpha);
+        }
+
         if (light2D != null) light2D.enabled = false;
         if (lightsUI != null) lightsUI.SetActive(false);
 
-        // Grab tiles after OnEnable generates them
         allTiles = jigsawRoot.GetComponentsInChildren<JigsawInteraction>();
-
-        // Match the overlay canvas to the board's world size
-        /*JigsawBoard board = jigsawRoot.GetComponentInChildren<JigsawBoard>();
-        if (board != null && textOverlayGroup != null)
-        {
-            RectTransform rt = textOverlayGroup.GetComponent<RectTransform>();
-            if (rt != null)
-            {
-                rt.localScale = Vector3.one;
-                rt.sizeDelta = new Vector2(board.boardWorldWidth, board.boardWorldHeight);
-                rt.position = board.boardCenter;
-            }
-        }*/
     }
 
-    private void OnDisable()
+    private void SetPanelAlpha(float alphaValue)
     {
-        if (isOpen) LockerInteract.IsUIOpenGlobal = false;
+        if (puzzlePanel != null)
+        {
+            Color tempColor = puzzlePanel.color;
+            tempColor.a = alphaValue;
+            puzzlePanel.color = tempColor;
+        }
     }
 
     public void CheckCompletion()
     {
         foreach (var tile in allTiles)
         {
-            if (!tile.IsSnapped) return; // Exit if any piece isn't snapped
+            if (!tile.IsSnapped) return;
         }
-        StartCoroutine(RevealText()); // All pieces snapped — reveal text
+        StartCoroutine(RevealText());
     }
 
     public void ClosePuzzle()
     {
         isOpen = false;
-        LockerInteract.IsUIOpenGlobal = false;  // unfreeze player movement
+        LockerInteract.IsUIOpenGlobal = false;
         jigsawCanvas.SetActive(false);
         jigsawRoot.SetActive(false);
         if (light2D != null) light2D.enabled = true;
         if (lightsUI != null) lightsUI.SetActive(true);
 
-        // Restore the camera to where it was before the puzzle opened.
         if (Camera.main != null)
         {
             Camera.main.transform.position = cameraSavedPosition;
@@ -137,12 +135,29 @@ public class JigsawPuzzleManager : MonoBehaviour
     IEnumerator RevealText()
     {
         float t = 0f;
+
         while (t < 1f)
         {
             t += Time.deltaTime / fadeDuration;
-            textOverlayGroup.alpha = Mathf.Lerp(0f, 1f, t);
+
+            if (textOverlayGroup != null)
+                textOverlayGroup.alpha = Mathf.Lerp(0f, 1f, t);
+
+            // CHANGED: Lerp from startingAlpha (0.5) to 0 (Fully Transparent)
+            if (puzzlePanel != null)
+            {
+                SetPanelAlpha(Mathf.Lerp(startingAlpha, 0f, t));
+            }
+
             yield return null;
         }
-        textOverlayGroup.alpha = 1f; // Guarantee full opacity
+
+        if (textOverlayGroup != null) textOverlayGroup.alpha = 1f;
+
+        if (puzzlePanel != null)
+        {
+            SetPanelAlpha(0f);
+            puzzlePanel.gameObject.SetActive(false);
+        }
     }
 }

@@ -41,7 +41,7 @@ public class Settings_Menu : MonoBehaviour
         // ---------------- VIDEO ----------------
         StartCoroutine(ApplyVideoVolumeDelayed(musicVol));
 
-        // ---------------- TEXT SPEED ONLY ----------------
+        // ---------------- TEXT SPEED ----------------
         float textSpeed = PlayerPrefs.GetFloat("textSpeed", 1f);
         if (textSpeedSlider) textSpeedSlider.value = textSpeed;
         SetTextSpeed(textSpeed);
@@ -113,7 +113,7 @@ public class Settings_Menu : MonoBehaviour
     }
 
     // =========================
-    // TEXT SPEED ONLY
+    // TEXT SPEED (FIXED LINK)
     // =========================
     public void OnTextSpeedChanged(float value)
     {
@@ -126,7 +126,10 @@ public class Settings_Menu : MonoBehaviour
     void SetTextSpeed(float value)
     {
         if (shipAI != null)
-            shipAI.textSpeedMultiplier = value;
+        {
+            // 🔥 THIS is the important fix:
+            shipAI.SetTextSpeed(value);
+        }
     }
 
     // =========================

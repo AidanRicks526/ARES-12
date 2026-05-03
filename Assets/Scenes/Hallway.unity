@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -119}
+  m_AnchoredPosition: {x: 0, y: -2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84970631
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -385,8 +385,11 @@ MonoBehaviour:
       unstable--"
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 0
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -404,8 +407,11 @@ MonoBehaviour:
       your head, trigg--ering amne--sia."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 3
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -419,8 +425,11 @@ MonoBehaviour:
       to be more like Inte--rstellar\u2026"
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 3
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -431,8 +440,11 @@ MonoBehaviour:
     subtitle: '&^*#(%#&(%^&@^(&@$^(&$@8761%&5^476$5364#$#$%@^%&(Q78%^%674^&------ '
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 4
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -443,8 +455,11 @@ MonoBehaviour:
     subtitle: "Excuse me\u2013 It seems my systems are still slightly fried. "
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 5
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -458,8 +473,11 @@ MonoBehaviour:
       Interact with my d!gital screen in each room to communicate with me once ag@in."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    typeSpeed: 0.1
     nextIndex: 6
     requiredItem: {fileID: 0}
     consumeItem: 0
@@ -1592,7 +1610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -225}
   m_SizeDelta: {x: 180, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675110023
@@ -3771,9 +3789,8 @@ MonoBehaviour:
   subtitleText: {fileID: 1270028435}
   voiceSource: {fileID: 0}
   sfxSource: {fileID: 0}
-  textSpeedMultiplier: 1
+  textSpeed: 1
   fadeDuration: 0.3
-  isManualMode: 0
 --- !u!4 &1446279515
 Transform:
   m_ObjectHideFlags: 0
@@ -4574,11 +4591,11 @@ MonoBehaviour:
   buttons:
   - {fileID: 1882144402}
   - {fileID: 859919232}
-  - {fileID: 675110023}
   buttonTexts:
   - {fileID: 850695481}
   - {fileID: 1179260001}
   - {fileID: 84970631}
+  nextButton: {fileID: 675110023}
 --- !u!114 &1724986409
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,12 +14,11 @@ public class ShipAI : MonoBehaviour
     public AudioSource voiceSource;
     public AudioSource sfxSource;
 
-    [Header("Settings")]
-    public float textSpeedMultiplier = 1f;
-    public float fadeDuration = 0.3f;
+    [Header("Text Speed")]
+    public float textSpeed = 1f;
 
-    [Header("Legacy Compatibility")]
-    public bool isManualMode = false;
+    [Header("Settings")]
+    public float fadeDuration = 0.3f;
 
     private List<VoiceLine> currentDialogue;
     private int index;
@@ -30,6 +29,11 @@ public class ShipAI : MonoBehaviour
     void Start()
     {
         HideUIInstant();
+    }
+
+    public void SetTextSpeed(float value)
+    {
+        textSpeed = Mathf.Max(0.1f, value);
     }
 
     public void PlayDialogue(List<VoiceLine> lines)
@@ -51,39 +55,54 @@ public class ShipAI : MonoBehaviour
         {
             VoiceLine line = currentDialogue[index];
 
-            if (!CanPlay(line))
-            {
-                index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
-                continue;
-            }
-
             speakerText.text = line.speakerName;
 
-            yield return TypeText(line);
-
-            float adaptiveSpeed = GetAdaptiveSpeed(line, line.subtitle.Length);
-
-            float duration = Mathf.Max(
-                line.voiceClip != null ? line.voiceClip.length : line.fallbackDuration,
-                line.subtitle.Length * adaptiveSpeed
-            );
-
+            // =========================
+            // PLAY VOICE
+            // =========================
             if (line.voiceClip != null)
             {
                 voiceSource.clip = line.voiceClip;
                 voiceSource.Play();
             }
 
-            // Branching
+            // =========================
+            // TYPE TEXT
+            // =========================
+            yield return TypeText(line);
+
+            // =========================
+            // CHOICES
+            // =========================
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
+                index = line.choices[index].nextIndex;
                 continue;
             }
 
-            yield return new WaitForSeconds(duration);
+            // =========================
+            // NEXT BUTTON FLOW (FIXED)
+            // =========================
+            bool nextPressed = false;
 
-            // Linear progression
+            ChoiceUI.Instance.OnNextPressed = () =>
+            {
+                if (voiceSource != null && voiceSource.isPlaying)
+                    voiceSource.Stop();
+
+                nextPressed = true;
+            };
+
+            ChoiceUI.Instance.Show(null);
+
+            // Wait until voice finishes naturally
+            while (voiceSource != null && voiceSource.isPlaying)
+                yield return null;
+
+            // NOW wait for player input (NO auto-skip possible)
+            yield return new WaitUntil(() => nextPressed);
+
             index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
         }
 
@@ -91,25 +110,19 @@ public class ShipAI : MonoBehaviour
         isPlaying = false;
     }
 
-    bool CanPlay(VoiceLine line)
+    IEnumerator TypeText(VoiceLine line)
     {
-        if (line.requiredItem != null)
+        subtitleText.text = "";
+
+        foreach (char c in line.subtitle)
         {
-            if (!Inventory.Instance.HasItem(line.requiredItem))
-                return false;
+            subtitleText.text += c;
 
-            if (line.consumeItem)
-                Inventory.Instance.RemoveItem(line.requiredItem);
+            if (line.typingSFX != null)
+                sfxSource.PlayOneShot(line.typingSFX);
+
+            yield return new WaitForSeconds(0.05f / textSpeed);
         }
-
-        if (line.useTimerGate)
-        {
-            if (GameTimer.Instance != null &&
-                GameTimer.Instance.currentTime > line.triggerBeforeTime)
-                return false;
-        }
-
-        return true;
     }
 
     IEnumerator HandleChoices(VoiceLine line)
@@ -128,28 +141,6 @@ public class ShipAI : MonoBehaviour
         yield return new WaitUntil(() => picked);
 
         index = line.choices[chosenIndex].nextIndex;
-    }
-
-    IEnumerator TypeText(VoiceLine line)
-    {
-        subtitleText.text = "";
-
-        string finalText = line.subtitle;
-
-        if (GameTimer.Instance != null)
-            finalText = finalText.Replace("{TIME}", GameTimer.Instance.GetFormattedTime());
-
-        float typeSpeed = GetAdaptiveSpeed(line, finalText.Length);
-
-        foreach (char c in finalText)
-        {
-            subtitleText.text += c;
-
-            if (line.typingSFX != null)
-                sfxSource.PlayOneShot(line.typingSFX);
-
-            yield return new WaitForSeconds(typeSpeed);
-        }
     }
 
     IEnumerator Fade(float target)
@@ -172,46 +163,12 @@ public class ShipAI : MonoBehaviour
         dialogueCanvasGroup.alpha = 0f;
     }
 
-    // Legacy compatibility (prevents Settings_Menu errors)
     public void OnNextLinePressed()
     {
-        if (!isManualMode) return;
-        if (!IsPlaying) return;
+        if (!isPlaying) return;
 
         StopAllCoroutines();
         isPlaying = false;
         dialogueCanvasGroup.alpha = 0f;
-    }
-
-    float GetAdaptiveSpeed(VoiceLine line, int length)
-    {
-        // Manual override (highest priority)
-        if (line.overrideTyping)
-            return line.overrideTypeSpeed;
-
-        float speed;
-
-        // 🔥 Adaptive scaling based on text length
-        if (length < 40)
-        {
-            speed = 0.08f; // slow, dramatic
-        }
-        else if (length < 100)
-        {
-            speed = 0.06f; // normal
-        }
-        else if (length < 180)
-        {
-            speed = 0.045f; // faster
-        }
-        else
-        {
-            speed = 0.035f; // long text = faster
-        }
-
-        // Apply per-line multiplier (for emotion/glitch/etc)
-        speed *= line.speedMultiplier;
-
-        return speed;
     }
 }

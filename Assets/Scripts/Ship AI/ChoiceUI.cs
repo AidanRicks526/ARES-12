@@ -8,10 +8,15 @@ public class ChoiceUI : MonoBehaviour
     public static ChoiceUI Instance;
 
     public GameObject panel;
+
     public Button[] buttons;
     public TextMeshProUGUI[] buttonTexts;
 
+    [Header("Next Button")]
+    public Button nextButton;
+
     public Action<int> OnChoiceSelected;
+    public Action OnNextPressed;
 
     void Awake()
     {
@@ -21,16 +26,23 @@ public class ChoiceUI : MonoBehaviour
             Debug.LogError("ChoiceUI: Panel not assigned!");
 
         panel.SetActive(false);
+
+        if (nextButton != null)
+        {
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(() =>
+            {
+                panel.SetActive(false);
+                OnNextPressed?.Invoke();
+            });
+        }
     }
 
+    // =========================
+    // SHOW CHOICES OR NEXT
+    // =========================
     public void Show(DialogueChoice[] choices)
     {
-        if (choices == null || choices.Length == 0)
-        {
-            Debug.LogError("ChoiceUI: No choices provided!");
-            return;
-        }
-
         if (panel == null || buttons == null || buttonTexts == null)
         {
             Debug.LogError("ChoiceUI: UI not fully assigned!");
@@ -38,6 +50,25 @@ public class ChoiceUI : MonoBehaviour
         }
 
         panel.SetActive(true);
+
+        // ---------------------------
+        // NO CHOICES → SHOW NEXT
+        // ---------------------------
+        if (choices == null || choices.Length == 0)
+        {
+            SetChoiceButtonsActive(false);
+
+            if (nextButton != null)
+                nextButton.gameObject.SetActive(true);
+
+            return;
+        }
+
+        // ---------------------------
+        // HAS CHOICES
+        // ---------------------------
+        if (nextButton != null)
+            nextButton.gameObject.SetActive(false);
 
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -49,8 +80,6 @@ public class ChoiceUI : MonoBehaviour
 
                 if (buttonTexts[i] != null)
                     buttonTexts[i].text = choices[i].choiceText;
-                else
-                    Debug.LogError("Missing button text at index " + i);
 
                 buttons[i].onClick.RemoveAllListeners();
                 buttons[i].onClick.AddListener(() =>
@@ -63,6 +92,15 @@ public class ChoiceUI : MonoBehaviour
             {
                 buttons[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    void SetChoiceButtonsActive(bool state)
+    {
+        foreach (var b in buttons)
+        {
+            if (b != null)
+                b.gameObject.SetActive(state);
         }
     }
 }
