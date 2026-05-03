@@ -132,7 +132,15 @@ public class ShipAI : MonoBehaviour
     {
         subtitleText.text = "";
 
-        foreach (char c in line.subtitle)
+        string finalText = line.subtitle;
+
+        // 🔥 Replace {TIME} with live timer
+        if (GameTimer.Instance != null)
+        {
+            finalText = finalText.Replace("{TIME}", GameTimer.Instance.GetFormattedTime());
+        }
+
+        foreach (char c in finalText)
         {
             subtitleText.text += c;
 
