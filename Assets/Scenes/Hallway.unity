@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -119}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84970631
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -377,49 +377,95 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipAIPanel
   lines:
   - speakerName: Ship AI
-    subtitle: POwEr sYSteMs ARE oFfLiNe
+    subtitle: "Hel--lo, space caDet. It see--ms you are the remai--ning survivor
+      on this ship\u2026 though my records are incomp--lete. I cannot deterMine wHetHer
+      the others esca--ped\u2026 or if they are no longer al--ive. PoWeR sys--tems
+      are currently off--line. You will need to loCa--te the engine room\u2026 and
+      resto--re power. Please proc--eed with cau--tion.--caution--signal integ--rity
+      unstable--"
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     fallbackDuration: 0
     typeSpeed: 0.1
-    nextIndex: 1
+    nextIndex: 0
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices:
+    - choiceText: Where am I?
+      nextIndex: 1
+    - choiceText: What happened?
+      nextIndex: 2
+  - speakerName: Ship AI
+    subtitle: "Even I am un--sure. I beli--eve my sys--tem\u2019s mEm--ory was part--ially
+      dest--royed due to whate--ver hAppened not too long Ag--o\u2026 Unfortu--nately,
+      I can\u2019t seem to remEm--ber\u2014much like y--ou. It see--ms you h--it
+      your head, trigg--ering amne--sia."
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    fallbackDuration: 0
+    typeSpeed: 0.1
+    nextIndex: 3
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: YoU nEeD tO rEsTaRt PoWeR iN tHe EnGiNe RoOm
+    subtitle: "My g--uess is so--me kinD of exLl--osion\u2026 I beli--eve that wOuld
+      be a more hop--eful outc--ome than someth--ing moRe eer--ie in this infi--nitely
+      black univ--erse\u2026 like an alien perh--aPs? Hop--efully this turns out
+      to be more like Inte--rstellar\u2026"
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     fallbackDuration: 0
     typeSpeed: 0.1
-    nextIndex: 0
+    nextIndex: 3
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
     triggerBeforeTime: 0
-    choices:
-    - choiceText: Continue
-      nextIndex: 2
-    - choiceText: Ignore
-      nextIndex: 3
+    choices: []
   - speakerName: Ship AI
-    subtitle: 'Power systems restored '
+    subtitle: '&^*#(%#&(%^&@^(&@$^(&$@8761%&5^476$5364#$#$%@^%&(Q78%^%674^&------ '
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     fallbackDuration: 0
     typeSpeed: 0.1
-    nextIndex: 0
+    nextIndex: 4
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
     triggerBeforeTime: 0
-    choices:
-    - choiceText: Continue
-      nextIndex: 2
-    - choiceText: Ignore
-      nextIndex: 3
+    choices: []
+  - speakerName: Ship AI
+    subtitle: "Excuse me\u2013 It seems my systems are still slightly fried. "
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    fallbackDuration: 0
+    typeSpeed: 0.1
+    nextIndex: 5
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: "I sUggest you se@rch for the engine room. If you press \u201CM\u201D
+      it opens up your map. It shOuld be located through the Main_Gate, into the
+      Core_Ring, where you can find an end!ess loop of doorways\u2026 Good luck.
+      Interact with my d!gital screen in each room to communicate with me once ag@in."
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    fallbackDuration: 0
+    typeSpeed: 0.1
+    nextIndex: 6
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
   shipAI: {fileID: 1446279514}
 --- !u!61 &169825366
 BoxCollider2D:
@@ -455,7 +501,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.004297495, y: 0.00000008940697}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -465,7 +511,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2148807, y: 1.4293883}
   m_EdgeRadius: 0
 --- !u!212 &169825367
 SpriteRenderer:
@@ -951,7 +997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -25}
+  m_AnchoredPosition: {x: 142, y: -63}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &327663860
@@ -1048,7 +1094,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -48.358536, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1883,8 +1929,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2052,7 +2098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: 0}
+  m_AnchoredPosition: {x: 95, y: -226.3}
   m_SizeDelta: {x: 180, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859919232
@@ -2794,8 +2840,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3276,7 +3322,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 35.743286, y: -212.91037, z: 39.948242, w: 9.920759}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3363,6 +3409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 3136227692880276368, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+      propertyPath: shipAI
+      value: 
+      objectReference: {fileID: 1446279514}
     - target: {fileID: 3173243829367949733, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5190,7 +5240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95, y: 0}
+  m_AnchoredPosition: {x: -95, y: -225}
   m_SizeDelta: {x: 180, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882144402
@@ -6011,3 +6061,6 @@ SceneRoots:
   - {fileID: 1223216362}
   - {fileID: 2012423420}
   - {fileID: 250045839}
+  - {fileID: 491883003}
+  - {fileID: 663172555}
+  - {fileID: 2103944540}

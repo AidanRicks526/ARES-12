@@ -10,7 +10,6 @@ public class Settings_Menu : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
     public Slider textSpeedSlider;
-    public Toggle manualDialogueToggle;
 
     public Vector2 hiddenPos;
     public Vector2 shownPos;
@@ -42,12 +41,7 @@ public class Settings_Menu : MonoBehaviour
         // ---------------- VIDEO ----------------
         StartCoroutine(ApplyVideoVolumeDelayed(musicVol));
 
-        // ---------------- DIALOGUE ----------------
-        bool isManual = PlayerPrefs.GetInt("manualDialogue", 0) == 1;
-        if (manualDialogueToggle) manualDialogueToggle.isOn = isManual;
-        SetDialogueMode(isManual);
-
-        // ---------------- TEXT SPEED ----------------
+        // ---------------- TEXT SPEED ONLY ----------------
         float textSpeed = PlayerPrefs.GetFloat("textSpeed", 1f);
         if (textSpeedSlider) textSpeedSlider.value = textSpeed;
         SetTextSpeed(textSpeed);
@@ -59,15 +53,12 @@ public class Settings_Menu : MonoBehaviour
     public void OnMusicVolumeChanged(float value)
     {
         ApplyMusic(value);
-
         PlayerPrefs.SetFloat("musicVolume", value);
         PlayerPrefs.Save();
     }
 
     void ApplyMusic(float value)
     {
-        if (musicSources == null) return;
-
         foreach (var audio in musicSources)
             if (audio != null)
                 audio.volume = value;
@@ -81,15 +72,12 @@ public class Settings_Menu : MonoBehaviour
     public void OnSFXVolumeChanged(float value)
     {
         ApplySFX(value);
-
         PlayerPrefs.SetFloat("sfxVolume", value);
         PlayerPrefs.Save();
     }
 
     void ApplySFX(float value)
     {
-        if (sfxSources == null) return;
-
         foreach (var audio in sfxSources)
             if (audio != null)
                 audio.volume = value;
@@ -100,8 +88,6 @@ public class Settings_Menu : MonoBehaviour
     // =========================
     void ApplyVideoVolume(float value)
     {
-        if (videoPlayers == null) return;
-
         foreach (var vp in videoPlayers)
         {
             if (vp != null)
@@ -114,8 +100,6 @@ public class Settings_Menu : MonoBehaviour
 
     IEnumerator ApplyVideoVolumeDelayed(float value)
     {
-        if (videoPlayers == null) yield break;
-
         foreach (var vp in videoPlayers)
         {
             if (vp != null)
@@ -129,7 +113,7 @@ public class Settings_Menu : MonoBehaviour
     }
 
     // =========================
-    // TEXT SPEED
+    // TEXT SPEED ONLY
     // =========================
     public void OnTextSpeedChanged(float value)
     {
@@ -143,29 +127,6 @@ public class Settings_Menu : MonoBehaviour
     {
         if (shipAI != null)
             shipAI.textSpeedMultiplier = value;
-    }
-
-    // =========================
-    // DIALOGUE MODE
-    // =========================
-    public void OnManualToggleChanged(bool isManual)
-    {
-        if (shipAI != null)
-        {
-            shipAI.isManualMode = isManual;
-
-            if (!isManual)
-                shipAI.OnNextLinePressed();
-        }
-
-        PlayerPrefs.SetInt("manualDialogue", isManual ? 1 : 0);
-        PlayerPrefs.Save();
-    }
-
-    void SetDialogueMode(bool isManual)
-    {
-        if (shipAI != null)
-            shipAI.isManualMode = isManual;
     }
 
     // =========================
