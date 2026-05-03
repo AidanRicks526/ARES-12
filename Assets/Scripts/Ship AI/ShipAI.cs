@@ -61,9 +61,11 @@ public class ShipAI : MonoBehaviour
 
             yield return TypeText(line);
 
+            float adaptiveSpeed = GetAdaptiveSpeed(line, line.subtitle.Length);
+
             float duration = Mathf.Max(
                 line.voiceClip != null ? line.voiceClip.length : line.fallbackDuration,
-                line.subtitle.Length * line.typeSpeed
+                line.subtitle.Length * adaptiveSpeed
             );
 
             if (line.voiceClip != null)
@@ -134,11 +136,10 @@ public class ShipAI : MonoBehaviour
 
         string finalText = line.subtitle;
 
-        // 🔥 Replace {TIME} with live timer
         if (GameTimer.Instance != null)
-        {
             finalText = finalText.Replace("{TIME}", GameTimer.Instance.GetFormattedTime());
-        }
+
+        float typeSpeed = GetAdaptiveSpeed(line, finalText.Length);
 
         foreach (char c in finalText)
         {
@@ -147,7 +148,7 @@ public class ShipAI : MonoBehaviour
             if (line.typingSFX != null)
                 sfxSource.PlayOneShot(line.typingSFX);
 
-            yield return new WaitForSeconds(line.typeSpeed / textSpeedMultiplier);
+            yield return new WaitForSeconds(typeSpeed);
         }
     }
 
@@ -180,5 +181,37 @@ public class ShipAI : MonoBehaviour
         StopAllCoroutines();
         isPlaying = false;
         dialogueCanvasGroup.alpha = 0f;
+    }
+
+    float GetAdaptiveSpeed(VoiceLine line, int length)
+    {
+        // Manual override (highest priority)
+        if (line.overrideTyping)
+            return line.overrideTypeSpeed;
+
+        float speed;
+
+        // 🔥 Adaptive scaling based on text length
+        if (length < 40)
+        {
+            speed = 0.08f; // slow, dramatic
+        }
+        else if (length < 100)
+        {
+            speed = 0.06f; // normal
+        }
+        else if (length < 180)
+        {
+            speed = 0.045f; // faster
+        }
+        else
+        {
+            speed = 0.035f; // long text = faster
+        }
+
+        // Apply per-line multiplier (for emotion/glitch/etc)
+        speed *= line.speedMultiplier;
+
+        return speed;
     }
 }

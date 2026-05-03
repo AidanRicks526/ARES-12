@@ -3,7 +3,7 @@
 [System.Serializable]
 public class VoiceLine
 {
-    [Header("Identity")]
+    [Header("Text")]
     public string speakerName = "SHIP AI";
 
     [TextArea(2, 5)]
@@ -13,9 +13,14 @@ public class VoiceLine
     public AudioClip voiceClip;
     public AudioClip typingSFX;
 
+    [Header("Typing")]
+    public float baseTypeSpeed = 0.05f;   // default speed
+    public float speedMultiplier = 1f;    // per-line modifier
+    public bool overrideTyping = false;   // force manual speed
+    public float overrideTypeSpeed = 0.05f;
+
     [Header("Timing")]
-    public float fallbackDuration = 2f;
-    public float typeSpeed = 0.03f;
+    public float fallbackDuration = 3f;
 
     [Header("Progression")]
     public int nextIndex = -1;
