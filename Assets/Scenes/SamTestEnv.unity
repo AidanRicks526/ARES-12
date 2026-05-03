@@ -357,6 +357,42 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
   m_PrefabInstance: {fileID: 1662531777}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &635867683
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635867678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0000038146973, y: -0.0000019073486}
+  m_Radius: 8.77
 --- !u!1 &679077461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1329,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 66d20bdc9c7856f4d99680c5dffb9c2f, type: 2}
+    - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: puzzleManager
+      value: 
+      objectReference: {fileID: 1922922359}
     - target: {fileID: 5977955888484510100, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: m_Name
       value: MemoryShard
@@ -1304,7 +1348,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9179907993083046945, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 635867683}
   m_SourcePrefab: {fileID: 100100000, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
 --- !u!1 &1901786358
 GameObject:
