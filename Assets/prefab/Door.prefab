@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7889747817494059806}
   - component: {fileID: 8258979065588961685}
   - component: {fileID: 4562638353149506203}
+  - component: {fileID: 5753601176365496499}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -160,6 +161,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.46, y: 11}
   m_EdgeRadius: 0
+--- !u!114 &5753601176365496499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087423527957689945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959d1d619792e443a764891347cedd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
+  highlightScale: 1.05
+  detectionRadius: 1
+  playerTag: Player
+  pulseSpeed: 3
+  pulseAmount: 0.05
+  highlightMaterial: {fileID: 2100000, guid: a49a8ce909b7ce248a6dcb8365fd3f78, type: 2}
 --- !u!1001 &3692234540424642809
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2d654aa07c69346a027aed29db6a02, type: 3}
   m_Name: LabNote4
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
-  itemName: 
+  itemName: Lab Note 4
   icon: {fileID: 0}
   stackable: 0
   maxStack: 1

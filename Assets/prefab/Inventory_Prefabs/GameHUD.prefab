@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5449691662124601888}
   - component: {fileID: 6117288802974876146}
   - component: {fileID: 3144737136042297285}
+  - component: {fileID: 8872756960454021488}
+  - component: {fileID: 4637788636785789308}
   m_Layer: 5
   m_Name: GameHUD
   m_TagString: Untagged
@@ -102,6 +104,35 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8872756960454021488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353290142321219669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60edce30611ef7d47b0a40912754821a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryDisplay
+  inventory: {fileID: 9123851942092862529, guid: be8c9aa25de3b604f8a3fd0e939e745b, type: 3}
+  slotParent: {fileID: 0}
+  slotPrefab: {fileID: 0}
+--- !u!114 &4637788636785789308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353290142321219669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ce380b90ff44e438de4f14b06f4f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
+  inventoryPanel: {fileID: 1353290142321219669}
+  inventoryDisplay: {fileID: 8872756960454021488}
 --- !u!1 &4318799369775903929
 GameObject:
   m_ObjectHideFlags: 0

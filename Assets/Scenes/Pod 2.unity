@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 296178010}
   - component: {fileID: 296178007}
   - component: {fileID: 296178009}
+  - component: {fileID: 296178011}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -545,6 +546,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.8115525, y: 3.3537805}
   m_EdgeRadius: 0
+--- !u!114 &296178011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296178004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959d1d619792e443a764891347cedd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
+  highlightScale: 1.05
+  detectionRadius: 2
+  playerTag: Player
+  pulseSpeed: 3
+  pulseAmount: 0.05
+  highlightMaterial: {fileID: 2100000, guid: a49a8ce909b7ce248a6dcb8365fd3f78, type: 2}
 --- !u!1001 &360043159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2247,6 +2266,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9011f133568fae7468ebca4ab68b259a, type: 2}
+    - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: puzzleManager
       value: 
       objectReference: {fileID: 668614893}
@@ -3410,12 +3433,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2988051504150186597, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 362194491}
+    - targetCorrespondingSourceObject: {fileID: 2988051504150186597, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4682423917968791726}
   m_SourcePrefab: {fileID: 100100000, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
 --- !u!4 &4682423917968791725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7056485353787547491, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
   m_PrefabInstance: {fileID: 4682423917968791724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4682423917968791726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362194486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959d1d619792e443a764891347cedd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
+  highlightScale: 1.05
+  detectionRadius: 1
+  playerTag: Player
+  pulseSpeed: 3
+  pulseAmount: 0.05
+  highlightMaterial: {fileID: 2100000, guid: a49a8ce909b7ce248a6dcb8365fd3f78, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

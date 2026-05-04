@@ -31,21 +31,63 @@ public class ShipAI : MonoBehaviour
         HideUIInstant();
     }
 
+    // =========================
+    // TEXT SPEED
+    // =========================
     public void SetTextSpeed(float value)
     {
         textSpeed = Mathf.Max(0.1f, value);
     }
 
+    // =========================
+    // START DIALOGUE
+    // =========================
     public void PlayDialogue(List<VoiceLine> lines)
     {
         if (isPlaying) return;
 
         currentDialogue = lines;
-        index = 0;
+
+        // 🔥 IMPORTANT: choose correct entry point BEFORE starting
+        index = GetStartIndex();
 
         StartCoroutine(RunDialogue());
     }
 
+    // =========================
+    // ENTRY RESOLUTION (NEW)
+    // =========================
+    int GetStartIndex()
+    {
+        for (int i = 0; i < currentDialogue.Count; i++)
+        {
+            if (CanPlay(currentDialogue[i]))
+                return i;
+        }
+
+        return 0;
+    }
+
+    // =========================
+    // CONDITION CHECK
+    // =========================
+    bool CanPlay(VoiceLine line)
+    {
+        if (line.requiredItem != null)
+        {
+            if (!Inventory.Instance.HasItem(line.requiredItem))
+                return false;
+
+            if (line.consumeItem)
+                Inventory.Instance.RemoveItem(line.requiredItem);
+        }
+
+        return true;
+    }
+
+    // =========================
+    // MAIN LOOP
+    // =========================
     IEnumerator RunDialogue()
     {
         isPlaying = true;
@@ -54,6 +96,13 @@ public class ShipAI : MonoBehaviour
         while (index >= 0 && index < currentDialogue.Count)
         {
             VoiceLine line = currentDialogue[index];
+
+            // 🔥 Skip invalid lines safely
+            if (!CanPlay(line))
+            {
+                index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
+                continue;
+            }
 
             speakerText.text = line.speakerName;
 
@@ -77,11 +126,11 @@ public class ShipAI : MonoBehaviour
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
-                continue; // 🔥 HandleChoices already sets index correctly
+                continue;
             }
 
             // =========================
-            // NEXT BUTTON FLOW (FIXED)
+            // NEXT BUTTON FLOW
             // =========================
             bool nextPressed = false;
 
@@ -95,11 +144,11 @@ public class ShipAI : MonoBehaviour
 
             ChoiceUI.Instance.Show(null);
 
-            // Wait until voice finishes naturally
+            // wait for voice to finish
             while (voiceSource != null && voiceSource.isPlaying)
                 yield return null;
 
-            // NOW wait for player input (NO auto-skip possible)
+            // wait for player input
             yield return new WaitUntil(() => nextPressed);
 
             index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
@@ -109,6 +158,9 @@ public class ShipAI : MonoBehaviour
         isPlaying = false;
     }
 
+    // =========================
+    // TYPE TEXT
+    // =========================
     IEnumerator TypeText(VoiceLine line)
     {
         subtitleText.text = "";
@@ -124,6 +176,9 @@ public class ShipAI : MonoBehaviour
         }
     }
 
+    // =========================
+    // CHOICES
+    // =========================
     IEnumerator HandleChoices(VoiceLine line)
     {
         bool picked = false;
@@ -142,6 +197,9 @@ public class ShipAI : MonoBehaviour
         index = line.choices[chosenIndex].nextIndex;
     }
 
+    // =========================
+    // FADE
+    // =========================
     IEnumerator Fade(float target)
     {
         float start = dialogueCanvasGroup.alpha;
@@ -162,6 +220,9 @@ public class ShipAI : MonoBehaviour
         dialogueCanvasGroup.alpha = 0f;
     }
 
+    // =========================
+    // FORCE EXIT
+    // =========================
     public void OnNextLinePressed()
     {
         if (!isPlaying) return;

@@ -1822,6 +1822,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5932947324375279877, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: d7285cba4bb283d4fb5bfd338bd9eb6c, type: 2}
     - target: {fileID: 5977955888484510100, guid: 93110f5b2c9b5a04a9f4ccea8529449c, type: 3}
       propertyPath: m_Name
       value: MemoryShard

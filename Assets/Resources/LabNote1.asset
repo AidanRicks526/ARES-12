@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2d654aa07c69346a027aed29db6a02, type: 3}
   m_Name: LabNote1
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
-  itemName: Lab Note 01/12/2060
-  icon: {fileID: 0}
+  itemName: Lab Note 1
+  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
   stackable: 0
   maxStack: 1
   noteContent: Skibidi Rizz

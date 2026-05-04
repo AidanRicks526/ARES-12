@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2465779757123446277}
   - component: {fileID: 1346259139681694146}
   - component: {fileID: 7435135240111356917}
-  - component: {fileID: -8173603128811586766}
   m_Layer: 0
   m_Name: MemoryShard
   m_TagString: Untagged
@@ -146,19 +145,6 @@ MonoBehaviour:
   playerTag: Player
   fadeSpeed: 5
   objectToWatch: {fileID: 0}
---- !u!114 &-8173603128811586766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977955888484510100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c469386e34d254f86df42ee914933b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PuzzleObject
-  id: {fileID: 0}
 --- !u!1 &9179907993083046945
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +158,7 @@ GameObject:
   - component: {fileID: 3200376462637676305}
   - component: {fileID: 2791533749362779387}
   - component: {fileID: 5932947324375279877}
+  - component: {fileID: 7150625792276414931}
   m_Layer: 0
   m_Name: Memory_3
   m_TagString: Untagged
@@ -339,3 +326,21 @@ MonoBehaviour:
   puzzleManager: {fileID: 0}
   delayBeforePuzzle: 2
   noteData: {fileID: 0}
+--- !u!114 &7150625792276414931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179907993083046945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959d1d619792e443a764891347cedd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
+  highlightScale: 1.05
+  detectionRadius: 1
+  playerTag: Player
+  pulseSpeed: 3
+  pulseAmount: 0.05
+  highlightMaterial: {fileID: 2100000, guid: a49a8ce909b7ce248a6dcb8365fd3f78, type: 2}

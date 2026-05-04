@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - inventoryPanel: {fileID: 2133718832161469724, guid: fecab12ef20db2f46812758d6f0d9d6e, type: 3}
+  - inventoryPanel: {fileID: 1353290142321219669, guid: 32fd83cf263595d48b3017ae80c5cb07, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interaction_Symbol
   playerTag: Player
   fadeSpeed: 5
-  objectToWatch: {fileID: 0}
+  objectToWatch: {fileID: 1801712279173639812}
 --- !u!1 &1801712279173639812
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 1622720227493830250}
   - component: {fileID: 854235716639851535}
   - component: {fileID: 5486041449839374963}
+  - component: {fileID: 5138154697992441240}
   m_Layer: 0
   m_Name: LabNote
   m_TagString: Untagged
@@ -301,7 +302,7 @@ MonoBehaviour:
   amount: 1
   pickupRange: 2.5
   puzzleManager: {fileID: 0}
-  delayBeforePuzzle: 2
+  delayBeforePuzzle: 0
   noteData: {fileID: 0}
 --- !u!114 &5486041449839374963
 MonoBehaviour:
@@ -317,3 +318,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Changable_Layer
   yOffset: 0
   precision: 100
+--- !u!114 &5138154697992441240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801712279173639812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959d1d619792e443a764891347cedd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
+  highlightScale: 1.05
+  detectionRadius: 1
+  playerTag: Player
+  pulseSpeed: 3
+  pulseAmount: 0.05
+  highlightMaterial: {fileID: 2100000, guid: a49a8ce909b7ce248a6dcb8365fd3f78, type: 2}
