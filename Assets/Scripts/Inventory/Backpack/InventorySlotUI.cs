@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
+public class InventorySlotUI : MonoBehaviour
 {
     [Header("UI")]
     public Image iconImage;
@@ -30,11 +30,4 @@ public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
         quantityText.text = slot.quantity > 1 ? slot.quantity.ToString() : "";
     }
 
-    // 🧠 CLICK HANDLER
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (slotData == null || slotData.item == null) return;
-
-        ItemPopupUI.Instance.Show(slotData.item);
-    }
 }

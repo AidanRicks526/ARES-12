@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4937090957040845361, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.28
+      value: 16.07
       objectReference: {fileID: 0}
     - target: {fileID: 4937090957040845361, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1285,7 +1285,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 18.00266, y: -0.69704276}
+  - {x: 16.53195, y: -0.78251153}
   - {x: 20.350876, y: -3.4375699}
   - {x: 20.284712, y: -4.7496}
   - {x: -8.740798, y: -4.7637234}
@@ -1294,12 +1294,12 @@ EdgeCollider2D:
   - {x: -6.581869, y: -0.88155615}
   - {x: -4.660433, y: -0.9184127}
   - {x: -2.7640588, y: -0.9872346}
-  - {x: -2.555127, y: -1.2878468}
+  - {x: -2.4094908, y: -1.4018229}
   - {x: 7.298897, y: -1.2065866}
   - {x: 7.109844, y: -0.83588624}
   - {x: 8.359279, y: -0.7789294}
-  - {x: 8.700146, y: -1.0466498}
-  - {x: 17.920588, y: -0.71541864}
+  - {x: 8.718101, y: -1.1050035}
+  - {x: 16.510258, y: -0.81552297}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1342,9 +1342,9 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 7.9988127, y: -2.1833427}
-  - {x: 8.312851, y: -2.6138644}
-  - {x: -1.0920603, y: -2.7556229}
-  - {x: -1.4571126, y: -2.2304416}
+  - {x: 8.293556, y: -2.5146332}
+  - {x: -1.1054778, y: -2.8092928}
+  - {x: -1.3900247, y: -2.3914523}
   - {x: 7.99952, y: -2.1475525}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -1388,9 +1388,9 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 9.020536, y: -3.3651729}
-  - {x: -0.46170998, y: -3.6444955}
-  - {x: -0.034213185, y: -4.070995}
-  - {x: 9.460344, y: -3.7630186}
+  - {x: -0.27040386, y: -3.6594996}
+  - {x: 0.08207095, y: -4.1647725}
+  - {x: 9.467847, y: -3.7705207}
   - {x: 9.071547, y: -3.3850734}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -1449,10 +1449,10 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 19.71678, y: -2.5145655}
-  - {x: 9.996376, y: -2.839717}
-  - {x: 9.65004, y: -2.4463727}
+  - {x: 10.001474, y: -2.9187393}
+  - {x: 9.644941, y: -2.3800957}
   - {x: 19.198376, y: -2.181768}
-  - {x: 19.524384, y: -2.4997332}
+  - {x: 19.813246, y: -2.1128652}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1494,11 +1494,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 20.036884, y: -3.356278}
-  - {x: 10.878004, y: -3.665597}
-  - {x: 11.290607, y: -4.1801395}
-  - {x: 20.318254, y: -3.8099995}
-  - {x: 19.919737, y: -3.4270816}
+  - {x: 20.505672, y: -3.3723326}
+  - {x: 10.805325, y: -3.7134128}
+  - {x: 11.156724, y: -4.2413435}
+  - {x: 20.01001, y: -3.7971563}
+  - {x: 20.584389, y: -3.7899108}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2722,7 +2722,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2843747, y: -0.34255004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2732,7 +2732,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5687494, y: 1.6850996}
   m_EdgeRadius: 0
 --- !u!212 &2061008473
 SpriteRenderer:

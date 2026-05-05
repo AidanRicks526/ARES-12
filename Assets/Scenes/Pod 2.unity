@@ -1044,6 +1044,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 854235716639851535, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 854235716639851535, guid: 2647e59af65bbbf408707d912524b34c, type: 3}
       propertyPath: noteData
       value: 
       objectReference: {fileID: 11400000, guid: f118e250d08ccdc419d60ba0e3e4353e, type: 2}
@@ -2380,8 +2384,8 @@ Transform:
   m_GameObject: {fileID: 1256200675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0997, y: 0.2634, z: 0}
-  m_LocalScale: {x: 34.98744, y: 23.224798, z: 1}
+  m_LocalPosition: {x: 4.7251, y: 1.6088, z: 0}
+  m_LocalScale: {x: 88.05995, y: 51.896954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3426,6 +3430,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8859748190042097822, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
+      propertyPath: m_Size.x
+      value: 12.233219
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859748190042097822, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
+      propertyPath: m_Size.y
+      value: 15.179946
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859748190042097822, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.21163464
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859748190042097822, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4232688
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3455,7 +3475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
   highlightScale: 1.05
-  detectionRadius: 1
+  detectionRadius: 1.05
   playerTag: Player
   pulseSpeed: 3
   pulseAmount: 0.05

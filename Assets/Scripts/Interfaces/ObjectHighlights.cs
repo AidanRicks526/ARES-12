@@ -4,16 +4,16 @@ using UnityEngine;
 public class ObjectHighlights : MonoBehaviour
 {
     [Header("Settings")]
-    public float highlightScale = 1.1f;
-    public float detectionRadius = 3f;
+    public float highlightScale = 1.05f;
+    public float detectionRadius = 1f;
     public string playerTag = "Player";
 
     [Header("Pulse Settings")]
-    public float pulseSpeed = 5f;
+    public float pulseSpeed = 3f;
     public float pulseAmount = 0.05f;
 
     [Header("Material")]
-    public Material highlightMaterial; // 👈 assign your WhiteSprite material here
+    public Material highlightMaterial;
 
     private SpriteRenderer original;
     private SpriteRenderer highlight;
@@ -24,41 +24,38 @@ public class ObjectHighlights : MonoBehaviour
     {
         original = GetComponent<SpriteRenderer>();
 
-        // Find player
         GameObject p = GameObject.FindGameObjectWithTag(playerTag);
-        if (p != null)
-            player = p.transform;
+        if (p != null) player = p.transform;
 
-        // Create highlight object
-        GameObject clone = new GameObject("Highlight");
+        GameObject clone = new GameObject("Highlight_Effect");
         clone.transform.SetParent(transform);
+
+        // Ensure it sits exactly on top of the parent
         clone.transform.localPosition = Vector3.zero;
         clone.transform.localRotation = Quaternion.identity;
+        clone.transform.localScale = Vector3.one;
 
         highlightTransform = clone.transform;
-
         highlight = clone.AddComponent<SpriteRenderer>();
 
-        // Copy sprite + sorting
         highlight.sprite = original.sprite;
         highlight.sortingLayerID = original.sortingLayerID;
         highlight.sortingOrder = original.sortingOrder - 1;
-
-        // 👇 THIS is the magic now
         highlight.material = highlightMaterial;
-
-        // Optional softness
         highlight.color = new Color(1f, 1f, 1f, 0.6f);
-
-        // Base size
-        highlightTransform.localScale = Vector3.one * highlightScale;
 
         highlight.enabled = false;
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || highlight == null) return;
+
+        // 1. ABSOLUTE SYNC
+        // This copies the visual state of the sprite regardless of how it's flipped
+        highlight.sprite = original.sprite;
+        highlight.flipX = original.flipX;
+        highlight.flipY = original.flipY;
 
         float dist = Vector2.Distance(transform.position, player.position);
 
@@ -71,27 +68,17 @@ public class ObjectHighlights : MonoBehaviour
         {
             DisableHighlight();
         }
-
-        // Keep sprite synced if it changes
-        if (highlight.sprite != original.sprite)
-            highlight.sprite = original.sprite;
     }
 
-    void EnableHighlight()
-    {
-        if (!highlight.enabled)
-            highlight.enabled = true;
-    }
-
-    void DisableHighlight()
-    {
-        if (highlight.enabled)
-            highlight.enabled = false;
-    }
+    void EnableHighlight() { if (!highlight.enabled) highlight.enabled = true; }
+    void DisableHighlight() { if (highlight.enabled) highlight.enabled = false; }
 
     void PulseEffect()
     {
         float pulse = 1f + Mathf.Sin(Time.time * pulseSpeed) * pulseAmount;
-        highlightTransform.localScale = Vector3.one * highlightScale * pulse;
+
+        // We multiply by highlightScale to create the 'outline' look
+        // We use Vector3.one because it's a child; it already inherits the parent's 0.227 scale
+        highlightTransform.localScale = Vector3.one * (pulse * highlightScale);
     }
 }
