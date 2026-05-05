@@ -7,6 +7,9 @@ public class InventoryDisplay : MonoBehaviour
     public Transform slotParent;
     public GameObject slotPrefab;
 
+    [Header("References")]
+    public ItemInspectUI inspectUI;
+
     private List<GameObject> spawnedSlots = new List<GameObject>();
 
     void Awake()
@@ -28,13 +31,11 @@ public class InventoryDisplay : MonoBehaviour
 
     public void RefreshUI()
     {
-        // Clear old UI
         foreach (var obj in spawnedSlots)
             Destroy(obj);
 
         spawnedSlots.Clear();
 
-        // Rebuild UI
         foreach (var slot in inventory.slots)
         {
             GameObject newSlot = Instantiate(slotPrefab, slotParent);
@@ -44,7 +45,7 @@ public class InventoryDisplay : MonoBehaviour
 
             if (slotUI != null)
             {
-                slotUI.Setup(slot);
+                slotUI.Setup(slot, inspectUI);
             }
         }
     }

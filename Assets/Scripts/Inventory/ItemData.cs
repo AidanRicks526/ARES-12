@@ -7,4 +7,7 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public bool stackable;
     public int maxStack = 1;
+
+    [Header("Inspect View")]
+    public Sprite inspectImage; // THIS is your note screenshot / full view
 }

@@ -8,42 +8,44 @@ public class IsoMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float acceleration = 10f;
     public float deceleration = 15f;
-    float baseScaleX;
 
+    float baseScaleX;
 
     private Rigidbody2D rb;
     private Vector2 input;
     private Vector2 currentVelocity;
+
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     private bool moving;
 
+    [Header("Outfit State")]
+    public bool isInSuitMode = false;
 
     void Awake()
     {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        baseScaleX = Mathf.Abs(transform.localScale.x);
 
+        baseScaleX = Mathf.Abs(transform.localScale.x);
     }
 
     // Called by PlayerInput
     public void OnMove(InputValue value)
     {
-        //SG code
         if (LockerInteract.IsUIOpenGlobal)
         {
             input = Vector2.zero;
             return;
         }
-        //OG code
+
         input = value.Get<Vector2>();
     }
 
-
-
     void FixedUpdate()
     {
-        // stop movement when UI is open
         if (LockerInteract.IsUIOpenGlobal)
         {
             currentVelocity = Vector2.zero;
@@ -56,7 +58,6 @@ public class IsoMovement : MonoBehaviour
 
         if (input.magnitude > 0)
         {
-
             currentVelocity = Vector2.Lerp(
                 currentVelocity,
                 targetVelocity,
@@ -65,7 +66,6 @@ public class IsoMovement : MonoBehaviour
         }
         else
         {
-
             currentVelocity = Vector2.Lerp(
                 currentVelocity,
                 Vector2.zero,
@@ -74,24 +74,29 @@ public class IsoMovement : MonoBehaviour
         }
 
         rb.linearVelocity = currentVelocity;
-
     }
 
-    private void Update()
+    void Update()
     {
-        if (LockerInteract.IsUIOpenGlobal) //SG Code
+        if (LockerInteract.IsUIOpenGlobal)
         {
             input = Vector2.zero;
             moving = false;
-            animator.SetBool("Running", false);
+
+            if (animator != null && !isInSuitMode)
+                animator.SetBool("Running", false);
+
             return;
         }
 
         moving = input.magnitude > 0.1f;
 
-        animator.SetBool("Running", moving);
+        if (!isInSuitMode && animator != null)
+        {
+            animator.SetBool("Running", moving);
+        }
 
-        if (input.x != 0)
+        if (!isInSuitMode && input.x != 0)
         {
             transform.localScale = new Vector3(
                 baseScaleX * Mathf.Sign(input.x),
@@ -101,6 +106,18 @@ public class IsoMovement : MonoBehaviour
         }
     }
 
+    public void SetSuitMode(Sprite suitSprite)
+    {
+        isInSuitMode = true;
 
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
 
+        if (spriteRenderer != null && suitSprite != null)
+        {
+            spriteRenderer.sprite = suitSprite;
+        }
+    }
 }
