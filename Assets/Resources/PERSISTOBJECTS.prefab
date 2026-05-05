@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1358822055372892502}
   - component: {fileID: 836682818427554190}
   - component: {fileID: 4515916308278069117}
+  - component: {fileID: 3105588584718500650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -304,6 +305,7 @@ MonoBehaviour:
   moveSpeed: 5
   acceleration: 10
   deceleration: 15
+  isInSuitMode: 0
 --- !u!114 &3032752238026503259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +411,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3105588584718500650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247269977702673591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694c22e9f32f98f4b98173cbfe0bcddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Scene_OutfitHandler
+  astronautSuitItem: {fileID: 11400000, guid: 04c160d5e10160a498dadf77e13ec85e, type: 2}
+  astronautSuitSprite: {fileID: 443972692971330269, guid: dd484c1094267304ab596e28c5295984, type: 3}
+  requiredSceneName: Observatory
 --- !u!1 &3242883790938275688
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.026000977}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7015314338566325982

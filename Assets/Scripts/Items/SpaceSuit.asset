@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpaceSuit
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: SpaceSuit
-  icon: {fileID: 0}
+  icon: {fileID: 443972692971330269, guid: 2b3f71723834133498ab01bad8cc516a, type: 3}
   stackable: 0
   maxStack: 1

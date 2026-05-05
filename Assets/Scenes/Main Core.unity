@@ -1336,14 +1336,14 @@ MonoBehaviour:
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
     nextIndex: 100
-    requiredItem: {fileID: 11400000, guid: 0e2c337000ad8fa439d2609196c484d7, type: 2}
+    requiredItem: {fileID: 11400000, guid: 9011f133568fae7468ebca4ab68b259a, type: 2}
     consumeItem: 0
     useTimerGate: 0
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: Looks liK_e YoUr regaining you're memoy like FrAgMentS of *^%# shattered
-      glAss...
+    subtitle: "Looks like you\u2019re regaining your memory\u2014like fragments of
+      shattered glass."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1362,8 +1362,8 @@ MonoBehaviour:
     - choiceText: We were making history?
       nextIndex: 6
   - speakerName: Ship AI
-    subtitle: HeLlo Sir. LiKe--^&% I said. You can find me in any room. Looks LiKe-
-      whatever MiSioN yOu WeRe-- on required a lot of note taking.
+    subtitle: Hello, sir. Like I said, you can find me in any room. It looks like
+      whatever mission you were on required a lot of note-taking.
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1382,7 +1382,7 @@ MonoBehaviour:
     - choiceText: ...
       nextIndex: 4
   - speakerName: Ship AI
-    subtitle: Yes. The GrEaT--6-7&*^ Ares 12. That's the name of thiS spacE ship.
+    subtitle: Yes. The great Ares-12. That was the name of this space ship.
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1397,7 +1397,7 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: I wondEr WhAt that glowing &*^% object over ThErE is?
+    subtitle: I wonder what that glowing object is over there?
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1412,7 +1412,7 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: I bElIVe she was YoUr co-Worker... YoUr frIeNd....
+    subtitle: I believe she was your co-worker... and friend...
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1431,8 +1431,8 @@ MonoBehaviour:
     - choiceText: What's superposition?
       nextIndex: 9
   - speakerName: Ship AI
-    subtitle: Y-Es. Whaver YOu WeRe StuDying @*$ You were the First In MAnkind to
-      do it. Po--Sibly with the WhoLe WorlD WatcHing Too.
+    subtitle: Yes. Whatever you were studying, you were the first in mankind to do
+      it. Possibly with the whole world watching too.
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1462,7 +1462,7 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: ThAt'S yoUr Cue to MoVe IT!
+    subtitle: That's you're cue to move it!
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1477,8 +1477,8 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: I- DoN'T know. IF OnlY I HaD *^$!@&% The power back on-- ThEn Maybe
-      I could tell you.
+    subtitle: "I don\u2019t know. If only I had the power back on\u2026 then maybe
+      I could tell you."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1493,8 +1493,8 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices: []
   - speakerName: Ship AI
-    subtitle: CAn YoU Pl--ease hElP me, So I cAn StOp Glitching out? You need to
-      turN the PoweR bAck On. Remember, it's in the &(@) engine room.
+    subtitle: "Can you please help me so I can stop glitching out? You need to turn
+      the power back on. Remember, it\u2019s in the engine room."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
