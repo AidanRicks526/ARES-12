@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1007907652}
+  inventoryDisplay: {fileID: 0}
 --- !u!4 &679077463
 Transform:
   m_ObjectHideFlags: 0
@@ -728,6 +729,7 @@ MonoBehaviour:
   tileWidth: 1
   tileHeight: 1
   curveResolution: 8
+  screenFillFraction: 0.85
 --- !u!1 &817428964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1437,10 @@ PrefabInstance:
     - target: {fileID: 3040710729886548254, guid: 32fd83cf263595d48b3017ae80c5cb07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591103816426815443, guid: 32fd83cf263595d48b3017ae80c5cb07, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

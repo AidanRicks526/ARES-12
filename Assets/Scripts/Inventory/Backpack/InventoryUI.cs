@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
     [Header("References")]
     public InventoryDisplay inventoryDisplay;
 
+
+
     private bool isOpen;
 
     void Start()
@@ -16,9 +18,14 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(false);
     }
 
-    // =========================
-    // BUTTON CALL (UI ONLY)
-    // =========================
+        void Update()
+    {
+        // Check for backpack press (true only on the frame the key was pressed)
+        if (UserInput.WasBackpackPressed)
+        {
+            ToggleInventory();
+        }
+    }
     public void ToggleInventory()
     {
         isOpen = !isOpen;
