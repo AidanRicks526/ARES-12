@@ -73,11 +73,8 @@ public class GameTimer : MonoBehaviour
 
     void OnTimerFinished()
     {
-        // 🔥 Hook for game over / AI reaction
-        Debug.Log("Time is up!");
-
-        // Example:
-        // FindObjectOfType<ShipAI>()?.PlayDialogue(failureDialogue);
+        Debug.Log("TIMER ENDED → Loading Alternate Ending");
+        SceneManager.LoadScene("Alternate Ending");
     }
 
     public string GetFormattedTime()
