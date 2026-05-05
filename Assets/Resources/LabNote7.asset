@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote7
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 7
-  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
+  icon: {fileID: 7417467613678937918, guid: f1e684d666a3a574aa9cad99141b316d, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: "I watch an unstable atom closely with rapid laser pulses. The more
     I look, the more it freezes \u2014 it refuses to decay. In one Cornell experiment,
     continuous measurement slowed tunneling by a factor of ten. Constant observation

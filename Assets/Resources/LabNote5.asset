@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote5
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 5
-  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
+  icon: {fileID: -2192153205500328438, guid: b0140f1ea0ab8514997f1a81bce59de3, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: I send two identical photons into a beam splitter from opposite sides.
     They always exit together through the same port. Never separate. If they were
     classical particles, half the time they'd leave separately, but quantum mechanics

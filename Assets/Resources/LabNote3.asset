@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote3
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 3
-  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
+  icon: {fileID: 5484476788230028418, guid: 36bab912fd20800448ee85de35660892, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: I have a bomb that a single photon could trigger. I need to test if
     it's live without exploding. I place the bomb in one arm of an interferometer
     so the photon takes a superposition of paths. The photon reveals the bomb's presence

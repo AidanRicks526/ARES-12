@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote2
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 2
-  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
+  icon: {fileID: -6682907124401165572, guid: edb182b3ff6536f4b983debe810bc494, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: I put a cat in a box with a radioactive atom and poison. In 30 minutes,
     the atom may or may not have decayed. The decay is quantum random, so until I
     open the box, the atom is both decayed and intact. Therefore, the cat is both

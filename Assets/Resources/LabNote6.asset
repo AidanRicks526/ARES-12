@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote6
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 6
-  icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
+  icon: {fileID: -4505414554808883330, guid: 490bfa2724c442545962d2739c59512d, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: I put a particle in two places at once near a black hole's event horizon.
     The black hole's gravity alone could "measure" which path it takes by absorbing
     information through soft gravitons. This forces the superposition to collapse

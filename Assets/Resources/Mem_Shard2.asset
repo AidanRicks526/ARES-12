@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mem_Shard2
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Memory Shard 2
-  icon: {fileID: 8181081092598581178, guid: 0093c2beec41d1c498597f5a7837c54b, type: 3}
+  icon: {fileID: -8467015113966195450, guid: 909fc8729cfa02c4097c5cb12ac4b78f, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LabNote4
   m_EditorClassIdentifier: Assembly-CSharp::LabNote
   itemName: Lab Note 4
-  icon: {fileID: 0}
+  icon: {fileID: 4664150707617557298, guid: de501d3714133934aa488f4683360a5a, type: 3}
   stackable: 0
   maxStack: 1
+  inspectImage: {fileID: 0}
   noteContent: "I fire silver atoms through a magnet. Physics says I should get a
     blur. Instead, I get two sharp dots \u2014 up or down, nothing between. Those
     two dots prove the atom doesn't have a hidden spin before measurement. Each atom
