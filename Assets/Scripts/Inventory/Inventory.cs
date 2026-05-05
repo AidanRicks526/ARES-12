@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
     public bool AddItem(ItemData item, int amount = 1)
     {
         if (item.stackable)

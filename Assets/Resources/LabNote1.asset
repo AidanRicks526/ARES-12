@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
   stackable: 0
   maxStack: 1
-  noteContent: Skibidi Rizz
+  noteContent: "I shoot one electron at two slits. It should hit one spot. But it
+    builds a wave pattern \u2014 meaning it went through both slits at once. That
+    wave pattern only appears when I don't check which slit it used. Only when I
+    measure does it pick one."

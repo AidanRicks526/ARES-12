@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
   stackable: 0
   maxStack: 1
-  noteContent: 
+  noteContent: I put a cat in a box with a radioactive atom and poison. In 30 minutes,
+    the atom may or may not have decayed. The decay is quantum random, so until I
+    open the box, the atom is both decayed and intact. Therefore, the cat is both
+    dead and alive at the same time.

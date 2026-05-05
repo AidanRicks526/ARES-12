@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
   stackable: 0
   maxStack: 1
-  noteContent: 
+  noteContent: I send two identical photons into a beam splitter from opposite sides.
+    They always exit together through the same port. Never separate. If they were
+    classical particles, half the time they'd leave separately, but quantum mechanics
+    says no. Their identities blur into one superposed state.

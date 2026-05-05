@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   stackable: 0
   maxStack: 1
-  noteContent: 
+  noteContent: "I fire silver atoms through a magnet. Physics says I should get a
+    blur. Instead, I get two sharp dots \u2014 up or down, nothing between. Those
+    two dots prove the atom doesn't have a hidden spin before measurement. Each atom
+    points every direction until I measure it."

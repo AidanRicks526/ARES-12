@@ -16,4 +16,7 @@ MonoBehaviour:
   icon: {fileID: -3127448798928283936, guid: d0873b3163f379246898bd7b0cc663db, type: 3}
   stackable: 0
   maxStack: 1
-  noteContent: 
+  noteContent: "I watch an unstable atom closely with rapid laser pulses. The more
+    I look, the more it freezes \u2014 it refuses to decay. In one Cornell experiment,
+    continuous measurement slowed tunneling by a factor of ten. Constant observation
+    locks it in a superposition."
