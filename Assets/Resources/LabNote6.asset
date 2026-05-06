@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: -4505414554808883330, guid: 490bfa2724c442545962d2739c59512d, type: 3}
   stackable: 0
   maxStack: 1
-  inspectImage: {fileID: 0}
+  inspectImage: {fileID: -4505414554808883330, guid: 05672537d584c054cb36be573393df61, type: 3}
   noteContent: I put a particle in two places at once near a black hole's event horizon.
     The black hole's gravity alone could "measure" which path it takes by absorbing
     information through soft gravitons. This forces the superposition to collapse

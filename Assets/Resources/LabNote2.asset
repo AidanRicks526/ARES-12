@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: -6682907124401165572, guid: edb182b3ff6536f4b983debe810bc494, type: 3}
   stackable: 0
   maxStack: 1
-  inspectImage: {fileID: 0}
+  inspectImage: {fileID: -6682907124401165572, guid: 2876dda2e9aa2eb48ab57b343768fdff, type: 3}
   noteContent: I put a cat in a box with a radioactive atom and poison. In 30 minutes,
     the atom may or may not have decayed. The decay is quantum random, so until I
     open the box, the atom is both decayed and intact. Therefore, the cat is both

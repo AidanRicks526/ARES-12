@@ -378,9 +378,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipAIPanel
   lines:
   - speakerName: Ship AI
-    subtitle: 'Hello, space cadet. You are the last known survivor aboard this ship.
-      Records are incomplete, so others may be missing or deceased. Power is offline.
-      Locate the engine room and restore systems. Proceed with caution.
+    subtitle: Hello, space cadet.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 1
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: I appreciate you turning on the power.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 2
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 2
+    requiredItem: {fileID: 11400000, guid: 2bec782ad73daeb4db2c22ea488ce7a9, type: 2}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: It sounds like you're beginning to uncover your memories.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 3
+    requiredItem: {fileID: 11400000, guid: 42f75c8c323ecba4da6c8d87d08e9580, type: 2}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices:
+    - choiceText: what do I do now?
+      nextIndex: 10
+  - speakerName: Ship AI
+    subtitle: 'You are the last known survivor aboard this ship. Records are incomplete,
+      so others may be missing or deceased. Power is offline. Locate the engine room
+      and restore systems. Proceed with caution.
 
 '
     voiceClip: {fileID: 0}
@@ -397,9 +444,9 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices:
     - choiceText: Where am I?
-      nextIndex: 1
+      nextIndex: 4
     - choiceText: What happened?
-      nextIndex: 2
+      nextIndex: 5
   - speakerName: Ship AI
     subtitle: "Even I\u2019m unsure. My system memory was partially damaged by a
       recent event, so I can\u2019t recall much either. Just like you, It appears
@@ -411,7 +458,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 3
+    nextIndex: 6
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -428,7 +475,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 3
+    nextIndex: 6
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -443,7 +490,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 4
+    nextIndex: 7
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -458,7 +505,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 5
+    nextIndex: 8
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -467,8 +514,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: "I suggest you search for the engine room. Press \u201CM\u201D to open
       your map. It should be located through the Main Gate, into the Core Ring, where
-      you\u2019ll find an endless loop of doorways. Good luck. Interact with my digital
-      screen in each room to communicate with me again."
+      you\u2019ll find an endless loop of doorways."
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -476,7 +522,57 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 6
+    nextIndex: 9
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: Good luck. Interact with my digital screen in each room to communicate
+      with me again.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 100
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: 'Remember. Humanity lies on your shoulders. You have to get your space
+      suit from your locker and attempt to bring back your reasearch down to earth.
+      The password to your locker must''ve been something sentiental to you... possibly
+      your wife''s name? '
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 11
+    requiredItem: {fileID: 11400000, guid: d7285cba4bb283d4fb5bfd338bd9eb6c, type: 2}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: Adventure. Try to uncover your past and hopefully you will gain clues
+      as to what happened here and how you can escape.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 100
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -2080,7 +2176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 78.18347}
+  m_AnchoredPosition: {x: 0, y: -63}
   m_SizeDelta: {x: -859.4674, y: -454.6086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853011773
@@ -2675,7 +2771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -199}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079681121
@@ -3294,7 +3390,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1001 &1233844306
 PrefabInstance:
@@ -4377,7 +4473,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_TargetDisplay: 0
 --- !u!1 &1613292076
 GameObject:
@@ -5606,7 +5702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 444, y: 305}
+  m_AnchoredPosition: {x: 359, y: 206}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916124373

@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: -2192153205500328438, guid: b0140f1ea0ab8514997f1a81bce59de3, type: 3}
   stackable: 0
   maxStack: 1
-  inspectImage: {fileID: 0}
+  inspectImage: {fileID: -4505414554808883330, guid: 05672537d584c054cb36be573393df61, type: 3}
   noteContent: I send two identical photons into a beam splitter from opposite sides.
     They always exit together through the same port. Never separate. If they were
     classical particles, half the time they'd leave separately, but quantum mechanics

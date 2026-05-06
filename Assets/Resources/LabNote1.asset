@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 61076370688819383, guid: 5b0731b4969680441a03c7b1d583dd21, type: 3}
   stackable: 0
   maxStack: 1
-  inspectImage: {fileID: 0}
+  inspectImage: {fileID: 61076370688819383, guid: a094c4b90eeb50b40af9813cc5d227ca, type: 3}
   noteContent: "I shoot one electron at two slits. It should hit one spot. But it
     builds a wave pattern \u2014 meaning it went through both slits at once. That
     wave pattern only appears when I don't check which slit it used. Only when I

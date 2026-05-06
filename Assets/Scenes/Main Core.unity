@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipAIPanel
   lines:
   - speakerName: Ship AI
-    subtitle: new
+    subtitle: So.... It looks like YOU were the cause of this predicament...
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1335,7 +1335,22 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 100
+    nextIndex: 16
+    requiredItem: {fileID: 11400000, guid: d7285cba4bb283d4fb5bfd338bd9eb6c, type: 2}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: Wow. Looks like most hte guys working here really respected you.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 12
     requiredItem: {fileID: 11400000, guid: 9011f133568fae7468ebca4ab68b259a, type: 2}
     consumeItem: 0
     useTimerGate: 0
@@ -1358,9 +1373,9 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices:
     - choiceText: Who was she?
-      nextIndex: 5
-    - choiceText: We were making history?
       nextIndex: 6
+    - choiceText: We were making history?
+      nextIndex: 7
   - speakerName: Ship AI
     subtitle: Hello, sir. Like I said, you can find me in any room. It looks like
       whatever mission you were on required a lot of note-taking.
@@ -1378,9 +1393,9 @@ MonoBehaviour:
     triggerBeforeTime: 0
     choices:
     - choiceText: Mission?
-      nextIndex: 3
-    - choiceText: ...
       nextIndex: 4
+    - choiceText: ...
+      nextIndex: 5
   - speakerName: Ship AI
     subtitle: Yes. The great Ares-12. That was the name of this space ship.
     voiceClip: {fileID: 0}
@@ -1390,7 +1405,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 4
+    nextIndex: 5
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -1440,7 +1455,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 7
+    nextIndex: 8
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -1455,7 +1470,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 8
+    nextIndex: 9
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -1486,7 +1501,7 @@ MonoBehaviour:
     overrideTyping: 0
     overrideTypeSpeed: 0.05
     fallbackDuration: 0
-    nextIndex: 8
+    nextIndex: 9
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
@@ -1495,6 +1510,108 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: "Can you please help me so I can stop glitching out? You need to turn
       the power back on. Remember, it\u2019s in the engine room."
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 100
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: I wonder if you were the boss of this place... Or, this experiment.
+      More importantly- you were going to save Earth.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 13
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: By the sounds of it, Earth was in a critical position of low stability.
+      Primarily caused by global warming, the sealevels were rising significanlty,
+      limiting farm land and flooding most the continent.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 14
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: 'I suppose studying quantum superposition was their only hope for comming
+      up with a machine that can out think humans. In order to substantiate infinite
+      possibiltes on how to solve Earth''s dystopian state. '
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 15
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: Does this mean you succeeded?
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 100
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: But that's okay. I trust you. I know you will do what's best for humanity.
+      There is STILL hope. The data still remains in the quantum space. A realm of
+      reality only the machine you guys were using in the experiment can cross.
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 0}
+    baseTypeSpeed: 0.05
+    speedMultiplier: 1
+    overrideTyping: 0
+    overrideTypeSpeed: 0.05
+    fallbackDuration: 0
+    nextIndex: 17
+    requiredItem: {fileID: 0}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: You MUST go into the Observatory and find that machine. I doubt it
+      got blown up from the explosion due to it having a protective layer of metiorite
+      material. ALl you need to do is reach it, then upload the research to earth
+      and you can bridge the universe to infinte possibilities, including a fixed
+      Earth. First, you must open you're locker for you're space suit. I bet the
+      password is something sentimental to you... possibly you're wife's name.
     voiceClip: {fileID: 0}
     typingSFX: {fileID: 0}
     baseTypeSpeed: 0.05
@@ -1688,6 +1805,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1648828633142718400, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648828633142718400, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648828633142718400, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648828633142718400, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.122641504
+      objectReference: {fileID: 0}
     - target: {fileID: 1918202124357622118, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: puzzleImage
       value: 
@@ -1704,6 +1837,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1699801803}
+    - target: {fileID: 2893618808789325492, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893618808789325492, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893618808789325492, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3065460219864775348, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 195
@@ -1877,6 +2022,10 @@ PrefabInstance:
       propertyPath: lightsUI
       value: 
       objectReference: {fileID: 396860161}
+    - target: {fileID: 6525451523908047886, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
+      propertyPath: startingAlpha
+      value: 0.73
+      objectReference: {fileID: 0}
     - target: {fileID: 8319733294063883215, guid: 54e52d981b7c70d4fa5153daed769b2e, type: 3}
       propertyPath: m_text
       value: History is just the universe observing itself. Einstein said time was

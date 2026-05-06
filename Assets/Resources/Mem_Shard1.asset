@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 8658903226033865564, guid: d35b635e3d27fb644af79bc4dffb9c55, type: 3}
   stackable: 0
   maxStack: 1
-  inspectImage: {fileID: 0}
+  inspectImage: {fileID: 8658903226033865564, guid: 5afac9c656b0a934297434a8efa0b44b, type: 3}
