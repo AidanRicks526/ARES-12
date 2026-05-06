@@ -3,75 +3,50 @@ using UnityEngine.SceneManagement;
 
 public class Scene_OutfitHandler : MonoBehaviour
 {
-    [Header("Outfit Data")]
-    public ItemData astronautSuitItem;
-    public Sprite astronautSuitSprite;
+    [Header("Scene Settings")]
+    public string requiredSceneName = "";
 
-    [Header("Scene Settings (optional)")]
-    public string requiredSceneName = ""; // leave empty to apply in all scenes
+    [Header("Animator Settings")]
+    public string animatorBoolName = "InSuit";
 
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        // Delay check slightly to ensure Inventory singleton exists
-        Invoke(nameof(CheckAndApplyOutfit), 0.1f);
+        ApplyIfCorrectScene();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void CheckAndApplyOutfit()
+    void OnDestroy()
     {
-        // Scene gate (optional)
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ApplyIfCorrectScene();
+    }
+
+    void ApplyIfCorrectScene()
+    {
+        if (animator == null)
+        {
+            Debug.LogWarning("[Outfit] No Animator found.");
+            return;
+        }
+
         if (!string.IsNullOrEmpty(requiredSceneName) &&
             SceneManager.GetActiveScene().name != requiredSceneName)
         {
+            animator.SetBool(animatorBoolName, false);
             return;
         }
 
-        // Safety checks
-        if (Inventory.Instance == null)
-        {
-            Debug.LogWarning("[Outfit] Inventory instance not found yet.");
-            return;
-        }
+        Debug.Log("[Outfit] Setting animator bool: " + animatorBoolName);
 
-        if (astronautSuitItem == null)
-        {
-            Debug.LogWarning("[Outfit] Astronaut suit ItemData not assigned.");
-            return;
-        }
-
-        // Check ownership
-        if (!Inventory.Instance.HasItem(astronautSuitItem))
-        {
-            Debug.Log("[Outfit] Player does NOT have suit.");
-            return;
-        }
-
-        ApplySuit();
-    }
-
-    void ApplySuit()
-    {
-        Debug.Log("[Outfit] Applying astronaut suit...");
-
-        // Disable animation override
-        if (animator != null)
-        {
-            animator.enabled = false;
-        }
-
-        // Swap sprite
-        if (spriteRenderer != null && astronautSuitSprite != null)
-        {
-            spriteRenderer.sprite = astronautSuitSprite;
-        }
-        else
-        {
-            Debug.LogWarning("[Outfit] Missing SpriteRenderer or suit sprite.");
-        }
+        animator.SetBool(animatorBoolName, true);
     }
 }

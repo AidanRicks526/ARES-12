@@ -19,8 +19,8 @@ public class ShipAIPanel : MonoBehaviour
 
     void Update()
     {
-        if (!playerInRange) return;
-        if (shipAI == null) return;
+        if (!playerInRange || shipAI == null)
+            return;
 
         if (UserInput.WasInteractPressed && !shipAI.IsPlaying)
         {
@@ -30,8 +30,10 @@ public class ShipAIPanel : MonoBehaviour
 
     void TriggerDialogue()
     {
-        List<VoiceLine> sequence = new List<VoiceLine>(lines);
-        shipAI.PlayDialogue(sequence);
+        if (lines == null || lines.Length == 0)
+            return;
+
+        shipAI.PlayDialogue(new List<VoiceLine>(lines));
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -1,43 +1,94 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class IsoMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 5f;
     public float acceleration = 10f;
     public float deceleration = 15f;
 
-    float baseScaleX;
+    [Header("Audio Scene Settings")]
+    public string disableAudioScene = "";
+
+    private float baseScaleX;
 
     private Rigidbody2D rb;
     private Vector2 input;
     private Vector2 currentVelocity;
 
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
 
     private bool moving;
+    private bool animationDisabled;
 
-    [Header("Outfit State")]
-    public bool isInSuitMode = false;
+    // =========================
+    // NEW: RUN AUDIO STATE
+    // =========================
+    private bool running;
+
+    [Header("Audio")]
+    public AudioSource movementAudioSource; // 👈 footsteps / running loop
+
+    [Header("Scene Settings")]
+    public string disableAnimationScene = "";
 
     void Awake()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
 
         baseScaleX = Mathf.Abs(transform.localScale.x);
     }
 
-    // Called by PlayerInput
+    void Start()
+    {
+        CheckScene();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CheckScene();
+    }
+
+    void CheckScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        // Animation toggle
+        if (!string.IsNullOrEmpty(disableAnimationScene) &&
+            currentScene == disableAnimationScene)
+        {
+            animationDisabled = true;
+        }
+        else
+        {
+            animationDisabled = false;
+        }
+
+        // AUDIO toggle (NEW)
+        if (!string.IsNullOrEmpty(disableAudioScene) &&
+            currentScene == disableAudioScene)
+        {
+            if (movementAudioSource != null)
+                movementAudioSource.Stop();
+        }
+    }
+
     public void OnMove(InputValue value)
     {
         if (LockerInteract.IsUIOpenGlobal)
         {
             input = Vector2.zero;
+            SetRunning(false);
             return;
         }
 
@@ -50,6 +101,8 @@ public class IsoMovement : MonoBehaviour
         {
             currentVelocity = Vector2.zero;
             rb.linearVelocity = Vector2.zero;
+
+            SetRunning(false);
             return;
         }
 
@@ -63,6 +116,8 @@ public class IsoMovement : MonoBehaviour
                 targetVelocity,
                 acceleration * Time.fixedDeltaTime
             );
+
+            SetRunning(true);
         }
         else
         {
@@ -71,6 +126,8 @@ public class IsoMovement : MonoBehaviour
                 Vector2.zero,
                 deceleration * Time.fixedDeltaTime
             );
+
+            SetRunning(false);
         }
 
         rb.linearVelocity = currentVelocity;
@@ -83,7 +140,9 @@ public class IsoMovement : MonoBehaviour
             input = Vector2.zero;
             moving = false;
 
-            if (animator != null && !isInSuitMode)
+            SetRunning(false);
+
+            if (!animationDisabled && animator != null)
                 animator.SetBool("Running", false);
 
             return;
@@ -91,12 +150,12 @@ public class IsoMovement : MonoBehaviour
 
         moving = input.magnitude > 0.1f;
 
-        if (!isInSuitMode && animator != null)
+        if (!animationDisabled && animator != null)
         {
             animator.SetBool("Running", moving);
         }
 
-        if (!isInSuitMode && input.x != 0)
+        if (input.x != 0)
         {
             transform.localScale = new Vector3(
                 baseScaleX * Mathf.Sign(input.x),
@@ -106,18 +165,32 @@ public class IsoMovement : MonoBehaviour
         }
     }
 
-    public void SetSuitMode(Sprite suitSprite)
-    {
-        isInSuitMode = true;
+    // AUDIO CONTROL (RUN STATE)
 
-        if (animator != null)
+    void SetRunning(bool value)
+    {
+        if (running == value) return;
+
+        running = value;
+
+        if (movementAudioSource == null) return;
+
+        // BLOCK AUDIO IN DISABLED SCENE
+        if (!string.IsNullOrEmpty(disableAudioScene) &&
+            SceneManager.GetActiveScene().name == disableAudioScene)
         {
-            animator.enabled = false;
+            movementAudioSource.Stop();
+            return;
         }
 
-        if (spriteRenderer != null && suitSprite != null)
+        if (running)
         {
-            spriteRenderer.sprite = suitSprite;
+            if (!movementAudioSource.isPlaying)
+                movementAudioSource.Play();
+        }
+        else
+        {
+            movementAudioSource.Pause();
         }
     }
 }

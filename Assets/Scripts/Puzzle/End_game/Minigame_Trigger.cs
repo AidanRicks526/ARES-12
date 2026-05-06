@@ -11,8 +11,11 @@ public class Minigame_Trigger : MonoBehaviour
     [Header("Objects to Disable On Start")]
     public List<GameObject> objectsToDisable = new List<GameObject>();
 
-    [Header("Fade Target (ANY GameObject)")]
+    [Header("Fade Target")]
     public GameObject fadeObject;
+
+    [Header("UI")]
+    public GameObject instructionsPanel;
 
     [Header("Ghost Player")]
     public GameObject extraObjectToActivate;
@@ -20,56 +23,101 @@ public class Minigame_Trigger : MonoBehaviour
     public float fadeDuration = 1f;
 
     private CanvasGroup canvasGroup;
+
     private bool triggered;
+    private bool playerInside;
 
     void Start()
     {
-        // Ensure CanvasGroup exists
+        if (fadeObject == null)
+        {
+            Debug.LogError("[Minigame] fadeObject NOT assigned");
+            return;
+        }
+
         canvasGroup = fadeObject.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
             canvasGroup = fadeObject.AddComponent<CanvasGroup>();
 
         canvasGroup.alpha = 0f;
         fadeObject.SetActive(false);
+
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(false);
+
+        Debug.Log("[Minigame] Ready");
     }
 
     void Update()
     {
         if (triggered) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
-            triggered = true;
-            StartCoroutine(StartMinigameSequence());
+            Debug.Log("[Minigame] E pressed inside trigger");
+            ShowInstructions();
         }
+    }
+
+    void ShowInstructions()
+    {
+        if (instructionsPanel == null)
+        {
+            Debug.LogWarning("[Minigame] instructionsPanel missing");
+            return;
+        }
+
+        instructionsPanel.SetActive(true);
+        Debug.Log("[Minigame] Instructions shown");
+    }
+
+    // ✔ BUTTON CALLS THIS DIRECTLY (NO HIDDEN STATE)
+    public void StartMinigame()
+    {
+        Debug.Log("[Minigame] Button clicked");
+
+        if (triggered)
+        {
+            Debug.Log("[Minigame] Already triggered");
+            return;
+        }
+
+        if (!playerInside)
+        {
+            Debug.Log("[Minigame] Player not inside trigger");
+            return;
+        }
+
+        triggered = true;
+
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(false);
+
+        StartCoroutine(StartMinigameSequence());
     }
 
     IEnumerator StartMinigameSequence()
     {
-        // Disable everything in list
+        Debug.Log("[Minigame] Starting sequence");
+
         foreach (GameObject obj in objectsToDisable)
         {
-            if (obj != null)
+            if (obj != null && obj != gameObject)
                 obj.SetActive(false);
         }
 
-        mazeObject.SetActive(true);
-        playerObject.SetActive(true);
-
-        if (extraObjectToActivate != null)
-            extraObjectToActivate.SetActive(true);
+        if (mazeObject != null) mazeObject.SetActive(true);
+        if (playerObject != null) playerObject.SetActive(true);
+        if (extraObjectToActivate != null) extraObjectToActivate.SetActive(true);
 
         fadeObject.SetActive(true);
 
-        // fade in
         float t = 0f;
 
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
-            float normalized = t / fadeDuration;
-
-            canvasGroup.alpha = Mathf.Lerp(0f, 1f, normalized);
+            canvasGroup.alpha = Mathf.Lerp(0f, 1f, t / fadeDuration);
             yield return null;
         }
 
@@ -77,6 +125,25 @@ public class Minigame_Trigger : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-        Destroy(gameObject);
+        Debug.Log("[Minigame] Sequence complete (no destroy)");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInside = true;
+            Debug.Log("[Minigame] Player entered trigger");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInside = false;
+            instructionsPanel?.SetActive(false);
+            Debug.Log("[Minigame] Player exited trigger");
+        }
     }
 }

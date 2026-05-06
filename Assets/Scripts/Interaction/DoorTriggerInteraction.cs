@@ -23,20 +23,28 @@ public class DoorTriggerInteraction : TriggerInteractionBase
         none,
     }
 
+    public enum LockType
+    {
+        None,
+        Keycard,
+        Item
+    }
+
     [Header("Spawn TO")]
     [SerializeField] private DoorToSpawnAt DoorToSpawnTo;
     [SerializeField] private SceneField _sceneToLoad;
 
-    [Space(10f)]
     [Header("THIS Door")]
     public DoorToSpawnAt CurrentDoorPosition;
 
-    [Space(10f)]
     [Header("Lock Settings")]
     [SerializeField] private bool isLocked = true;
-    [SerializeField] private ItemData requiredBadge;
+    [SerializeField] private LockType lockType = LockType.Keycard;
 
-    [Header("Spawn Point (where player appears)")]
+    [SerializeField] private ItemData requiredBadge;
+    [SerializeField] private ItemData requiredItem;
+
+    [Header("Spawn Point")]
     [SerializeField] private Transform spawnPoint;
 
     public Vector3 GetSpawnPosition()
@@ -48,28 +56,61 @@ public class DoorTriggerInteraction : TriggerInteractionBase
     {
         if (isLocked)
         {
-            Debug.Log($"CardSwipeManager.Instance = {CardSwipeManager.Instance}");
-            Debug.Log($"requiredBadge = {requiredBadge}");
+            switch (lockType)
+            {
+                case LockType.Keycard:
+                    CardSwipeManager.Instance.ShowSwipePanel(this, requiredBadge);
+                    return;
 
-            CardSwipeManager.Instance.ShowSwipePanel(this, requiredBadge);
+                case LockType.Item:
+                    TryUnlockWithItem();
+                    return;
+
+                case LockType.None:
+                    break;
+            }
+
+            return;
+        }
+
+        EnterDoor();
+    }
+
+    private void TryUnlockWithItem()
+    {
+        if (Inventory.Instance == null)
+            return;
+
+        if (Inventory.Instance.HasItem(requiredItem))
+        {
+            Inventory.Instance.RemoveItem(requiredItem);
+
+            UnlockDoor(); // now shows popup too
         }
         else
         {
-            // SAVE door positions BEFORE leaving scene
-            Door_Looper looper = FindFirstObjectByType<Door_Looper>();
-            if (looper != null)
-            {
-                looper.SaveDoorPositions();
-            }
-
-            // THEN swap scene
-            SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
+            DoorLockedUI.Instance?.Show("Door Locked");
         }
     }
 
     public void UnlockDoor()
     {
         isLocked = false;
-        Debug.Log("Door unlocked! Press E again to enter.");
+
+        Debug.Log("Door unlocked!");
+
+        // ✨ feedback popup
+        DoorLockedUI.Instance?.Show("Door Unlocked");
+    }
+
+    private void EnterDoor()
+    {
+        Door_Looper looper = FindFirstObjectByType<Door_Looper>();
+        if (looper != null)
+        {
+            looper.SaveDoorPositions();
+        }
+
+        SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, DoorToSpawnTo);
     }
 }

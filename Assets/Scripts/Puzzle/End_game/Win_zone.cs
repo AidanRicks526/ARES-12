@@ -8,7 +8,7 @@ public class Win_Zone : MonoBehaviour
     {
         if (other.CompareTag("Square"))
         {
-            effectObject.PlayEffect();
+            effectObject.PlayEffect(true);
         }
     }
 }

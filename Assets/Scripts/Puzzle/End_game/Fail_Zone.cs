@@ -8,7 +8,7 @@ public class Fail_Zone : MonoBehaviour
     {
         if (other.CompareTag("Square"))
         {
-            effectObject.PlayEffect();
+            effectObject.PlayEffect(false);
         }
     }
 }

@@ -380,7 +380,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Hello, space cadet.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: I appreciate you turning on the power.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 2
     overrideTyping: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: It sounds like you're beginning to uncover your memories.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
 
 '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
       recent event, so I can\u2019t recall much either. Just like you, It appears
       you suffered a head injury, causing amnesia."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
       than something more eerie in this infinitely dark universe\u2026 like an alien,
       perhaps. Hopefully this turns out to be more like *Interstellar*..."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: '&^*#(%#&(%^&@^(&@$^(&$@8761%&5^476$5364#$#$%@^%&(Q78%^%674^&------ '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: "Excuse me\u2013 It seems my systems are still slightly fried. "
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
       your map. It should be located through the Main Gate, into the Core Ring, where
       you\u2019ll find an endless loop of doorways."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
     subtitle: Good luck. Interact with my digital screen in each room to communicate
       with me again.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
       The password to your locker must''ve been something sentiental to you... possibly
       your wife''s name? '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
     subtitle: Adventure. Try to uncover your past and hopefully you will gain clues
       as to what happened here and how you can escape.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -613,7 +613,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06731391, y: 0.010530829}
+  m_Offset: {x: -0.06731391, y: -0.42966855}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -623,7 +623,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.4612594, y: 5.4588556}
+  m_Size: {x: 4.4612594, y: 6.3392544}
   m_EdgeRadius: 0
 --- !u!212 &169825367
 SpriteRenderer:
@@ -1437,6 +1437,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26daba1fa8fab7a43a07bd0b66aa1248, type: 3}
+--- !u!82 &541671147 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3070567830990922481, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 1377866368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &555228932 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3590923133424274345, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 1377866368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653855769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1628,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1270628348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &657764642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 657764643}
+  - component: {fileID: 657764645}
+  - component: {fileID: 657764644}
+  m_Layer: 0
+  m_Name: DoorlockedText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &657764643
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657764642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1843015130}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1795.8868, y: 256.7933}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &657764644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657764642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 150
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Door Locked
+--- !u!222 &657764645
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657764642}
+  m_CullTransparentMesh: 1
 --- !u!1001 &663172555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1977,7 +2066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectHighlights
   highlightScale: 1.05
-  detectionRadius: 1
+  detectionRadius: 2
   playerTag: Player
   pulseSpeed: 1
   pulseAmount: 0.05
@@ -1996,7 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   itemData: {fileID: 11400000, guid: 04c160d5e10160a498dadf77e13ec85e, type: 2}
   amount: 1
-  pickupRange: 1
+  pickupRange: 2.5
   puzzleManager: {fileID: 0}
   delayBeforePuzzle: 0
   noteData: {fileID: 0}
@@ -2486,7 +2575,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03987217, y: 2.2527049}
+  m_Offset: {x: -0.03987217, y: 2.1067126}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2496,7 +2585,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.2263136, y: 7.658438}
+  m_Size: {x: 5.2263136, y: 7.950423}
   m_EdgeRadius: 0
 --- !u!114 &871476840
 MonoBehaviour:
@@ -3466,8 +3555,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: isLocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+      propertyPath: lockType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
+      propertyPath: requiredItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 04c160d5e10160a498dadf77e13ec85e, type: 2}
     - target: {fileID: 8258979065588961685, guid: 2ea727850bde618439808b2b7651268d, type: 3}
       propertyPath: DoorToSpawnTo
       value: 0
@@ -3696,6 +3793,22 @@ PrefabInstance:
       propertyPath: shipAI
       value: 
       objectReference: {fileID: 1446279514}
+    - target: {fileID: 3136227692880276368, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+      propertyPath: sfxSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136227692880276368, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+      propertyPath: musicSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136227692880276368, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+      propertyPath: 'sfxSources.Array.data[0]'
+      value: 
+      objectReference: {fileID: 541671147}
+    - target: {fileID: 3136227692880276368, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+      propertyPath: 'musicSources.Array.data[0]'
+      value: 
+      objectReference: {fileID: 555228932}
     - target: {fileID: 3173243829367949733, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4053,7 +4166,7 @@ MonoBehaviour:
   speakerText: {fileID: 327663861}
   subtitleText: {fileID: 1270028435}
   voiceSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  typingSFXSource: {fileID: 541671147}
   textSpeed: 1
   fadeDuration: 0.3
 --- !u!4 &1446279515
@@ -4702,6 +4815,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1843015130}
   - {fileID: 853011772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5317,6 +5431,112 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1843015129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1843015130}
+  - component: {fileID: 1843015134}
+  - component: {fileID: 1843015133}
+  - component: {fileID: 1843015132}
+  - component: {fileID: 1843015131}
+  m_Layer: 0
+  m_Name: DoorlockedPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1843015130
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843015129}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 657764643}
+  m_Father: {fileID: 1681246131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -371.4126}
+  m_SizeDelta: {x: 0, y: -742.8252}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1843015131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843015129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbef681dae8f2f14680dfb69c00b29f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorLockedUI
+  canvasGroup: {fileID: 1843015132}
+  messageText: {fileID: 657764644}
+  fadeDuration: 1
+  displayTime: 1
+--- !u!225 &1843015132
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843015129}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1843015133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843015129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1843015134
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843015129}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1848128746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5851,9 +6071,10 @@ EdgeCollider2D:
   - {x: -0.5111202, y: 0.13805419}
   - {x: -0.49748796, y: 0.43980357}
   - {x: -0.41562298, y: 0.6105265}
-  - {x: -0.3850177, y: 0.8025633}
-  - {x: 0.0064920187, y: 0.80072033}
-  - {x: 0.32145315, y: 0.78119665}
+  - {x: -0.37922472, y: 0.6774635}
+  - {x: -0.0015070313, y: 0.6794371}
+  - {x: 0.051870268, y: 0.67562044}
+  - {x: 0.33690104, y: 0.6413792}
   - {x: 0.39767843, y: 0.54124284}
   - {x: 0.4592843, y: 0.38815898}
   - {x: 0.45951012, y: 0.08313836}

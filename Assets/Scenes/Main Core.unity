@@ -1329,7 +1329,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: So.... It looks like YOU were the cause of this predicament...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Wow. Looks like most hte guys working here really respected you.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1360,7 +1360,7 @@ MonoBehaviour:
     subtitle: "Looks like you\u2019re regaining your memory\u2014like fragments of
       shattered glass."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1380,7 +1380,7 @@ MonoBehaviour:
     subtitle: Hello, sir. Like I said, you can find me in any room. It looks like
       whatever mission you were on required a lot of note-taking.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1399,7 +1399,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Yes. The great Ares-12. That was the name of this space ship.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: I wonder what that glowing object is over there?
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: I believe she was your co-worker... and friend...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1449,7 +1449,7 @@ MonoBehaviour:
     subtitle: Yes. Whatever you were studying, you were the first in mankind to do
       it. Possibly with the whole world watching too.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: ...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: That's you're cue to move it!
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
     subtitle: "I don\u2019t know. If only I had the power back on\u2026 then maybe
       I could tell you."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1511,7 +1511,7 @@ MonoBehaviour:
     subtitle: "Can you please help me so I can stop glitching out? You need to turn
       the power back on. Remember, it\u2019s in the engine room."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1527,7 +1527,7 @@ MonoBehaviour:
     subtitle: I wonder if you were the boss of this place... Or, this experiment.
       More importantly- you were going to save Earth.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1544,7 +1544,7 @@ MonoBehaviour:
       Primarily caused by global warming, the sealevels were rising significanlty,
       limiting farm land and flooding most the continent.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1561,7 +1561,7 @@ MonoBehaviour:
       up with a machine that can out think humans. In order to substantiate infinite
       possibiltes on how to solve Earth''s dystopian state. '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Does this mean you succeeded?
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
       There is STILL hope. The data still remains in the quantum space. A realm of
       reality only the machine you guys were using in the experiment can cross.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1613,7 +1613,7 @@ MonoBehaviour:
       Earth. First, you must open you're locker for you're space suit. I bet the
       password is something sentimental to you... possibly you're wife's name.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -1660,7 +1660,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.15511763, y: -0.41225588}
+  m_Offset: {x: -0.15511763, y: -0.44033027}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1670,7 +1670,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.849436, y: 5.8356676}
+  m_Size: {x: 3.849436, y: 5.8918166}
   m_EdgeRadius: 0
 --- !u!212 &595671441
 SpriteRenderer:
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   speakerText: {fileID: 562256679}
   subtitleText: {fileID: 760812374}
   voiceSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  typingSFXSource: {fileID: 738166020}
   textSpeed: 1
   fadeDuration: 0.3
 --- !u!4 &716918941
@@ -2148,6 +2148,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 467096870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &738166020 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3070567830990922481, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 2146474293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &742509361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4230,11 +4235,11 @@ EdgeCollider2D:
   - {x: -0.5122694, y: -0.67193687}
   - {x: -0.44761252, y: -0.60399574}
   - {x: -0.43994644, y: -0.7187107}
-  - {x: -0.2775611, y: -0.54350185}
-  - {x: 0.020100547, y: -0.45704934}
-  - {x: 0.15492831, y: -0.48974326}
-  - {x: 0.2518324, y: -0.52503324}
-  - {x: 0.3379544, y: -0.594684}
+  - {x: -0.27527, y: -0.5815703}
+  - {x: 0.018267632, y: -0.49490878}
+  - {x: 0.15676124, y: -0.5310445}
+  - {x: 0.25274888, y: -0.58010155}
+  - {x: 0.33978733, y: -0.6273808}
   - {x: 0.4132588, y: -0.6815982}
   - {x: 0.4444127, y: -0.74704236}
   - {x: 0.50592315, y: -0.7717811}

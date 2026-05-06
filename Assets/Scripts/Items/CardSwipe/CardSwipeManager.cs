@@ -20,9 +20,8 @@ public class CardSwipeManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);   // <-- ADD THIS LINE
+            DontDestroyOnLoad(gameObject);
         }
-      
         else Destroy(gameObject);
     }
 
@@ -31,30 +30,24 @@ public class CardSwipeManager : MonoBehaviour
         swipePanel.SetActive(false);
     }
 
-    /// <summary>
-    /// Opens the swipe panel for the given door.
-    /// Checks the inventory for the required badge and sets up the UI accordingly.
-    /// </summary>
     public void ShowSwipePanel(DoorTriggerInteraction door, ItemData requiredBadge)
     {
         currentDoor = door;
         currentRequiredBadge = requiredBadge;
-        swipePanel.SetActive(true);
 
         if (Inventory.Instance != null && Inventory.Instance.HasItem(requiredBadge))
         {
-            // Player has the badge → show the draggable card
+            // Player HAS badge → show swipe UI
+            swipePanel.SetActive(true);
             badgeCardImage.gameObject.SetActive(true);
             messageText.gameObject.SetActive(false);
             ResetCardPosition();
         }
         else
         {
-            // No badge → show warning and auto‑close after a delay
-            badgeCardImage.gameObject.SetActive(false);
-            messageText.gameObject.SetActive(true);
-            messageText.text = "You need an ID Badge";
-            Invoke(nameof(HidePanel), 2f);
+            // ❌ Player DOES NOT have badge → show popup instead
+            DoorLockedUI.Instance?.Show("Door Locked");
+            HidePanel();
         }
     }
 
@@ -63,15 +56,13 @@ public class CardSwipeManager : MonoBehaviour
         badgeCardRect.anchoredPosition = new Vector2(-300f, 0f);
     }
 
-    /// <summary>
-    /// Called by DraggableCard when the swipe is successful.
-    /// Unlocks the current door and hides the panel.
-    /// </summary>
     public void OnSwipeSuccess()
     {
         Debug.Log("Swipe success!");
+
         if (currentDoor != null)
             currentDoor.UnlockDoor();
+
         HidePanel();
     }
 

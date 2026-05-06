@@ -839,7 +839,7 @@ MonoBehaviour:
   speakerText: {fileID: 1535105320}
   subtitleText: {fileID: 207668356}
   voiceSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  typingSFXSource: {fileID: 360043160}
   textSpeed: 1
   fadeDuration: 0.3
 --- !u!4 &281093760
@@ -1252,6 +1252,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+--- !u!82 &360043160 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3070567830990922481, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 360043159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &362194486 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2988051504150186597, guid: 86db23af4e7335145a19fecd9b6a1dda, type: 3}
@@ -3705,7 +3710,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: So.... It looks like YOU were the cause of this predicament...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3720,7 +3725,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Wow. Looks like most hte guys working here really respected you.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3736,7 +3741,7 @@ MonoBehaviour:
     subtitle: "Looks like you\u2019re regaining your memory\u2014like fragments of
       shattered glass."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3756,7 +3761,7 @@ MonoBehaviour:
     subtitle: Hello, sir. Like I said, you can find me in any room. It looks like
       whatever mission you were on required a lot of note-taking.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3775,7 +3780,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Yes. The great Ares-12. That was the name of this space ship.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3790,7 +3795,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: I wonder what that glowing object is over there?
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3805,7 +3810,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: I believe she was your co-worker... and friend...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3825,7 +3830,7 @@ MonoBehaviour:
     subtitle: Yes. Whatever you were studying, you were the first in mankind to do
       it. Possibly with the whole world watching too.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3840,7 +3845,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: ...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3855,7 +3860,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: That's you're cue to move it!
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3871,7 +3876,7 @@ MonoBehaviour:
     subtitle: "I don\u2019t know. If only I had the power back on\u2026 then maybe
       I could tell you."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3887,7 +3892,7 @@ MonoBehaviour:
     subtitle: "Can you please help me so I can stop glitching out? You need to turn
       the power back on. Remember, it\u2019s in the engine room."
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3903,7 +3908,7 @@ MonoBehaviour:
     subtitle: I wonder if you were the boss of this place... Or, this experiment.
       More importantly- you were going to save Earth.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3920,7 +3925,7 @@ MonoBehaviour:
       Primarily caused by global warming, the sealevels were rising significanlty,
       limiting farm land and flooding most the continent.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3937,7 +3942,7 @@ MonoBehaviour:
       up with a machine that can out think humans. In order to substantiate infinite
       possibiltes on how to solve Earth''s dystopian state. '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3952,7 +3957,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Does this mean you succeeded?
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3969,7 +3974,7 @@ MonoBehaviour:
       There is STILL hope. The data still remains in the quantum space. A realm of
       reality only the machine you guys were using in the experiment can cross.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -3989,7 +3994,7 @@ MonoBehaviour:
       Earth. First, you must open you're locker for you're space suit. I bet the
       password is something sentimental to you... possibly you're wife's name.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0

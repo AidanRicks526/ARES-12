@@ -1906,26 +1906,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipAIPanel
   lines:
   - speakerName: Ship AI
-    subtitle: Now that you got the power on, you should search for the cockpit. Or
-      perhaps uncover the mystery to this whole opperation trough uncovering your
-      memories...
+    subtitle: looks like you got a badge! Looks like it unlcoks pod 1... hopefully
+      we nothing as grusome.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0
     speedMultiplier: 0
     overrideTyping: 0
     overrideTypeSpeed: 0
     fallbackDuration: 0
-    nextIndex: 0
+    nextIndex: 100
+    requiredItem: {fileID: 11400000, guid: 5c57b5f651143c4498a4cfabe52e1385, type: 2}
+    consumeItem: 0
+    useTimerGate: 0
+    triggerBeforeTime: 0
+    choices: []
+  - speakerName: Ship AI
+    subtitle: I wonder what that cat is doing here...
+    voiceClip: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
+    baseTypeSpeed: 0
+    speedMultiplier: 0
+    overrideTyping: 0
+    overrideTypeSpeed: 0
+    fallbackDuration: 0
+    nextIndex: 100
     requiredItem: {fileID: 0}
     consumeItem: 0
     useTimerGate: 0
     triggerBeforeTime: 0
-    choices:
-    - choiceText: Where is the cockpit?
-      nextIndex: 6
-    - choiceText: How do I uncover my memories?
-      nextIndex: 7
+    choices: []
   shipAI: {fileID: 1570525100}
 --- !u!61 &1068740814
 BoxCollider2D:
@@ -2819,7 +2829,7 @@ MonoBehaviour:
   speakerText: {fileID: 779920339}
   subtitleText: {fileID: 1970694182}
   voiceSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  typingSFXSource: {fileID: 1723541405}
   textSpeed: 1
   fadeDuration: 0.3
 --- !u!4 &1570525101
@@ -2887,6 +2897,11 @@ Transform:
   - {fileID: 1536934540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1723541405 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3070567830990922481, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 223529491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1829536817
 GameObject:
   m_ObjectHideFlags: 0

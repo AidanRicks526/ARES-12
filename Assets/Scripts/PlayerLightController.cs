@@ -6,6 +6,9 @@ public class PlayerLightController : MonoBehaviour
     [Header("Player Light Object")]
     public GameObject playerLightObject;
 
+    [Header("Scene Settings")]
+    public string disableLightInScene; // 👈 set this in Inspector
+
     void Start()
     {
         ApplyState();
@@ -22,9 +25,24 @@ public class PlayerLightController : MonoBehaviour
         ApplyState();
     }
 
-    // 🔥 PUBLIC so other scripts (Puzzle) can force update
     public void ApplyState()
     {
+        if (playerLightObject == null)
+        {
+            Debug.LogError("PlayerLightController: playerLightObject NOT assigned");
+            return;
+        }
+
+        // 👇 Check current scene
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == disableLightInScene)
+        {
+            playerLightObject.SetActive(false);
+            Debug.Log("PlayerLight forced OFF in scene: " + currentScene);
+            return;
+        }
+
         if (GameStateManager.Instance == null)
         {
             Debug.LogWarning("PlayerLightController: No GameStateManager");
@@ -33,14 +51,7 @@ public class PlayerLightController : MonoBehaviour
 
         bool lightsOn = GameStateManager.Instance.lightsOn;
 
-        if (playerLightObject != null)
-        {
-            playerLightObject.SetActive(!lightsOn);
-            Debug.Log("PlayerLight active: " + (!lightsOn));
-        }
-        else
-        {
-            Debug.LogError("PlayerLightController: playerLightObject NOT assigned");
-        }
+        playerLightObject.SetActive(!lightsOn);
+        Debug.Log("PlayerLight active: " + (!lightsOn));
     }
 }

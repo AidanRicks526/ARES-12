@@ -12,9 +12,9 @@ public class ShipAI : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource voiceSource;
-    public AudioSource sfxSource;
+    public AudioSource typingSFXSource;
 
-    [Header("Text Speed")]
+    [Header("Typing")]
     public float textSpeed = 1f;
 
     [Header("Settings")]
@@ -22,21 +22,13 @@ public class ShipAI : MonoBehaviour
 
     private List<VoiceLine> currentDialogue;
     private int index;
-    private bool isPlaying;
 
+    private bool isPlaying;
     public bool IsPlaying => isPlaying;
 
     void Start()
     {
         HideUIInstant();
-    }
-
-    // =========================
-    // TEXT SPEED
-    // =========================
-    public void SetTextSpeed(float value)
-    {
-        textSpeed = Mathf.Max(0.1f, value);
     }
 
     // =========================
@@ -47,42 +39,9 @@ public class ShipAI : MonoBehaviour
         if (isPlaying) return;
 
         currentDialogue = lines;
-
-        // 🔥 IMPORTANT: choose correct entry point BEFORE starting
         index = GetStartIndex();
 
         StartCoroutine(RunDialogue());
-    }
-
-    // =========================
-    // ENTRY RESOLUTION (NEW)
-    // =========================
-    int GetStartIndex()
-    {
-        for (int i = 0; i < currentDialogue.Count; i++)
-        {
-            if (CanPlay(currentDialogue[i]))
-                return i;
-        }
-
-        return 0;
-    }
-
-    // =========================
-    // CONDITION CHECK
-    // =========================
-    bool CanPlay(VoiceLine line)
-    {
-        if (line.requiredItem != null)
-        {
-            if (!Inventory.Instance.HasItem(line.requiredItem))
-                return false;
-
-            if (line.consumeItem)
-                Inventory.Instance.RemoveItem(line.requiredItem);
-        }
-
-        return true;
     }
 
     // =========================
@@ -97,7 +56,7 @@ public class ShipAI : MonoBehaviour
         {
             VoiceLine line = currentDialogue[index];
 
-            // 🔥 Skip invalid lines safely
+            // ITEM CHECK (IMPORTANT FIX POINT)
             if (!CanPlay(line))
             {
                 index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
@@ -106,71 +65,99 @@ public class ShipAI : MonoBehaviour
 
             speakerText.text = line.speakerName;
 
-            // =========================
-            // PLAY VOICE
-            // =========================
-            if (line.voiceClip != null)
+            // VOICE
+            if (line.voiceClip != null && voiceSource != null)
             {
                 voiceSource.clip = line.voiceClip;
                 voiceSource.Play();
             }
 
-            // =========================
-            // TYPE TEXT
-            // =========================
+            // TYPE TEXT (PER LETTER SOUND HERE)
             yield return TypeText(line);
 
-            // =========================
             // CHOICES
-            // =========================
             if (line.choices != null && line.choices.Length > 0)
             {
                 yield return HandleChoices(line);
                 continue;
             }
 
-            // =========================
-            // NEXT BUTTON FLOW
-            // =========================
             bool nextPressed = false;
 
             ChoiceUI.Instance.OnNextPressed = () =>
             {
-                if (voiceSource != null && voiceSource.isPlaying)
-                    voiceSource.Stop();
-
+                StopAudioOnly();
                 nextPressed = true;
             };
 
             ChoiceUI.Instance.Show(null);
 
-            // wait for voice to finish
-            while (voiceSource != null && voiceSource.isPlaying)
+            while (!nextPressed)
                 yield return null;
-
-            // wait for player input
-            yield return new WaitUntil(() => nextPressed);
 
             index = line.nextIndex >= 0 ? line.nextIndex : index + 1;
         }
 
         yield return Fade(0f);
+
         isPlaying = false;
     }
 
     // =========================
-    // TYPE TEXT
+    // ITEM GATING
+    // =========================
+    int GetStartIndex()
+    {
+        for (int i = 0; i < currentDialogue.Count; i++)
+        {
+            if (CanPlay(currentDialogue[i]))
+                return i;
+        }
+
+        return 0;
+    }
+
+    bool CanPlay(VoiceLine line)
+    {
+        if (line.requiredItem == null)
+            return true;
+
+        if (!Inventory.Instance.HasItem(line.requiredItem))
+            return false;
+
+        if (line.consumeItem)
+            Inventory.Instance.RemoveItem(line.requiredItem);
+
+        return true;
+    }
+
+    // =========================
+    // TYPE TEXT (FIXED PER-LETTER AUDIO)
     // =========================
     IEnumerator TypeText(VoiceLine line)
     {
         subtitleText.text = "";
 
+        int soundCounter = 0;
+
         foreach (char c in line.subtitle)
         {
             subtitleText.text += c;
 
-            if (line.typingSFX != null)
-                sfxSource.PlayOneShot(line.typingSFX);
+            // =========================
+            // PER LETTER SFX (CONTROLLED)
+            // =========================
+            if (typingSFXSource != null)
+            {
+                soundCounter++;
+
+                // every 2 letters = audible but still "per-letter feel"
+                if (soundCounter % 2 == 0)
+                {
+                    typingSFXSource.Stop();
+                    typingSFXSource.Play();
+                }
+            }
 
             yield return new WaitForSeconds(0.05f / textSpeed);
         }
@@ -198,6 +185,25 @@ public class ShipAI : MonoBehaviour
     }
 
     // =========================
+    // NEXT BUTTON
+    // =========================
+    public void OnNextLinePressed()
+    {
+        if (!isPlaying) return;
+
+        StopAudioOnly();
+    }
+
+    void StopAudioOnly()
+    {
+        if (voiceSource != null && voiceSource.isPlaying)
+            voiceSource.Stop();
+
+        if (typingSFXSource != null && typingSFXSource.isPlaying)
+            typingSFXSource.Stop();
+    }
+
+    // =========================
     // FADE
     // =========================
     IEnumerator Fade(float target)
@@ -208,7 +214,9 @@ public class ShipAI : MonoBehaviour
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
-            dialogueCanvasGroup.alpha = Mathf.Lerp(start, target, t / fadeDuration);
+            dialogueCanvasGroup.alpha =
+                Mathf.Lerp(start, target, t / fadeDuration);
+
             yield return null;
         }
 
@@ -221,14 +229,10 @@ public class ShipAI : MonoBehaviour
     }
 
     // =========================
-    // FORCE EXIT
+    // SETTINGS
     // =========================
-    public void OnNextLinePressed()
+    public void SetTextSpeed(float value)
     {
-        if (!isPlaying) return;
-
-        StopAllCoroutines();
-        isPlaying = false;
-        dialogueCanvasGroup.alpha = 0f;
+        textSpeed = Mathf.Max(0.1f, value);
     }
 }

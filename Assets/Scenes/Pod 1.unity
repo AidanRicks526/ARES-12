@@ -672,7 +672,7 @@ MonoBehaviour:
   speakerText: {fileID: 1167241032}
   subtitleText: {fileID: 1196073349}
   voiceSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  typingSFXSource: {fileID: 708911852}
   textSpeed: 1
   fadeDuration: 0.3
 --- !u!4 &266377137
@@ -1493,6 +1493,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+--- !u!82 &708911852 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3070567830990922481, guid: 857e87b1b6ebc844aa81ba2931e008a3, type: 3}
+  m_PrefabInstance: {fileID: 708911851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724610666
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4433,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: So.... It looks like YOU were the cause of this predicament...
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4443,7 +4448,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Wow. Looks like most the guys working here really respected you.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4459,7 +4464,7 @@ MonoBehaviour:
     subtitle: I wonder if you were the boss of this place... Or, this experiment.
       More importantly- you were going to save Earth.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4476,7 +4481,7 @@ MonoBehaviour:
       Primarily caused by global warming, the sealevels were rising significanlty,
       limiting farm land and flooding most the continent.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4493,7 +4498,7 @@ MonoBehaviour:
       up with a machine that can out think humans. In order to substantiate infinite
       possibiltes on how to solve Earth''s dystopian state. '
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4508,7 +4513,7 @@ MonoBehaviour:
   - speakerName: Ship AI
     subtitle: Does this mean you succeeded?
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4525,7 +4530,7 @@ MonoBehaviour:
       There is STILL hope. The data still remains in the quantum space. A realm of
       reality only the machine you guys were using in the experiment can cross.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0
@@ -4546,7 +4551,7 @@ MonoBehaviour:
       password is something sentimental to you... possibly you're wife's name. You
       have {Time} until impact with the black hole.
     voiceClip: {fileID: 0}
-    typingSFX: {fileID: 0}
+    typingSFX: {fileID: 8300000, guid: a4f92f61c3293bf48936ff2787506fc9, type: 3}
     baseTypeSpeed: 0.05
     speedMultiplier: 1
     overrideTyping: 0

@@ -5,16 +5,12 @@ public class Minigame_EffectRunner : MonoBehaviour
 {
     public Minigame_fade_manager fadeManager;
 
-    [Header("Outcome")]
-    public bool isWin;
-
-    [Header("Animation")]
     public Animator animator;
     public float delayBeforeTrigger = 1f;
 
     private bool played;
 
-    public void PlayEffect()
+    public void PlayEffect(bool isWin)
     {
         if (played) return;
         played = true;
@@ -25,20 +21,20 @@ public class Minigame_EffectRunner : MonoBehaviour
         {
             animator.SetTrigger("PlayEffect");
         }
-        else
-        {
-            Debug.LogWarning("No Animator assigned on EffectRunner!");
-        }
 
-        StartCoroutine(RunEffect());
+        StartCoroutine(RunEffect(isWin));
     }
 
-    IEnumerator RunEffect()
+    IEnumerator RunEffect(bool isWin)
     {
-        // Wait for animation to play out (timing buffer)
         yield return new WaitForSeconds(delayBeforeTrigger);
 
-        // AFTER effect finishes → trigger UI
+        if (fadeManager == null)
+        {
+            Debug.LogError("FadeManager missing!");
+            yield break;
+        }
+
         if (isWin)
             fadeManager.ShowWin();
         else

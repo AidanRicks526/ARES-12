@@ -127,7 +127,6 @@ public class Settings_Menu : MonoBehaviour
     {
         if (shipAI != null)
         {
-            // 🔥 THIS is the important fix:
             shipAI.SetTextSpeed(value);
         }
     }
