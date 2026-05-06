@@ -5300,6 +5300,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 625982795923254985, guid: 0d19e4cf3db31e74f93b0e1fb24b2157, type: 3}
   m_PrefabInstance: {fileID: 1848128746}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1874187867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874187869}
+  - component: {fileID: 1874187868}
+  m_Layer: 0
+  m_Name: GameTimerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1874187868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874187867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3851003fa46a946aefaa8fe619e8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameTimer
+  startTime: 10
+  currentTime: 0
+  isRunning: 0
+--- !u!4 &1874187869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874187867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.21368, y: 0.98505, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876598970
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,3 +6328,4 @@ SceneRoots:
   - {fileID: 663172555}
   - {fileID: 761537829}
   - {fileID: 347884516}
+  - {fileID: 1874187869}

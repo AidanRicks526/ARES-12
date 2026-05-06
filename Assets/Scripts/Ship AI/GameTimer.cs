@@ -74,7 +74,7 @@ public class GameTimer : MonoBehaviour
     void OnTimerFinished()
     {
         Debug.Log("TIMER ENDED → Loading Alternate Ending");
-        SceneManager.LoadScene("Alternate Ending");
+        SceneManager.LoadScene("Alternate ending");
     }
 
     public string GetFormattedTime()
