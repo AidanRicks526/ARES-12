@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: -430}
+  m_AnchoredPosition: {x: -220, y: -348}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325451418
@@ -472,14 +472,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mathias Prado with KoiCo
+  m_text: 'Sam Gottsch
 
-    Art director
+    Memory Mechanics director
 
-    Story director
+    Code director
 
-    Scene
-    layouts director
+    Group
+    meetings supervisor
 
 
 '
@@ -1931,8 +1931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 149.65808}
-  m_SizeDelta: {x: 743, y: 745}
+  m_AnchoredPosition: {x: 0, y: 126}
+  m_SizeDelta: {x: 1240.856, y: 703.134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648017614
 MonoBehaviour:
@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 46934c3688775404793c4cf65310f939, type: 3}
+  m_Texture: {fileID: 2800000, guid: a4fe22725f42e8246859a70b9f77b733, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
